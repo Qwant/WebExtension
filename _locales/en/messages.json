@@ -1,0 +1,168 @@
+{
+    "appName": {
+        "message": "Qwant for Chrome",
+        "description": "Extension name"
+    },
+    "appDesc": {
+        "message": "QWANT is a search engine that shows you the web in a different way. No tracking, No filter bubble, No cookies."
+    },
+    "context_menu_selected": {
+        "message": "Search « %s » on Qwant"
+    },
+    "context_menu_shorten": {
+        "message": "Shorten URL with qwt.co"
+    },
+    "notification_shorten_title": {
+        "message": "Shorten URL with qwt.co"
+    },
+    "notification_shorten_msg": {
+        "message": "The shortened URL has been copied to your clipboard!"
+    },
+    "options": {
+        "message": "Options"
+    },
+    "placeholder": {
+        "message": "Search with Qwant..."
+    },
+    "options_embed": {
+        "message": "Embed in... :"
+    },
+    "options_save": {
+        "message": "Save last research"
+    },
+    "timeAgo_just_now": {
+        "message": "just now"
+    },
+    "timeAgo_few_seconds_ago": {
+        "message": "few seconds ago"
+    },
+    "timeAgo_ago_prefix": {
+        "message": ""
+    },
+    "timeAgo_minutes_ago_suffix": {
+        "message": " minutes ago"
+    },
+    "timeAgo_one_hour_ago": {
+        "message": "1 hour ago"
+    },
+    "timeAgo_hours_ago_suffix": {
+        "message": " hours ago"
+    },
+    "timeAgo_yesterday": {
+        "message": " yesterday"
+    },
+    "timeAgo_days_ago_suffix": {
+        "message": " days ago"
+    },
+    "timeAgo_weeks_ago_suffix": {
+        "message": " weeks ago"
+    },
+    "timeAgo_months_ago_suffix": {
+        "message": " months ago"
+    },
+    "timeAgo_years_ago_suffix": {
+        "message": " years ago"
+    },
+    "all_results_on_qwant": {
+        "message": "All results on Qwant.com"
+    },
+    "opt_configure": {
+        "message": "Configure my Qwant extension"
+    },
+    "opt_embedding": {
+        "message": "Embedding"
+    },
+    "opt_engines": {
+        "message": "Common search engines"
+    },
+    "opt_showgoogle": {
+        "message": "Embed results on Google"
+    },
+    "opt_showyahoo": {
+        "message": "Embed results on Yahoo"
+    },
+    "opt_showbing": {
+        "message": "Embed results on Bing"
+    },
+    "opt_engines_inter": {
+        "message": "International search engines"
+    },
+    "opt_showyandex": {
+        "message": "Embed results on Yandex (RU)"
+    },
+    "opt_showbaidu": {
+        "message": "Embed results on Baidu (CN)"
+    },
+    "opt_showmailru": {
+        "message": "Embed results on Mail.ru (RU)"
+    },
+    "opt_others": {
+        "message": "Misc."
+    },
+    "opt_showlast": {
+        "message": "Save the last research made with the extension"
+    },
+    "opt_also": {
+        "message": "Also..."
+    },
+    "opt_explaination1": {
+        "message": "With the Qwant extension, enjoy the best of the web in one glance!"
+    },
+    "opt_explaination2": {
+        "message": "Sorted by categories (Web, News and Media), Qwant results will enrich your browser with new suggestions."
+    },
+    "opt_explaination3": {
+        "message": "For more information on installing and uninstalling the extension, please read the following."
+    },
+    "opt_install1": {
+        "message": "<strong>1.&nbsp;</strong>Installing the extension"
+    },
+    "opt_install2": {
+        "message": "Installing the extension is a breeze.<br/>Go on the <a href='https://chrome.google.com/webstore/detail/qwantcom/hnlkiofnhhoahaiimdicppgemmmomijo' title='Qwant for Chrome on Chrome Web Store'>Chrome Web Store</a> and click on the « Free » button.<br/><br/>You must be logged in to your Google account in order to install the extension."
+    },
+    "opt_use1": {
+        "message": "<br/><strong>1.&nbsp;</strong>Using the extension"
+    },
+    "opt_use2": {
+        "message": "You will find the extension <strong>on the right of your browser search bar, close to the menu button</strong>."
+    },
+    "opt_use3": {
+        "message": "To search on Qwant from the search bar, <strong>hit 'Q' followed by your research</strong>."
+    },
+    "opt_uninstall1": {
+        "message": "<br/><strong>2.&nbsp;</strong>Uninstalling the extension"
+    },
+    "opt_uninstall2": {
+        "message": "Here are the steps to uninstall the Qwant extension from your browser:"
+    },
+    "opt_uninstall3": {
+        "message": "On your browser, click on the menu button"
+    },
+    "opt_uninstall4": {
+        "message": "In the dropdown menu, select <strong>'Tools' and then 'Extensions'</strong>"
+    },
+    "opt_uninstall5": {
+        "message": "Find the Qwant extension and click on the <strong>'Remove from Chrome' icon</strong>"
+    },
+    "opt_copyright": {
+        "message": "&copy;&nbsp;Copyright <a href='#'>Qwant.com</a> 2014<br>All rights reserved&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<img src='../img/top-mini.png' title='' alt=''><a href='#top'>&nbsp;&nbsp;Go to top</a>"
+    },
+    "opt_reserved": {
+        "message": "The <em>Chrome</em> name and logo and other Google trademarks are property of Google Inc."
+    },
+    "opt_img_step1": {
+        "message": "../img/step1-en.jpg"
+    },
+    "opt_img_step3": {
+        "message": "../img/step3-chrome-en.jpg"
+    },
+    "opt_img_step4": {
+        "message": "../img/step4-chrome-en.jpg"
+    },
+    "opt_img_step5": {
+        "message": "../img/step5-en.jpg"
+    },
+    "opt_thanks": {
+        "message": "Thank you for choosing the Qwant extension for Google Chrome!"
+    }
+}
