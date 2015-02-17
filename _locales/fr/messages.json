@@ -9,15 +9,6 @@
     "context_menu_selected": {
         "message": "Rechercher « %s » sur Qwant"
     },
-    "context_menu_shorten": {
-        "message": "Raccourcir l'URL avec qwt.co"
-    },
-    "notification_shorten_title": {
-        "message": "Raccourcir l'URL avec qwt.co"
-    },
-    "notification_shorten_msg": {
-        "message": "L'URL raccourcie a été copiée dans votre presse-papier !"
-    },
     "options": {
         "message": "Options"
     },

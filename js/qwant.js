@@ -101,37 +101,4 @@ function clickHandlerSelection(e,tab) {
             url: url
         })
     }
-
-    if (e.linkUrl) {
-        jQuery.ajax({
-            url : 'http://qwt.co/api.php',
-            type : 'GET',
-            data : 'url=' + e.linkUrl,
-            success : function(code_html, statut){
-                copyTextToClipboard(code_html);
-            }
-        });
-    }
-}
-/**
- * Copy text to clipboard
- * @function copyTextToClipboard
- * @param text
- */
-function copyTextToClipboard(text) {
-    var copyFrom = jQuery('<textarea/>');
-    copyFrom.text(text);
-    jQuery('body').append(copyFrom);
-    copyFrom.select();
-    document.execCommand('copy');
-    copyFrom.remove();
-    chrome.notifications.create(
-        ''+text+'',{
-            type: 'basic',
-            iconUrl: 'img/icon_128.png',
-            title: chrome.i18n.getMessage("notification_shorten_title"),
-            message: chrome.i18n.getMessage("notification_shorten_msg")
-        },
-        function() {}
-    );
 }

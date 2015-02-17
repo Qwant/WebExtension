@@ -9,15 +9,6 @@
     "context_menu_selected": {
         "message": "Search « %s » on Qwant"
     },
-    "context_menu_shorten": {
-        "message": "Shorten URL with qwt.co"
-    },
-    "notification_shorten_title": {
-        "message": "Shorten URL with qwt.co"
-    },
-    "notification_shorten_msg": {
-        "message": "The shortened URL has been copied to your clipboard!"
-    },
     "options": {
         "message": "Options"
     },
