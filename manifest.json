@@ -56,7 +56,7 @@
    "omnibox": {
       "keyword": "q"
    },
-	"permissions": [ "https://www.qwant.com/*", "http://qwt.co/", "tabs", "contextMenus", "notifications", "clipboardWrite", "clipboardRead"],
+	"permissions": [ "https://*.qwant.com/*", "tabs", "contextMenus", "notifications", "clipboardWrite", "clipboardRead"],
     "web_accessible_resources": [
         "img/icon_128.png",
         "img/footer-main.png",
@@ -70,6 +70,6 @@
         "img/more-info-icon.png",
         "img/play-icon.png"
     ],
-   "version": "2.1.7",
+   "version": "2.2.0",
     "default_locale": "en"
 }

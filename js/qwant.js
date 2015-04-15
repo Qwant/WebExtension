@@ -82,12 +82,6 @@ chrome.contextMenus.create({
     "onclick" : clickHandlerSelection
 });
 
-chrome.contextMenus.create({
-    "title": chrome.i18n.getMessage("context_menu_shorten"),
-    "contexts": ["link"],
-    "onclick" : clickHandlerSelection
-});
-
 /**
  * @function clickHandlerSelection
  * @param e

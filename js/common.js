@@ -460,19 +460,16 @@ QwantEmbed.prototype = {
 			this.flagAlready = true;
 
 			$.ajax({
-				url : 'https://api.qwant.com/api/search/smart/',
+				url : 'https://api.qwant.com/api/search/smart',
 				type : 'GET',
 				data : 'q=' + encodeURIComponent(this.query) + '&locale=' + this.locale + '&client=chrome-ext',
 				context : this,
 				success : function(json, statut){
-					this.fillEmbed(qwtEmbed, qwtSpinner, json.result.items);
+					this.fillEmbed(qwtEmbed, qwtSpinner, json.data.result.items);
 
 					$(document).on('click', 'a.qwt-options', function(e){
 						e.preventDefault();
 						chrome.extension.sendMessage({options: "openOptions"}, function(){});
-					});
-					$(document).on('mousedown', '.qwt-link', function(e){
-						$(this).attr('href', $(this).attr('data-src'));
 					});
 				}
 			});
