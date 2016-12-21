@@ -9,6 +9,14 @@
         "48": "img/icon48.png",
         "128": "img/icon128.png"
     },
+    "browser_action": {
+        "default_icon": "img/icon48.png"
+    },
+    "background": {
+        "scripts": [
+            "js/qwant.js"
+        ]
+    },
     "chrome_settings_overrides": {
         "homepage": "https://www.qwant.com/?client=qwant-chrome",
         "search_provider": {
@@ -25,6 +33,12 @@
             "https://www.qwant.com/?client=qwant-chrome"
         ]
     },
+    "omnibox": {
+        "keyword": "q"
+    },
+    "permissions": [
+        "contextMenus"
+    ],
     "content_scripts": [
         {
             "matches": [
