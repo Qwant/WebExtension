@@ -28,10 +28,7 @@
             "image_url": "https://www.qwant.com/?q={searchTerms}&t=images&client=qwant-chrome",
             "encoding": "UTF-8",
             "is_default": true
-        },
-        "startup_pages": [
-            "https://www.qwant.com/?client=qwant-chrome"
-        ]
+        }
     },
     "omnibox": {
         "keyword": "q"
