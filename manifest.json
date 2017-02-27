@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_name__",
-    "version": "3.0.2",
+    "version": "3.0.1",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -10,12 +10,12 @@
         "128": "img/icon128.png"
     },
     "browser_action": {
-        "default_icon": "img/icon48.png"
+        "default_icon": "img/icon48.png",
+        "default_title": "__MSG_name__",
+        "default_popup": "html/welcome.html"
     },
     "background": {
-        "scripts": [
-            "js/qwant.js"
-        ]
+        "page": "html/background.html"
     },
     "chrome_settings_overrides": {
         "homepage": "https://www.qwant.com/?client=qwant-chrome",
@@ -28,13 +28,19 @@
             "image_url": "https://www.qwant.com/?q={searchTerms}&t=images&client=qwant-chrome",
             "encoding": "UTF-8",
             "is_default": true
-        }
+        },
+        "startup_pages": [
+            "https://www.qwant.com/?client=qwant-chrome"
+        ]
     },
     "omnibox": {
         "keyword": "q"
     },
     "permissions": [
-        "contextMenus"
+        "contextMenus",
+        "storage",
+        "activeTab",
+        "bookmarks"
     ],
     "content_scripts": [
         {
@@ -43,6 +49,19 @@
             ],
             "css": [
                 "css/no-popin.css"
+            ]
+        },
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/contentScript.js"
+            ],
+            "css": [
+                "css/reset.css",
+                "css/alert.css",
+                "css/panel.css"
             ]
         }
     ]

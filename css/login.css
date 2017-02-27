@@ -1,0 +1,45 @@
+html, body {
+    width: 350px;
+    height: 580px;
+}
+
+.login {
+    margin: 0 0 26px;
+}
+
+.login__title {
+    font-family: "source_sans_prolight";
+    padding: 0 50px 0 0;
+    font-weight: 200;
+    font-size: 27px;
+}
+
+.login__text {
+    margin: 22px 0 0;
+    font-size: 14px;
+    line-height: 1.2rem;
+}
+
+.login__input__login, .login__input__password {
+    background: none;
+    border: none;
+    width: 100%;
+    font-size: 19px;
+    border-bottom: 2px solid;
+    padding: 8px 0;
+    margin: 8px 0;
+    color: rgba(42, 44, 48, 0.48);
+}
+
+.login__input__login:focus, .login__input__password:focus {
+    border-bottom-color: rgb(69, 139, 248);
+}
+
+.login__input__login:invalid, .login__input__password:invalid {
+    box-shadow: none;
+}
+
+.login__input__loader {
+    display: none;
+    margin: 32px auto;
+}

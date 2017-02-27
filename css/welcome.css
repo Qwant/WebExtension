@@ -1,0 +1,21 @@
+html, body {
+    width: 350px;
+    height: 580px;
+}
+
+.welcome {
+    margin: 0 0 29px;
+}
+
+.welcome__title {
+    font-family: "source_sans_prolight";
+    font-weight: 200;
+    font-size: 27px;
+    padding: 0 20px 0 0;
+}
+
+.welcome__text {
+    margin: 22px 0 0;
+    font-size: 14px;
+    line-height: 1.2rem;
+}
