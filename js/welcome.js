@@ -25,17 +25,8 @@ document.querySelectorAll(".button__link--bookmark")[0]
         chrome.runtime.sendMessage({name: "popup_login"});
     });
 
-document.querySelectorAll(".login__input__register")[0]
-    .addEventListener("click", function () {
-        chrome.runtime.sendMessage({name: "close-popup"});
-    });
-
-document.querySelectorAll(".login__input__lost-password")[0]
-    .addEventListener("click", function () {
-        chrome.runtime.sendMessage({name: "close-popup"});
-    });
-
-chrome.storage.local.get(["avatar", "username"], object => {
+chrome.storage.local.get(["userExtension"], object => {
+    object = JSON.parse(object.userExtension);
     if(object.avatar && object.username) {
         location.href='../html/account.html';
     }

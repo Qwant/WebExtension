@@ -51,8 +51,8 @@ document.querySelectorAll(".account__logout")[0]
         chrome.runtime.sendMessage({name: "close-popup"});
     });
 
-chrome.storage.local.get(["avatar", "username"], object => {
-    console.log('object:', object);
+chrome.storage.local.get(["userExtension"], object => {
+    object = JSON.parse(object.userExtension);
     avatar.src = PROTOCOLE + object.avatar;
     username.textContent = object.username;
     boardsLink.href = PROTOCOLE + BOARDS_URL + "/user/" + object.username;

@@ -7,6 +7,18 @@ body .qwant-overlay {
     background: rgba(0, 0, 0, .3);
 }
 
+body .qwant-overlay * {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
 body .qwant-panel {
     display: none;
     z-index: 9999;

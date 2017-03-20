@@ -2,57 +2,72 @@
 
 var extensionInstalled = true;
 
-unsafeWindow.extensionInstalled = cloneInto(extensionInstalled, unsafeWindow);
+//unsafeWindow.extensionInstalled = cloneInto(extensionInstalled, unsafeWindow);
 
 document.addEventListener("qwant_website_login", function () {
-    self.port.emit("qwant_website_login");
+    var qwantUser = JSON.parse(localStorage.getItem('user'));
+    chrome.runtime.sendMessage({
+        name: "qwant_website_login",
+        username: qwantUser.username,
+        avatar: qwantUser.avatar,
+        session_token: qwantUser.token
+    });
 });
 
 document.addEventListener("qwant_website_logout", function () {
-    self.port.emit("qwant_website_logout");
+    console.log("events.js: qwant_website_logout");
+    chrome.runtime.sendMessage({name: "qwant_website_logout"});
 });
 
 document.addEventListener("qwant_extension_forced_logout", function () {
-    self.port.emit("qwant_extension_forced_logout");
+    chrome.runtime.sendMessage({name: "qwant_extension_forced_logout"});
 });
 
 document.addEventListener("qwant_website_bookmark_created", function () {
-    self.port.emit("qwant_website_bookmark_created");
+    chrome.runtime.sendMessage({name: "qwant_website_bookmark_created"});
 });
 
 document.addEventListener("qwant_website_bookmark_deleted", function () {
-    self.port.emit("qwant_website_bookmark_deleted");
+    chrome.runtime.sendMessage({name: "qwant_website_bookmark_deleted"});
 });
 
 document.addEventListener("qwant_website_open_extension", function () {
-    self.port.emit("qwant_website_open_extension");
+    chrome.runtime.sendMessage({name: "qwant_website_open_extension"});
 });
 
 document.addEventListener("qwant_website_is_tp_enabled", function () {
-    self.port.emit("qwant_website_is_tp_enabled");
+    chrome.runtime.sendMessage({name: "qwant_website_is_tp_enabled"});
 });
 
 document.addEventListener("qwant_website_tp_on", function () {
-    self.port.emit("qwant_website_tp_on");
+    chrome.runtime.sendMessage({name: "qwant_website_tp_on"});
 });
 
 document.addEventListener("qwant_website_tp_off", function () {
-    self.port.emit("qwant_website_tp_off");
+    chrome.runtime.sendMessage({name: "qwant_website_tp_off"});
 });
 
-self.port.on("qwant_extension_login", function () {
-    document.dispatchEvent(new CustomEvent("qwant_extension_login"));
-});
-
-self.port.on("qwant_extension_logout", function () {
-    document.dispatchEvent(new CustomEvent("qwant_extension_logout"));
-});
-
-self.port.on("qwant_extension_tp_status", function (data) {
-    if (data === true) {
-        document.dispatchEvent(new CustomEvent("qwant_extension_tp_enabled"));
-    } else {
-        document.dispatchEvent(new CustomEvent("qwant_extension_tp_disabled"));
+chrome.runtime.onMessage.addListener((message, sender, callback) => {
+    switch (message.name) {
+        case "qwant_extension_login":
+            localStorage.setItem('userExtension', JSON.stringify({
+                username: message.user.username,
+                avatar: message.user.avatar,
+                session_token: message.user.session_token
+            }));
+            document.dispatchEvent(new CustomEvent("qwant_extension_login"));
+            break;
+        case "qwant_extension_logout":
+            localStorage.removeItem('user');
+            localStorage.removeItem('userExtension');
+            document.dispatchEvent(new CustomEvent("qwant_extension_logout"));
+            break;
+        case "qwant_extension_tp_status":
+            if (message.data === true) {
+                document.dispatchEvent(new CustomEvent("qwant_extension_tp_enabled"));
+            } else {
+                document.dispatchEvent(new CustomEvent("qwant_extension_tp_disabled"));
+            }
+            break;
     }
-
 });

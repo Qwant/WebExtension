@@ -3,28 +3,32 @@
  */
 
 body {
-    margin: 0;
-    border-radius: 5px;
-    background: white;
-    color: rgb(74, 76, 78);
-    font-family: 'source_sans_proregular', Helvetica, "Droid Sans", Arial, sans-serif;
+    margin        : 0;
+    border-radius : 5px;
+    background    : white;
+    color         : rgb(74, 76, 78);
+    font-family   : 'source_sans_proregular', Helvetica, "Droid Sans", Arial, sans-serif;
 }
 
 a, a:active, a:visited {
-    color: rgb(50, 149, 223);
-    text-decoration: none;
-    outline: none;
+    color           : rgb(50, 149, 223);
+    text-decoration : none;
+    outline         : none;
 }
 
 p {
-    margin: 0;
+    margin : 0;
 }
 
 span {
 }
 
+input:focus {
+    outline : none;
+}
+
 .content {
-    padding: 8px 32px;
+    padding : 8px 32px;
 }
 
 /**
@@ -32,83 +36,74 @@ span {
  */
 
 .login__access {
-    margin: 0 0 16px;
-    border-bottom: 1px solid rgb(234, 235, 236);
-    padding: 0 0 16px;
+    margin-top : 12px;
 }
 
 .login__input__submit {
-    display: block;
-    width: 200px;
-    border: none;
-    border-radius: 18px;
-    margin: 20px auto;
-    color: white;
-    line-height: 36px;
-    font-size: 16px;
-    text-align: center;
-    background: rgb(34, 139, 234);
-
-}
-
-.login__input__submit:active {
-    color: white;
+    font-size : 13px;
+    color     : rgb(50, 149, 223);
 }
 
 .login__input__submit:hover {
-    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login__input__submit:hover {
+    cursor : pointer;
 }
 
 .login__input__lost-password, .login__input__register {
-    font-size: 13px;
-    display: inline-block;
+    font-size : 13px;
+    display   : inline-block;
 }
 
 .login__input__lost-password__text {
-    vertical-align: top;
+    vertical-align : top;
 }
 
 /**
  * Main buttons
  */
 .buttons {
-    margin: 0 0 18px;
+    padding       : 18px 0;
+    border-top    : 1px solid rgb(234, 235, 236);
+    border-bottom : 1px solid rgb(234, 235, 236);
 }
 
 .buttons__actions,
 .buttons__links,
 .login__input__lost-password,
 .login__input__register {
-    width: calc(50% - 2px);
-    display: inline-block;
-    vertical-align: top;
+    width          : calc(50% - 2px);
+    display        : inline-block;
+    vertical-align : top;
 }
 
 .button__action, .button__action:visited, .button__action:active,
 .button__link, .button__link:visited, .button__link:active {
-    display: block;
-    margin: 8px 0;
-    height: 20px;
-    line-height: 20px;
-    font-size: 15px;
-    color: rgb(77, 84, 92);
+    display     : block;
+    margin      : 8px 0;
+    height      : 20px;
+    line-height : 20px;
+    font-size   : 15px;
+    color       : rgb(77, 84, 92);
 }
 
 .button__action:hover,
 .button__link:hover {
-    text-decoration: underline;
+    text-decoration : underline;
 }
 
 .buttons .icon {
-    margin-right: 4px;
+    margin-right : 4px;
 }
 
 .icon.icon__board {
-    margin-right: 8px;
+    margin-right : 8px;
 }
 
 .button__action__text, .button__link__text {
-    vertical-align: top;
+    vertical-align : top;
 }
 
 /**
@@ -116,37 +111,36 @@ span {
  */
 
 .tracking-protection {
-    border-top: 1px solid rgb(234, 235, 236);
-    padding-top: 16px;
+    padding-top : 16px;
 }
 
 .tracking-protection__title {
-    font-family: 'source_sans_prosemibold', Helvetica, "Droid Sans", Arial, sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
+    font-family    : 'source_sans_prosemibold', Helvetica, "Droid Sans", Arial, sans-serif;
+    text-transform : uppercase;
+    font-size      : 13px;
 }
 
 .tracking-protection__content {
-    display: table;
-    padding-top: 4px;
+    display     : table;
+    padding-top : 4px;
 }
 
 .tracking-protection__content__element {
-    display: table-cell;
-    vertical-align: middle;
+    display        : table-cell;
+    vertical-align : middle;
 }
 
 .tracking-protection__content__icon {
 }
 
 .tracking-protection__content__text {
-    display: block;
-    padding: 0 14px;
-    font-size: 14px;
+    display   : block;
+    padding   : 0 14px;
+    font-size : 14px;
 }
 
 .tracking-protection__content__button {
-    display: none;
+    display : none;
 }
 
 /**
@@ -154,53 +148,53 @@ span {
  */
 
 label {
-    display: inline-block;
-    background: #fff;
-    cursor: pointer;
+    display    : inline-block;
+    background : #FFF;
+    cursor     : pointer;
 }
 
 label > input {
-    display: none;
+    display : none;
 }
 
 label i {
-    display: inline-block;
-    float: right;
-    padding: 2px;
-    width: 40px;
-    height: 20px;
-    border-radius: 13px;
-    vertical-align: middle;
-    transition: .25s .09s;
-    position: relative;
-    background: rgb(240, 83, 80);
-    box-sizing: initial;
+    display        : inline-block;
+    float          : right;
+    padding        : 2px;
+    width          : 40px;
+    height         : 20px;
+    border-radius  : 13px;
+    vertical-align : middle;
+    transition     : .25s .09s;
+    position       : relative;
+    background     : rgb(240, 83, 80);
+    box-sizing     : initial;
 }
 
 label i:after {
-    content: " ";
-    display: block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #fff;
-    position: absolute;
-    top: -4px;
-    left: -2px;
-    transition: .25s;
-    box-shadow: 2px 2px 5px rgba(16, 20, 28, 0.2);
+    content       : " ";
+    display       : block;
+    width         : 30px;
+    height        : 30px;
+    border-radius : 50%;
+    background    : #FFF;
+    position      : absolute;
+    top           : -4px;
+    left          : -2px;
+    transition    : .25s;
+    box-shadow    : 2px 2px 5px rgba(16, 20, 28, 0.2);
 }
 
 label > input:checked + i {
-    background: rgb(140, 225, 150);
+    background : rgb(140, 225, 150);
 }
 
 label > input:checked + i:after {
-    transform: translateX(20px);
+    transform : translateX(20px);
 }
 
 label > input:checked + i:after:hover {
-    cursor: pointer;
+    cursor : pointer;
 }
 
 /**
@@ -208,25 +202,25 @@ label > input:checked + i:after:hover {
  */
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 54px;
-    background: rgb(248, 248, 248);
-    border-top: 1px rgb(234, 235, 236) solid;
+    position   : absolute;
+    bottom     : 0;
+    left       : 0;
+    width      : 100%;
+    height     : 54px;
+    background : rgb(248, 248, 248);
+    border-top : 1px rgb(234, 235, 236) solid;
 }
 
 .footer__powered {
-    display: inline-block;
-    margin: 18px 0 0 32px;
+    display : inline-block;
+    margin  : 18px 0 0 32px;
 }
 
 .footer__informations {
-    float: right;
-    width: 18px;
-    height: 18px;
-    margin: 18px 32px 0 0;
+    float  : right;
+    width  : 18px;
+    height : 18px;
+    margin : 18px 32px 0 0;
 }
 
 .footer__informations__icon {
@@ -237,40 +231,40 @@ label > input:checked + i:after:hover {
  */
 
 .tooltip__informations {
-    position: absolute;
-    border-radius: 5px;
-    width: 160px;
-    height: 50px;
-    bottom: 50px;
-    right: 8px;
-    background: white;
-    padding: 8px 16px;
-    box-shadow: 2px 2px 7px rgba(16, 20, 28, 0.2);
+    position      : absolute;
+    border-radius : 5px;
+    width         : 160px;
+    height        : 50px;
+    bottom        : 50px;
+    right         : 8px;
+    background    : white;
+    padding       : 8px 16px;
+    box-shadow    : 2px 2px 7px rgba(16, 20, 28, 0.2);
 }
 
 .tooltip__informations:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 64px;
-    left: 153px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
+    content      : "";
+    position     : absolute;
+    width        : 0;
+    height       : 0;
+    top          : 64px;
+    left         : 153px;
+    border-width : 10px;
+    border-style : solid;
+    border-color : white transparent transparent transparent;
 }
 
 .tooltip__informations__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style : none;
+    padding    : 0;
+    margin     : 0;
 }
 
 .tooltip__informations__list__element {
-    padding: 4px 0;
+    padding : 4px 0;
 }
 
 .tooltip__informations__list__element a, .tooltip__informations__list__element a:active, .tooltip__informations__list__element a:visited {
-    color: rgba(42, 44, 48, 0.48);
-    font-size: 14px;
+    color     : rgba(42, 44, 48, 0.48);
+    font-size : 14px;
 }
