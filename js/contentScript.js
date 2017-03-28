@@ -7,12 +7,23 @@ var panelNoteVisible = false;
 var ALERT_SHOW_CLASS = "qwant-alert--visible";
 var PANEL_SHOW_CLASS = "qwant-panel--visible";
 
+var NO_PANEL = "no-panel";
+var NOTE_PANEL = "note-panel";
+var ADVANCED_PANEL = "advanced-panel";
+var BOARD_PANEL = "board-panel";
+
+var currentPanel = NO_PANEL;
+
+var currentBoard = null;
+var noteData = null;
+var advancedNoteData = null;
+
 /**
  * Definition of HTMLElements
  */
 
 var body = document.body;
-var alert, overlay, panel, loader, panelCloseButton, cancelButton, submitButton, panelNameInput, panelURLInput;
+var alert, overlay, panel, panelContent, loader, panelCloseButton, cancelButton, submitButton, panelNameInput, panelURLInput, generator;
 
 var showAlert = function () {
     if (!alertVisible) {
@@ -23,6 +34,7 @@ var showAlert = function () {
     }
 };
 var hideAlert = function () {
+    console.log('hideAlert---');
     if (alertVisible) {
         alert.classList.remove(ALERT_SHOW_CLASS);
         alertVisible = false;
@@ -71,7 +83,7 @@ var showPanelNote = function () {
         body.style.overflow = "hidden";
         panel.style.display = "block";
         setTimeout(function () {
-            panel.classList.add(SHOW_CLASS);
+            panel.classList.add(PANEL_SHOW_CLASS);
         }, 10);
         panelNoteVisible = true;
         chrome.runtime.sendMessage({name: "panel-visible"});
@@ -79,16 +91,13 @@ var showPanelNote = function () {
 };
 var hidePanelNote = function () {
     if (panelNoteVisible) {
-        panel.classList.remove(SHOW_CLASS);
-        setTimeout(function () {
-            panel.style.display = "none";
-        }, 300);
-
+        panel.classList.remove(PANEL_SHOW_CLASS);
         currentPanel = NO_PANEL;
-        panelNoteVisible = false;
-        chrome.runtime.sendMessage({name: "panel-hidden"});
         setTimeout(function () {
             if (body !== undefined) {
+                panel.style.display = "none";
+                panelNoteVisible = false;
+                chrome.runtime.sendMessage({name: "panel-hidden"});
                 body.removeChild(overlay);
                 body.style.overflow = "auto";
                 while (overlay.hasChildNodes()) {
@@ -199,7 +208,7 @@ function createPanelBookmark (data) {
         e.stopPropagation();
     });
 
-    var panelContent = document.createElement("div");
+    panelContent = document.createElement("div");
     panelContent.classList.add("qwant-panel__content");
 
     var panelTitle = document.createElement("h2");
@@ -294,32 +303,43 @@ function createPanelBookmark (data) {
     setTimeout(showPanelBookmark, 10);
 }
 
+/**
+ * Changes the content of the panel and links the events
+ * @param newState
+ */
+function changeState(newState, data) {
+    if (currentPanel !== newState) {
+        panel.classList.remove("qwant-panel--" + currentPanel);
+        panel.removeChild(panelContent);
+        while (panelContent.hasChildNodes()) {
+            panelContent.removeChild(panelContent.lastChild);
+        }
+        generator[newState](data)
+            .then(function (resolveContent) {
+                panel.appendChild(resolveContent);
+                currentPanel = newState;
+            });
+    }
+}
+
 function createPanelNote (data) {
     console.log('creatingPanelNote...');
 
-    var NO_PANEL = "no-panel";
-    var NOTE_PANEL = "note-panel";
-    var ADVANCED_PANEL = "advanced-panel";
-    var BOARD_PANEL = "board-panel";
-
-    var currentPanel = NO_PANEL;
+    noteData = data;
 
     overlay = document.createElement("div");
     panel = document.createElement("div");
-    var panelContent = document.createElement("div");
+    panelContent = document.createElement("div");
 
-    var generator = {
+    generator = {
         "note-panel": notePanelGenerator,
         "advanced-panel": advancedPanelGenerator,
         "board-panel": boardPanelGenerator
     };
 
-    var currentBoard = null;
     if (data.userBoards.length > 0) {
         currentBoard = data.userBoards[0].board_name;
     }
-
-    var advancedNoteData = null;
 
     overlay.classList.add("qwant-overlay");
     panel.classList.add("qwant-panel");
@@ -332,29 +352,8 @@ function createPanelNote (data) {
     });
 
     overlay.addEventListener("click", function () {
-        hide();
+        hidePanelNote();
     });
-
-    /**
-     * Changes the content of the panel and links the events
-     * @param newState
-     */
-    function changeState(newState, data) {
-        if (currentPanel !== newState) {
-            panel.classList.remove("qwant-panel--" + currentPanel);
-            panel.removeChild(panelContent);
-            while (panelContent.hasChildNodes()) {
-                panelContent.removeChild(panelContent.lastChild);
-            }
-            generator[newState](data)
-                .then(function (resolveContent) {
-                    panel.appendChild(resolveContent);
-                    currentPanel = newState;
-                });
-        }
-    }
-
-
 
     /**
      * On NOTE_PANEL, selects the clicked board and unselects the previous one.
@@ -395,7 +394,7 @@ function createPanelNote (data) {
             panelCloseButton.classList.add("icon");
             panelCloseButton.classList.add("icon-close");
             panelCloseButton.addEventListener("click", function () {
-                hide();
+                hidePanelNote();
             });
 
             var cancelButton = document.createElement("a");
@@ -534,7 +533,7 @@ function createPanelNote (data) {
                             commonElements.advancedButton.style.display = "none";
                             commonElements.loader.style.display = "block";
 
-                            chrome.runtime.sendMessage({name: "panel-bookmark-submit-simple",
+                            chrome.runtime.sendMessage({name: "panel-note-submit-simple",
                                 board_id: document.querySelectorAll(".qwant-panel__boards-container__element--active")[0].id
                             });
                         });
@@ -551,6 +550,7 @@ function createPanelNote (data) {
                             if (advanced) advanced.style.display = "none";
                             if (loader)    loader.style.display = "block";
                             chrome.runtime.sendMessage({name: "panel-advanced"});
+                            //changeState(ADVANCED_PANEL, data);
                         });
 
                     panelContent.appendChild(commonElements.panelTitle);
@@ -834,9 +834,11 @@ function createPanelNote (data) {
                             commonElements.loader.style.display = "block";
                             chrome.runtime.sendMessage({
                                 name: "panel-create-board",
-                                board_name: document.querySelectorAll(".qwant-panel__content__input--name")[0].value,
-                                board_category: document.querySelectorAll(".qwant-panel__content__input--category")[0].value,
-                                board_status: document.querySelectorAll(".qwant-panel__content__visibility__input")[0].checked ? "1" : "0"
+                                data: {
+                                    board_name: document.querySelectorAll(".qwant-panel__content__input--name")[0].value,
+                                    board_category: document.querySelectorAll(".qwant-panel__content__input--category")[0].value,
+                                    board_status: document.querySelectorAll(".qwant-panel__content__visibility__input")[0].checked ? "1" : "0"
+                                }
                             });
                         });
 
@@ -896,12 +898,14 @@ chrome.runtime.onMessage.addListener((message, sender, callback) => {
             createPanelNote(message);
             break;
         case "panel-display-note":
-            //message.userBoards = message.data;
-            changeState(NOTE_PANEL, message);
+            noteData.userBoards = message.boards;
+            changeState(NOTE_PANEL, noteData);
             break;
-        case "panel-advanced":
-            //advancedNoteData = data;
-            changeState(ADVANCED_PANEL, message);
+        case "panel-note-advanced":
+            console.log('panel-advanced data: ', message.data);
+
+            advancedNoteData = message.data;
+            changeState(ADVANCED_PANEL, noteData);
             break;
         case "ping":
             callback({name: "pong"});

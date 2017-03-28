@@ -41,7 +41,8 @@
         "storage",
         "tabs",
         "activeTab",
-        "bookmarks"
+        "bookmarks",
+        "<all_urls>"
     ],
     "content_scripts": [
         {
@@ -63,7 +64,8 @@
             "css": [
                 "css/reset.css",
                 "css/alert.css",
-                "css/panel.css"
+                "css/panel.css",
+                "css/panel-note.css"
             ]
         }
     ]

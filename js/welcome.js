@@ -3,6 +3,7 @@
 document.querySelectorAll(".login__input__submit")[0]
     .addEventListener("click", function () {
         chrome.runtime.sendMessage({name: "popup_login", action: "login"});
+        location.href='../html/login.html';
     });
 
 document.querySelectorAll(".button__action--board")[0]
@@ -26,8 +27,10 @@ document.querySelectorAll(".button__link--bookmark")[0]
     });
 
 chrome.storage.local.get(["userExtension"], object => {
-    object = JSON.parse(object.userExtension);
-    if(object.avatar && object.username) {
-        location.href='../html/account.html';
+    if(object && object.userExtension) {
+        object = JSON.parse(object.userExtension);
+        if(object.avatar && object.username) {
+            location.href='../html/account.html';
+        }
     }
 });
