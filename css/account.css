@@ -50,7 +50,7 @@ html, body {
     color: rgb(77, 84, 92);
 }
 
-.account__settings:hover,
-.account__logout:hover {
+.account__settings__text:hover,
+.account__logout__text:hover {
     text-decoration: underline;
 }

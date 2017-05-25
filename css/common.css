@@ -89,8 +89,8 @@ input:focus {
     color       : rgb(77, 84, 92);
 }
 
-.button__action:hover,
-.button__link:hover {
+.button__action__text:hover,
+.button__link__text:hover {
     text-decoration : underline;
 }
 

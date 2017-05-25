@@ -76,6 +76,7 @@ body .qwant-alert .qwant-alert__content--question .qwant-alert__content__message
 }
 
 body .qwant-alert .qwant-alert__content__message a, body .qwant-alert .qwant-alert__content__message a:active, body .qwant-alert .qwant-alert__content__message a:visited {
+    vertical-align: top;
     color: rgba(69, 139, 248, .92);
     text-decoration: none;
     margin: 0 0 0 8px;
@@ -108,27 +109,17 @@ body .qwant-alert .qwant-alert__content .qwant-alert__content__buttons .qwant-al
 body .qwant-alert .qwant-alert__content .qwant-alert__content__buttons .qwant-alert__content__button--yes .icon,
 body .qwant-alert .qwant-alert__content .qwant-alert__content__buttons .qwant-alert__content__button--no .icon {
     float: left;
-    background: url('../img/spritesheet.png') no-repeat;
-}
-
-body .qwant-alert .qwant-alert__content .qwant-alert__content__buttons .qwant-alert__content__button--yes .icon {
     margin: 13px 14px 0 0;
-}
-
-body .qwant-alert .qwant-alert__content .qwant-alert__content__buttons .qwant-alert__content__button--no .icon {
-    margin: 15px 14px 0 0;
+    width: 20px;
+    height: 18px;
 }
 
 body .qwant-alert .qwant-alert__content .qwant-alert__content__buttons .qwant-alert__content__button--yes .icon {
-    background-position: -26px -136px;
-    width: 20px;
-    height: 18px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAEn/YnUAAAAJBJREFUOMvN1LENwjAQheHfXsAeIb0br4CyACNks7ABE1iMgBt6RggbUBElYOOzdBJc/d5XPR3887kUBquIzcDVKmITcDeKWAYORhN7jLfFaGIA1qVwdCl4DQzAAmfgIkW/YS/wBEQJ2sIAjDQoyaxgqyDFdmCt2IN9gAU092BF8A2lB6uCGzT2YJLN+Z//xCf7tmbNxKpAmAAAAABJRU5ErkJggg==');
 }
 
 body .qwant-alert .qwant-alert__content .qwant-alert__content__buttons .qwant-alert__content__button--no .icon {
-    background-position: -2px -136px;
-    width: 20px;
-    height: 18px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAXG0hmjgAAALdJREFUOMvV08ENhCAQheEfK6AES9jtYOmAhEZszMQOtIOlBEqghL2MCWsQhsMeluP48mXEJ/zy5OCXHLwdyNsc/FLOTPFwBt5AApxdt9zDgB2YgaddtwQwnQEZOAnsrU0vmDuxrw2L8EPC1U0rWKy+sgbtYbdgDZVxE2uCFZQe1gUFfQmKYEcrbwaqgaZSRluN4g6bqFH2LGoqddfDZjV6qBnBNKgZxXrodMklDSb/fpSPlfir8wELsYQ5+oxVAQAAAABJRU5ErkJggg==');
 }
 
 @media screen and (max-width: 1080px) {

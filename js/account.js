@@ -9,6 +9,7 @@ var boardsLink = document.querySelectorAll(".button__link--board")[0];
 
 document.querySelectorAll(".account__logout")[0]
     .addEventListener("click", function () {
+        closePopup();
         chrome.runtime.sendMessage({name: "do_logout"});
     });
 
@@ -57,6 +58,8 @@ chrome.storage.local.get(["userExtension"], object => {
     username.textContent = object.username;
     boardsLink.href = PROTOCOLE + BOARDS_URL + "/user/" + object.username;
 });
+
+chrome.runtime.sendMessage({name: "get_login_action"});
 
 chrome.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {

@@ -42,6 +42,7 @@
         "tabs",
         "activeTab",
         "bookmarks",
+        "webNavigation",
         "<all_urls>"
     ],
     "content_scripts": [

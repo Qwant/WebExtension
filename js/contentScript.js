@@ -25,25 +25,29 @@ var advancedNoteData = null;
 var body = document.body;
 var alert, overlay, panel, panelContent, loader, panelCloseButton, cancelButton, submitButton, panelNameInput, panelURLInput, generator;
 
+var timeoutAlert;
+
 var showAlert = function () {
     if (!alertVisible) {
         alert.classList.add(ALERT_SHOW_CLASS);
         alertVisible = true;
         chrome.runtime.sendMessage({name: "alert-visible"});
-        setTimeout(hideAlert, 30000);
+        timeoutAlert = setTimeout(hideAlert, 30000);
     }
 };
 var hideAlert = function () {
     console.log('hideAlert---');
+    if(timeoutAlert) clearTimeout(timeoutAlert);
+
     if (alertVisible) {
         alert.classList.remove(ALERT_SHOW_CLASS);
         alertVisible = false;
         chrome.runtime.sendMessage({name: "alert-hidden"});
-        setTimeout(function () {
+        //setTimeout(function () {
             if (body !== undefined) {
                 body.removeChild(alert);
             }
-        }, 600);
+        //}, 600);
     }
 };
 
@@ -62,18 +66,18 @@ var showPanelBookmark = function () {
 var hidePanelBookmark = function () {
     if (panelBookmarkVisible) {
         panel.classList.remove(PANEL_SHOW_CLASS);
-        setTimeout(function () {
-            if (body !== undefined) {
-                panel.style.display = "none";
-                panelBookmarkVisible = false;
-                chrome.runtime.sendMessage({name: "panel-hidden"});
-                body.removeChild(overlay);
-                body.style.overflow = "auto";
-                while (overlay.hasChildNodes()) {
-                    overlay.removeChild(overlay.lastChild);
-                }
+        //setTimeout(function () {
+        if (body !== undefined) {
+            panel.style.display = "none";
+            panelBookmarkVisible = false;
+            chrome.runtime.sendMessage({name: "panel-hidden"});
+            body.removeChild(overlay);
+            body.style.overflow = "auto";
+            while (overlay.hasChildNodes()) {
+                overlay.removeChild(overlay.lastChild);
             }
-        }, 300);
+        }
+        //}, 300);
     }
 };
 
@@ -93,22 +97,24 @@ var hidePanelNote = function () {
     if (panelNoteVisible) {
         panel.classList.remove(PANEL_SHOW_CLASS);
         currentPanel = NO_PANEL;
-        setTimeout(function () {
-            if (body !== undefined) {
-                panel.style.display = "none";
-                panelNoteVisible = false;
-                chrome.runtime.sendMessage({name: "panel-hidden"});
-                body.removeChild(overlay);
-                body.style.overflow = "auto";
-                while (overlay.hasChildNodes()) {
-                    overlay.removeChild(overlay.lastChild);
-                }
+        //setTimeout(function () {
+        if (body !== undefined) {
+            panel.style.display = "none";
+            panelNoteVisible = false;
+            chrome.runtime.sendMessage({name: "panel-hidden"});
+            body.removeChild(overlay);
+            body.style.overflow = "auto";
+            while (overlay.hasChildNodes()) {
+                overlay.removeChild(overlay.lastChild);
             }
-        }, 300);
+        }
+        //}, 300);
     }
 }
 
 function createAlert(data) {
+    hideAlert();
+
     alert              = document.createElement("div");
     alert.classList.add("qwant-alert");
 
@@ -197,110 +203,114 @@ function createAlert(data) {
 }
 
 function createPanelBookmark (data) {
-    console.log('panel-bookmark-create');
+    if(!panelBookmarkVisible) {
+        hidePanelNote();
 
-    overlay = document.createElement("div");
-    overlay.classList.add("qwant-overlay");
+        console.log('panel-bookmark-create');
 
-    panel = document.createElement("div");
-    panel.classList.add("qwant-panel");
-    panel.addEventListener("click", function (e) {
-        e.stopPropagation();
-    });
+        overlay = document.createElement("div");
+        overlay.classList.add("qwant-overlay");
 
-    panelContent = document.createElement("div");
-    panelContent.classList.add("qwant-panel__content");
+        panel = document.createElement("div");
+        panel.classList.add("qwant-panel");
+        panel.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
 
-    var panelTitle = document.createElement("h2");
-    panelTitle.classList.add("qwant-panel__content__title");
-    panelTitle.textContent = data.title;
+        panelContent = document.createElement("div");
+        panelContent.classList.add("qwant-panel__content");
 
-    panelCloseButton = document.createElement("span");
-    panelCloseButton.classList.add("qwant-panel__content__close--button");
-    panelCloseButton.classList.add("icon");
-    panelCloseButton.classList.add("icon-close");
+        var panelTitle = document.createElement("h2");
+        panelTitle.classList.add("qwant-panel__content__title");
+        panelTitle.textContent = data.title;
 
-    var panelURLLabel = document.createElement("p");
-    panelURLLabel.textContent = data.urlLabel;
-    panelURLLabel.classList.add("qwant-panel__content__label");
-    panelURLLabel.classList.add("qwant-panel__content__label--url");
+        panelCloseButton = document.createElement("span");
+        panelCloseButton.classList.add("qwant-panel__content__close--button");
+        panelCloseButton.classList.add("icon");
+        panelCloseButton.classList.add("icon-close");
 
-    panelURLInput = document.createElement("input");
-    panelURLInput.type = "text";
-    panelURLInput.value = data.url;
-    panelURLInput.required = true;
-    panelURLInput.classList.add("qwant-panel__content__input");
-    panelURLInput.classList.add("qwant-panel__content__input--url");
+        var panelURLLabel = document.createElement("p");
+        panelURLLabel.textContent = data.urlLabel;
+        panelURLLabel.classList.add("qwant-panel__content__label");
+        panelURLLabel.classList.add("qwant-panel__content__label--url");
 
-    var panelNameLabel = document.createElement("p");
-    panelNameLabel.textContent = data.nameLabel;
-    panelNameLabel.classList.add("qwant-panel__content__label");
-    panelNameLabel.classList.add("qwant-panel__content__label--name");
+        panelURLInput = document.createElement("input");
+        panelURLInput.type = "text";
+        panelURLInput.value = data.url;
+        panelURLInput.required = true;
+        panelURLInput.classList.add("qwant-panel__content__input");
+        panelURLInput.classList.add("qwant-panel__content__input--url");
 
-    panelNameInput = document.createElement("input");
-    panelNameInput.value = data.name2;
-    panelNameInput.required = true;
-    panelNameInput.classList.add("qwant-panel__content__input");
-    panelNameInput.classList.add("qwant-panel__content__input--name");
+        var panelNameLabel = document.createElement("p");
+        panelNameLabel.textContent = data.nameLabel;
+        panelNameLabel.classList.add("qwant-panel__content__label");
+        panelNameLabel.classList.add("qwant-panel__content__label--name");
 
-    loader = document.createElement("span");
-    loader.classList.add("icon");
-    loader.classList.add("icon-loading");
-    loader.style.display = "none";
+        panelNameInput = document.createElement("input");
+        panelNameInput.value = data.name2;
+        panelNameInput.required = true;
+        panelNameInput.classList.add("qwant-panel__content__input");
+        panelNameInput.classList.add("qwant-panel__content__input--name");
 
-    cancelButton = document.createElement("a");
-    cancelButton.href = "javascript:;";
-    cancelButton.classList.add("qwant-panel__button");
-    cancelButton.classList.add("qwant-panel__button--cancel");
-    cancelButton.textContent = data.cancel;
+        loader = document.createElement("span");
+        loader.classList.add("icon");
+        loader.classList.add("icon-loading");
+        loader.style.display = "none";
 
-    submitButton = document.createElement("a");
-    submitButton.href = "javascript:;";
-    submitButton.classList.add("qwant-panel__button");
-    submitButton.classList.add("qwant-panel__button--submit");
-    submitButton.textContent = data.submit;
+        cancelButton = document.createElement("a");
+        cancelButton.href = "javascript:;";
+        cancelButton.classList.add("qwant-panel__button");
+        cancelButton.classList.add("qwant-panel__button--cancel");
+        cancelButton.textContent = data.cancel;
 
-    var poweredBy = document.createElement("a");
-    poweredBy.href = "https://www.qwant.com";
-    poweredBy.target = "_blank";
-    poweredBy.classList.add("qwant-panel__powered-by");
-    poweredBy.classList.add("icon");
-    poweredBy.classList.add("icon-powered");
+        submitButton = document.createElement("a");
+        submitButton.href = "javascript:;";
+        submitButton.classList.add("qwant-panel__button");
+        submitButton.classList.add("qwant-panel__button--submit");
+        submitButton.textContent = data.submit;
 
-    panelContent.appendChild(panelTitle);
-    panelContent.appendChild(panelCloseButton);
-    panelContent.appendChild(panelURLLabel);
-    panelContent.appendChild(panelURLInput);
-    panelContent.appendChild(panelNameLabel);
-    panelContent.appendChild(panelNameInput);
-    panelContent.appendChild(loader);
-    panelContent.appendChild(cancelButton);
-    panelContent.appendChild(submitButton);
-    panelContent.appendChild(poweredBy);
+        var poweredBy = document.createElement("a");
+        poweredBy.href = "https://www.qwant.com";
+        poweredBy.target = "_blank";
+        poweredBy.classList.add("qwant-panel__powered-by");
+        poweredBy.classList.add("icon");
+        poweredBy.classList.add("icon-powered");
 
-    panel.appendChild(panelContent);
+        panelContent.appendChild(panelTitle);
+        panelContent.appendChild(panelCloseButton);
+        panelContent.appendChild(panelURLLabel);
+        panelContent.appendChild(panelURLInput);
+        panelContent.appendChild(panelNameLabel);
+        panelContent.appendChild(panelNameInput);
+        panelContent.appendChild(loader);
+        panelContent.appendChild(cancelButton);
+        panelContent.appendChild(submitButton);
+        panelContent.appendChild(poweredBy);
 
-    overlay.appendChild(panel);
+        panel.appendChild(panelContent);
 
-    panelCloseButton.addEventListener("click", function () {
-        hidePanelBookmark();
-    });
+        overlay.appendChild(panel);
 
-    cancelButton.addEventListener("click", function () {
-        hidePanelBookmark();
-    });
+        panelCloseButton.addEventListener("click", function () {
+            hidePanelBookmark();
+        });
 
-    submitButton.addEventListener("click", function () {
-        loader.style.display = "block";
-        cancelButton.style.display = "none";
-        submitButton.style.display = "none";
+        cancelButton.addEventListener("click", function () {
+            hidePanelBookmark();
+        });
 
-        if (panelNameInput.value !== "") {
-            chrome.runtime.sendMessage({name: "panel-bookmark-submit", name2: panelNameInput.value, url: panelURLInput.value});
-        }
-    });
+        submitButton.addEventListener("click", function () {
+            loader.style.display = "block";
+            cancelButton.style.display = "none";
+            submitButton.style.display = "none";
 
-    setTimeout(showPanelBookmark, 10);
+            if (panelNameInput.value !== "") {
+                chrome.runtime.sendMessage({name: "panel-bookmark-submit", name2: panelNameInput.value, url: panelURLInput.value});
+            }
+        });
+
+        setTimeout(showPanelBookmark, 10);
+    }
 }
 
 /**
@@ -323,541 +333,545 @@ function changeState(newState, data) {
 }
 
 function createPanelNote (data) {
-    console.log('creatingPanelNote...');
+    if(!panelNoteVisible) {
+        hidePanelBookmark();
 
-    noteData = data;
+        console.log('creatingPanelNote...');
 
-    overlay = document.createElement("div");
-    panel = document.createElement("div");
-    panelContent = document.createElement("div");
+        noteData = data;
 
-    generator = {
-        "note-panel": notePanelGenerator,
-        "advanced-panel": advancedPanelGenerator,
-        "board-panel": boardPanelGenerator
-    };
+        overlay = document.createElement("div");
+        panel = document.createElement("div");
+        panelContent = document.createElement("div");
 
-    if (data.userBoards.length > 0) {
-        currentBoard = data.userBoards[0].board_name;
-    }
+        generator = {
+            "note-panel": notePanelGenerator,
+            "advanced-panel": advancedPanelGenerator,
+            "board-panel": boardPanelGenerator
+        };
 
-    overlay.classList.add("qwant-overlay");
-    panel.classList.add("qwant-panel");
-    panelContent.classList.add("qwant-panel__content");
+        if (data.userBoards.length > 0) {
+            currentBoard = data.userBoards[0].board_name;
+        }
 
-    overlay.appendChild(panel);
-    panel.appendChild(panelContent);
-    panel.addEventListener("click", function (e) {
-        e.stopPropagation();
-    });
+        overlay.classList.add("qwant-overlay");
+        panel.classList.add("qwant-panel");
+        panelContent.classList.add("qwant-panel__content");
 
-    overlay.addEventListener("click", function () {
-        hidePanelNote();
-    });
-
-    /**
-     * On NOTE_PANEL, selects the clicked board and unselects the previous one.
-     * @param event
-     */
-    function selectBoard(event) {
-        document.querySelectorAll(".qwant-panel__boards-container__element--active")[0]
-            .classList.remove("qwant-panel__boards-container__element--active");
-        event.target.classList.add("qwant-panel__boards-container__element--active");
-        currentBoard = event.target.textContent;
-    }
-
-    /**
-     * On ADVANCED_PANEL, selects the clicked image and unselects the previous one.
-     * @param event
-     */
-    function selectAdvancedImage(event) {
-        document.querySelectorAll(".qwant-panel__content__img-container__element--active")[0]
-            .classList.remove("qwant-panel__content__img-container__element--active");
-        event.target.classList.add("qwant-panel__content__img-container__element--active");
-    }
-
-    /**
-     * Generates the NodeElements used by the 3 panels types.
-     * @param panelType
-     * @returns {{panelTitle: Element, panelCloseButton: Element, cancelButton: Element, submitButton: Element, poweredBy: Element}}
-     */
-    function commonElementsGenerator(panelType) {
-        return new Promise(function (resolve, reject) {
-            panel.classList.add("qwant-panel--" + panelType);
-
-            var panelTitle = document.createElement("h2");
-            panelTitle.classList.add("qwant-panel__content__title");
-            panelTitle.textContent = data.noteTitle;
-
-            var panelCloseButton = document.createElement("span");
-            panelCloseButton.classList.add("qwant-panel__content__close--button");
-            panelCloseButton.classList.add("icon");
-            panelCloseButton.classList.add("icon-close");
-            panelCloseButton.addEventListener("click", function () {
-                hidePanelNote();
-            });
-
-            var cancelButton = document.createElement("a");
-            cancelButton.href = "javascript:;";
-            cancelButton.classList.add("qwant-panel__button");
-            cancelButton.classList.add("qwant-panel__button--cancel");
-            cancelButton.textContent = data.cancel;
-
-            var submitButton = document.createElement("a");
-            submitButton.href = "javascript:;";
-            submitButton.classList.add("qwant-panel__button");
-            submitButton.classList.add("qwant-panel__button--submit");
-            submitButton.textContent = data.submit;
-
-            var advancedButton = document.createElement("a");
-            advancedButton.href = "javascript:;";
-            advancedButton.classList.add("qwant-panel__button");
-            advancedButton.classList.add("qwant-panel__button--advanced");
-            advancedButton.textContent = data.advanced;
-
-            loader = document.createElement("span");
-            loader.classList.add("icon");
-            loader.classList.add("icon-loading");
-            loader.style.display = "none";
-
-            var poweredBy = document.createElement("a");
-            poweredBy.href = "https://www.qwant.com";
-            poweredBy.target = "_blank";
-            poweredBy.classList.add("qwant-panel__powered-by");
-            poweredBy.classList.add("icon");
-            poweredBy.classList.add("icon-powered");
-
-            resolve({
-                panelTitle: panelTitle,
-                panelCloseButton: panelCloseButton,
-                cancelButton: cancelButton,
-                submitButton: submitButton,
-                advancedButton: advancedButton,
-                loader: loader,
-                poweredBy: poweredBy
-            });
+        overlay.appendChild(panel);
+        panel.appendChild(panelContent);
+        panel.addEventListener("click", function (e) {
+            e.stopPropagation();
         });
 
-    }
+        overlay.addEventListener("click", function () {
+            hidePanelNote();
+        });
 
-    /**
-     * Generates the Note creation panel
-     * @returns {Element}
-     */
-    function notePanelGenerator(data) {
-        return new Promise(function (resolve) {
-            commonElementsGenerator(NOTE_PANEL)
-                .then(function (resolveCommon) {
-                    var commonElements = resolveCommon;
-                    var panelSubtitle = document.createElement("h3");
-                    panelSubtitle.classList.add("qwant-panel__content__subtitle");
-                    panelSubtitle.textContent = data.noteSubtitle;
+        /**
+         * On NOTE_PANEL, selects the clicked board and unselects the previous one.
+         * @param event
+         */
+        function selectBoard(event) {
+            document.querySelectorAll(".qwant-panel__boards-container__element--active")[0]
+                .classList.remove("qwant-panel__boards-container__element--active");
+            event.target.classList.add("qwant-panel__boards-container__element--active");
+            currentBoard = event.target.textContent;
+        }
 
-                    var panelBoardsContainer = document.createElement("div");
-                    panelBoardsContainer.classList.add("qwant-panel__boards-container");
+        /**
+         * On ADVANCED_PANEL, selects the clicked image and unselects the previous one.
+         * @param event
+         */
+        function selectAdvancedImage(event) {
+            document.querySelectorAll(".qwant-panel__content__img-container__element--active")[0]
+                .classList.remove("qwant-panel__content__img-container__element--active");
+            event.target.classList.add("qwant-panel__content__img-container__element--active");
+        }
 
-                    var panelBoardsList = document.createElement("ul");
-                    panelBoardsList.classList.add("qwant-panel__boards-container__list");
+        /**
+         * Generates the NodeElements used by the 3 panels types.
+         * @param panelType
+         * @returns {{panelTitle: Element, panelCloseButton: Element, cancelButton: Element, submitButton: Element, poweredBy: Element}}
+         */
+        function commonElementsGenerator(panelType) {
+            return new Promise(function (resolve, reject) {
+                panel.classList.add("qwant-panel--" + panelType);
 
-                    // Adding boards to the list
-                    data.userBoards.forEach(function (board, idx) {
-                        var panelBoardsElement = document.createElement("li");
-                        panelBoardsElement.classList.add("qwant-panel__boards-container__element");
-                        panelBoardsElement.id = board.board_id;
+                var panelTitle = document.createElement("h2");
+                panelTitle.classList.add("qwant-panel__content__title");
+                panelTitle.textContent = data.noteTitle;
 
-                        if (idx === 0) panelBoardsElement.classList.add("qwant-panel__boards-container__element--active");
-
-                        var panelBoardsElementThumbContainer = document.createElement("div");
-                        panelBoardsElementThumbContainer.classList.add("qwant-panel__boards-container__element__thumb-container");
-
-                        var panelBoardsElementThumb = document.createElement("img");
-                        panelBoardsElementThumb.classList.add("qwant-panel__boards-container__element__thumb-container__img");
-                        if (board.previewMediaMini && board.previewMediaMini !== "") {
-                            panelBoardsElementThumb.src = "https:" + board.previewMediaMini;
-                        } else {
-                            panelBoardsElementThumb.src = "https:" + board.board_thumbnail;
-                        }
-
-                        var panelBoardsElementName = document.createElement("p");
-                        panelBoardsElementName.classList.add("qwant-panel__boards-container__element__name");
-                        panelBoardsElementName.textContent = board.board_name;
-
-                        panelBoardsElementThumbContainer.appendChild(panelBoardsElementThumb);
-                        panelBoardsElement.appendChild(panelBoardsElementThumbContainer);
-                        panelBoardsElement.appendChild(panelBoardsElementName);
-
-                        if (board.board_status === "0") {
-                            var panelBoardsElementPrivate = document.createElement("span");
-                            panelBoardsElementPrivate.classList.add("icon");
-                            panelBoardsElementPrivate.classList.add("icon-private-board");
-                            panelBoardsElementPrivate.classList.add("qwant-panel__boards-container__element__thumb-container__private");
-
-                            panelBoardsElement.appendChild(panelBoardsElementPrivate);
-                        }
-
-                        panelBoardsElement.addEventListener("click", function (event) {
-                            selectBoard(event);
-                        });
-
-                        panelBoardsList.appendChild(panelBoardsElement);
-                    });
-
-                    var panelCreateBoardButton = document.createElement("a");
-                    panelCreateBoardButton.classList.add("qwant-panel__boards-container__board-creator");
-                    panelCreateBoardButton.href = "javascript:;";
-
-                    panelCreateBoardButton
-                        .addEventListener("click", function () {
-                            changeState(BOARD_PANEL, data);
-                        });
-
-                    var panelCreateBoardImg = document.createElement("span");
-                    panelCreateBoardImg.classList.add("qwant-panel__boards-container__board-creator__icon");
-                    panelCreateBoardImg.classList.add("icon");
-                    panelCreateBoardImg.classList.add("icon-board-creator");
-
-                    var panelCreateBoardText = document.createElement("span");
-                    panelCreateBoardText.classList.add("qwant-panel__boards-container__board-creator__text");
-                    panelCreateBoardText.textContent = data.noteCreateBoard;
-
-                    commonElements.cancelButton
-                        .addEventListener("click", function () {
-                            hidePanelNote();
-                            chrome.runtime.sendMessage({name: "panel-hidden"});
-                        });
-
-                    commonElements.submitButton
-                        .addEventListener("click", function () {
-                            commonElements.cancelButton.style.display = "none";
-                            commonElements.submitButton.style.display = "none";
-                            commonElements.advancedButton.style.display = "none";
-                            commonElements.loader.style.display = "block";
-
-                            chrome.runtime.sendMessage({name: "panel-note-submit-simple",
-                                board_id: document.querySelectorAll(".qwant-panel__boards-container__element--active")[0].id
-                            });
-                        });
-
-                    commonElements.advancedButton
-                        .addEventListener("click", function () {
-                            var cancel = document.querySelectorAll(".qwant-panel__button--cancel")[0];
-                            var submit = document.querySelectorAll(".qwant-panel__button--submit")[0];
-                            var advanced = document.querySelectorAll(".qwant-panel__button--advanced")[0];
-                            loader = document.querySelectorAll(".icon-loading")[0];
-
-                            if (cancel) cancel.style.display = "none";
-                            if (submit)    submit.style.display = "none";
-                            if (advanced) advanced.style.display = "none";
-                            if (loader)    loader.style.display = "block";
-                            chrome.runtime.sendMessage({name: "panel-advanced"});
-                            //changeState(ADVANCED_PANEL, data);
-                        });
-
-                    panelContent.appendChild(commonElements.panelTitle);
-                    panelContent.appendChild(commonElements.panelCloseButton);
-                    panelContent.appendChild(panelSubtitle);
-                    panelBoardsContainer.appendChild(panelBoardsList);
-                    panelContent.appendChild(panelBoardsContainer);
-                    panelCreateBoardButton.appendChild(panelCreateBoardImg);
-                    panelCreateBoardButton.appendChild(panelCreateBoardText);
-                    panelContent.appendChild(panelCreateBoardButton);
-                    panelContent.appendChild(commonElements.loader);
-                    panelContent.appendChild(commonElements.cancelButton);
-                    panelContent.appendChild(commonElements.submitButton);
-                    panelContent.appendChild(commonElements.advancedButton);
-                    panelContent.appendChild(commonElements.poweredBy);
-
-                    resolve(panelContent);
+                var panelCloseButton = document.createElement("span");
+                panelCloseButton.classList.add("qwant-panel__content__close--button");
+                panelCloseButton.classList.add("icon");
+                panelCloseButton.classList.add("icon-close");
+                panelCloseButton.addEventListener("click", function () {
+                    hidePanelNote();
                 });
-        });
-    }
 
-    function advancedPanelGenerator(data) {
-        return new Promise(function (resolve, reject) {
-            commonElementsGenerator(ADVANCED_PANEL)
-                .then(function (resolveCommon) {
-                    var commonElements = resolveCommon;
+                var cancelButton = document.createElement("a");
+                cancelButton.href = "javascript:;";
+                cancelButton.classList.add("qwant-panel__button");
+                cancelButton.classList.add("qwant-panel__button--cancel");
+                cancelButton.textContent = data.cancel;
 
-                    var panelSubtitle = document.createElement("h3");
-                    panelSubtitle.classList.add("qwant-panel__content__subtitle");
-                    panelSubtitle.textContent = data.advancedSubtitle;
+                var submitButton = document.createElement("a");
+                submitButton.href = "javascript:;";
+                submitButton.classList.add("qwant-panel__button");
+                submitButton.classList.add("qwant-panel__button--submit");
+                submitButton.textContent = data.submit;
 
-                    var panelBoardLabel = document.createElement("p");
-                    panelBoardLabel.textContent = data.advancedBoard;
-                    panelBoardLabel.classList.add("qwant-panel__content__label");
-                    panelBoardLabel.classList.add("qwant-panel__content__label--board");
+                var advancedButton = document.createElement("a");
+                advancedButton.href = "javascript:;";
+                advancedButton.classList.add("qwant-panel__button");
+                advancedButton.classList.add("qwant-panel__button--advanced");
+                advancedButton.textContent = data.advanced;
 
-                    var panelBoardInput = document.createElement("input");
-                    panelBoardInput.type = "text";
-                    panelBoardInput.required = true;
-                    panelBoardInput.disabled = true;
-                    panelBoardInput.value = currentBoard;
-                    panelBoardInput.classList.add("qwant-panel__content__input");
-                    panelBoardInput.classList.add("qwant-panel__content__input--board");
+                loader = document.createElement("span");
+                loader.classList.add("icon");
+                loader.classList.add("icon-loading");
+                loader.style.display = "none";
 
-                    var panelURLLabel = document.createElement("p");
-                    panelURLLabel.textContent = "URL:";
-                    panelURLLabel.classList.add("qwant-panel__content__label");
-                    panelURLLabel.classList.add("qwant-panel__content__label--url");
+                var poweredBy = document.createElement("a");
+                poweredBy.href = "https://www.qwant.com";
+                poweredBy.target = "_blank";
+                poweredBy.classList.add("qwant-panel__powered-by");
+                poweredBy.classList.add("icon");
+                poweredBy.classList.add("icon-powered");
 
-                    var panelURLInput = document.createElement("input");
-                    panelURLInput.type = "text";
-                    panelURLInput.required = true;
-                    panelURLInput.disabled = true;
-                    panelURLInput.value = document.URL;
-                    panelURLInput.classList.add("qwant-panel__content__input");
-                    panelURLInput.classList.add("qwant-panel__content__input--url");
+                resolve({
+                    panelTitle: panelTitle,
+                    panelCloseButton: panelCloseButton,
+                    cancelButton: cancelButton,
+                    submitButton: submitButton,
+                    advancedButton: advancedButton,
+                    loader: loader,
+                    poweredBy: poweredBy
+                });
+            });
 
-                    var panelImgLabel = document.createElement("p");
-                    panelImgLabel.textContent = data.advancedImage;
-                    panelImgLabel.classList.add("qwant-panel__content__label");
-                    panelImgLabel.classList.add("qwant-panel__content__label--image");
+        }
 
-                    var panelImgContainer = document.createElement("div");
-                    panelImgContainer.classList.add("qwant-panel__content__img-container");
+        /**
+         * Generates the Note creation panel
+         * @returns {Element}
+         */
+        function notePanelGenerator(data) {
+            return new Promise(function (resolve) {
+                commonElementsGenerator(NOTE_PANEL)
+                    .then(function (resolveCommon) {
+                        var commonElements = resolveCommon;
+                        var panelSubtitle = document.createElement("h3");
+                        panelSubtitle.classList.add("qwant-panel__content__subtitle");
+                        panelSubtitle.textContent = data.noteSubtitle;
 
-                    var panelEmptyImg = document.createElement("span");
-                    panelEmptyImg.classList.add("qwant-panel__content__img-container__empty-img");
-                    panelEmptyImg.classList.add("qwant-panel__content__img-container__element");
-                    panelEmptyImg.classList.add("qwant-panel__content__img-container__element--active");
-                    panelEmptyImg.textContent = data.advancedEmptyImage;
-                    panelEmptyImg.addEventListener("click", function (event) {
-                        selectAdvancedImage(event);
-                    });
+                        var panelBoardsContainer = document.createElement("div");
+                        panelBoardsContainer.classList.add("qwant-panel__boards-container");
 
-                    panelImgContainer.appendChild(panelEmptyImg);
+                        var panelBoardsList = document.createElement("ul");
+                        panelBoardsList.classList.add("qwant-panel__boards-container__list");
 
-                    if (advancedNoteData.images && advancedNoteData.images.length > 0) {
-                        advancedNoteData.images.forEach(function (image, idx) {
-                            var panelImg = document.createElement("span");
-                            panelImg.classList.add("qwant-panel__content__img-container__element");
+                        // Adding boards to the list
+                        data.userBoards.forEach(function (board, idx) {
+                            var panelBoardsElement = document.createElement("li");
+                            panelBoardsElement.classList.add("qwant-panel__boards-container__element");
+                            panelBoardsElement.id = board.board_id;
 
-                            var panelImgContent = document.createElement("img");
-                            panelImgContent.src = image.thumbnailMini;
-                            panelImgContent.classList.add("qwant-panel__content__img-container__element__content")
+                            if (idx === 0) panelBoardsElement.classList.add("qwant-panel__boards-container__element--active");
 
-                            panelImg.addEventListener("click", function (event) {
-                                selectAdvancedImage(event);
-                            });
+                            var panelBoardsElementThumbContainer = document.createElement("div");
+                            panelBoardsElementThumbContainer.classList.add("qwant-panel__boards-container__element__thumb-container");
 
-                            panelImg.appendChild(panelImgContent);
-                            panelImgContainer.appendChild(panelImg);
-                        });
-                    }
-
-                    var panelTitleLabel = document.createElement("p");
-                    panelTitleLabel.textContent = data.advancedTitle;
-                    panelTitleLabel.classList.add("qwant-panel__content__label");
-                    panelTitleLabel.classList.add("qwant-panel__content__label--title");
-
-                    var panelTitleInput = document.createElement("input");
-                    panelTitleInput.type = "text";
-                    panelTitleInput.value = advancedNoteData.title;
-                    panelTitleInput.classList.add("qwant-panel__content__input");
-                    panelTitleInput.classList.add("qwant-panel__content__input--title");
-
-                    var panelContentLabel = document.createElement("p");
-                    panelContentLabel.textContent = data.advancedContent;
-                    panelContentLabel.classList.add("qwant-panel__content__label");
-                    panelContentLabel.classList.add("qwant-panel__content__label--content");
-
-                    var panelContentInput = document.createElement("textarea");
-                    panelContentInput.value = advancedNoteData.description;
-                    panelContentInput.classList.add("qwant-panel__content__input");
-                    panelContentInput.classList.add("qwant-panel__content__input--content");
-
-                    commonElements.cancelButton
-                        .addEventListener("click", function () {
-                            changeState(NOTE_PANEL, data);
-                        });
-                    commonElements.submitButton
-                        .addEventListener("click", function () {
-                            // Hide the buttons and display the loader
-                            var cancel = document.querySelectorAll(".qwant-panel__button--cancel")[0];
-                            var submit = document.querySelectorAll(".qwant-panel__button--submit")[0];
-                            var loader = document.querySelectorAll(".icon-loading")[0];
-
-                            if (cancel) cancel.style.display = "none";
-                            if (submit)    submit.style.display = "none";
-                            if (loader)    loader.style.display = "block";
-
-                            // Let's create the data object, as it may not contain all the params
-                            var data2 = {
-                                title: document.querySelectorAll(".qwant-panel__content__input--title")[0].value,
-                                description: document.querySelectorAll(".qwant-panel__content__input--content")[0].value,
-                                type: advancedNoteData.type,
-                                url: document.URL
-                            };
-
-                            // Get the board ID
-                            var chosenBoard = document.querySelectorAll(".qwant-panel__content__input--board")[0];
-                            data.userBoards.forEach(function (board) {
-                                if (board.board_name === chosenBoard.value) {
-                                    data2.board_id = board.board_id;
-                                }
-                            });
-
-                            // Get the chosen picture if there is one
-                            var chosenImg = document.querySelectorAll(".qwant-panel__content__img-container__element--active")[0] || null;
-                            if (chosenImg !== null) {
-                                advancedNoteData.images.forEach(function (image) {
-                                    if (image.src === chosenImg.src) {
-                                        data2.image_src = image.src;
-                                        data2.image_key = image.key;
-                                    }
-                                });
+                            var panelBoardsElementThumb = document.createElement("img");
+                            panelBoardsElementThumb.classList.add("qwant-panel__boards-container__element__thumb-container__img");
+                            if (board.previewMediaMini && board.previewMediaMini !== "") {
+                                panelBoardsElementThumb.src = "https:" + board.previewMediaMini;
+                            } else {
+                                panelBoardsElementThumb.src = "https:" + board.board_thumbnail;
                             }
 
-                            // Let's send the data to the
-                            data2.name = "panel-advanced-submit";
-                            chrome.runtime.sendMessage(data2);
-                        });
+                            var panelBoardsElementName = document.createElement("p");
+                            panelBoardsElementName.classList.add("qwant-panel__boards-container__element__name");
+                            panelBoardsElementName.textContent = board.board_name;
 
-                    panelContent.appendChild(commonElements.panelTitle);
-                    panelContent.appendChild(commonElements.panelCloseButton);
-                    panelContent.appendChild(panelSubtitle);
-                    panelContent.appendChild(panelBoardLabel);
-                    panelContent.appendChild(panelBoardInput);
-                    panelContent.appendChild(panelURLLabel);
-                    panelContent.appendChild(panelURLInput);
-                    panelContent.appendChild(panelImgLabel);
-                    panelContent.appendChild(panelImgContainer);
-                    panelContent.appendChild(panelTitleLabel);
-                    panelContent.appendChild(panelTitleInput);
-                    panelContent.appendChild(panelContentLabel);
-                    panelContent.appendChild(panelContentInput);
-                    panelContent.appendChild(commonElements.loader);
-                    panelContent.appendChild(commonElements.cancelButton);
-                    panelContent.appendChild(commonElements.submitButton);
-                    panelContent.appendChild(commonElements.poweredBy);
+                            panelBoardsElementThumbContainer.appendChild(panelBoardsElementThumb);
+                            panelBoardsElement.appendChild(panelBoardsElementThumbContainer);
+                            panelBoardsElement.appendChild(panelBoardsElementName);
 
-                    resolve(panelContent);
-                });
-        });
-    }
+                            if (board.board_status === "0") {
+                                var panelBoardsElementPrivate = document.createElement("span");
+                                panelBoardsElementPrivate.classList.add("icon");
+                                panelBoardsElementPrivate.classList.add("icon-private-board");
+                                panelBoardsElementPrivate.classList.add("qwant-panel__boards-container__element__thumb-container__private");
 
-    function boardPanelGenerator(data) {
-        return new Promise(function (resolve, reject) {
-            commonElementsGenerator(BOARD_PANEL)
-                .then(function (resolveCommon) {
-                    var commonElements = resolveCommon;
+                                panelBoardsElement.appendChild(panelBoardsElementPrivate);
+                            }
 
-                    var panelSubtitle = document.createElement("h3");
-                    panelSubtitle.classList.add("qwant-panel__content__subtitle");
-                    panelSubtitle.textContent = data.boardSubtitle;
-
-                    var panelNameLabel = document.createElement("p");
-                    panelNameLabel.textContent = data.boardName;
-                    panelNameLabel.classList.add("qwant-panel__content__label");
-                    panelNameLabel.classList.add("qwant-panel__content__label--name");
-
-                    var panelNameInput = document.createElement("input");
-                    panelNameInput.type = "text";
-                    panelNameInput.required = true;
-                    panelNameInput.classList.add("qwant-panel__content__input");
-                    panelNameInput.classList.add("qwant-panel__content__input--name");
-
-                    var panelCategoryLabel = document.createElement("p");
-                    panelCategoryLabel.textContent = data.boardCategory;
-                    panelCategoryLabel.classList.add("qwant-panel__content__label");
-                    panelCategoryLabel.classList.add("qwant-panel__content__label--name");
-
-                    var panelCategorySelect = document.createElement("select");
-                    panelCategorySelect.required = true;
-                    panelCategorySelect.classList.add("qwant-panel__content__select");
-                    panelCategorySelect.classList.add("qwant-panel__content__input--category");
-
-                    data.categories.forEach(function (category) {
-                        var panelCategoryOption = document.createElement("option");
-                        panelCategoryOption.textContent = category.i18n;
-                        panelCategoryOption.value = category.id;
-
-                        panelCategorySelect.appendChild(panelCategoryOption);
-                    });
-
-                    var panelVisibilityLabel = document.createElement("p");
-                    panelVisibilityLabel.textContent = data.boardVisibility;
-                    panelVisibilityLabel.classList.add("qwant-panel__content__label");
-                    panelVisibilityLabel.classList.add("qwant-panel__content__label--visibility");
-
-                    var panelVisibility = document.createElement("div");
-                    panelVisibility.classList.add("qwant-panel__content__visibility");
-
-                    var panelVisibilityPrivate = document.createElement("span");
-                    panelVisibilityPrivate.textContent = data.boardPrivate;
-                    panelVisibilityPrivate.classList.add("qwant-panel__content__visibility__label");
-                    panelVisibilityPrivate.classList.add("qwant-panel__content__visibility__label--private");
-
-                    var panelVisibilityCheckbox = document.createElement("label");
-                    panelVisibilityCheckbox.classList.add("qwant-panel__content__visibility__container");
-
-                    var panelVisibilityCheckboxInput = document.createElement("input");
-                    panelVisibilityCheckboxInput.classList.add("qwant-panel__content__visibility__input");
-                    panelVisibilityCheckboxInput.type = "checkbox";
-
-                    var panelVisibilityCheckboxI = document.createElement("i");
-                    panelVisibilityCheckboxI.classList.add("qwant-panel__content__visibility__i");
-
-                    panelVisibilityCheckbox.appendChild(panelVisibilityCheckboxInput);
-                    panelVisibilityCheckbox.appendChild(panelVisibilityCheckboxI);
-
-                    var panelVisibilityPublic = document.createElement("span");
-                    panelVisibilityPublic.textContent = data.boardPublic;
-                    panelVisibilityPublic.classList.add("qwant-panel__content__visibility__label");
-                    panelVisibilityPublic.classList.add("qwant-panel__content__visibility__label--public");
-
-                    panelVisibility.appendChild(panelVisibilityPrivate);
-                    panelVisibility.appendChild(panelVisibilityCheckbox);
-                    panelVisibility.appendChild(panelVisibilityPublic);
-
-                    panelContent.appendChild(commonElements.panelTitle);
-                    panelContent.appendChild(commonElements.panelCloseButton);
-                    panelContent.appendChild(panelSubtitle);
-                    panelContent.appendChild(panelNameLabel);
-                    panelContent.appendChild(panelNameInput);
-                    panelContent.appendChild(panelCategoryLabel);
-                    panelContent.appendChild(panelCategorySelect);
-                    panelContent.appendChild(panelVisibilityLabel);
-                    panelContent.appendChild(panelVisibility);
-                    panelContent.appendChild(commonElements.loader);
-                    panelContent.appendChild(commonElements.cancelButton);
-                    panelContent.appendChild(commonElements.submitButton);
-                    panelContent.appendChild(commonElements.poweredBy);
-
-                    commonElements.cancelButton
-                        .addEventListener("click", function () {
-                            changeState(NOTE_PANEL, data);
-                        });
-
-                    commonElements.submitButton
-                        .addEventListener("click", function () {
-                            commonElements.loader.style.display = "block";
-                            chrome.runtime.sendMessage({
-                                name: "panel-create-board",
-                                data: {
-                                    board_name: document.querySelectorAll(".qwant-panel__content__input--name")[0].value,
-                                    board_category: document.querySelectorAll(".qwant-panel__content__input--category")[0].value,
-                                    board_status: document.querySelectorAll(".qwant-panel__content__visibility__input")[0].checked ? "1" : "0"
-                                }
+                            panelBoardsElement.addEventListener("click", function (event) {
+                                selectBoard(event);
                             });
+
+                            panelBoardsList.appendChild(panelBoardsElement);
                         });
 
-                    resolve(panelContent);
-                });
-        });
-    }
+                        var panelCreateBoardButton = document.createElement("a");
+                        panelCreateBoardButton.classList.add("qwant-panel__boards-container__board-creator");
+                        panelCreateBoardButton.href = "javascript:;";
 
-    /**
-     * On script load, chooses the panel to be displayed whether the user has boards or not
-     */
-    setTimeout(function () {
-        var chosenPanel = NOTE_PANEL;
-        if (data.userBoards.length === 0) {
-            chosenPanel = BOARD_PANEL;
+                        panelCreateBoardButton
+                            .addEventListener("click", function () {
+                                changeState(BOARD_PANEL, data);
+                            });
+
+                        var panelCreateBoardImg = document.createElement("span");
+                        panelCreateBoardImg.classList.add("qwant-panel__boards-container__board-creator__icon");
+                        panelCreateBoardImg.classList.add("icon");
+                        panelCreateBoardImg.classList.add("icon-board-creator");
+
+                        var panelCreateBoardText = document.createElement("span");
+                        panelCreateBoardText.classList.add("qwant-panel__boards-container__board-creator__text");
+                        panelCreateBoardText.textContent = data.noteCreateBoard;
+
+                        commonElements.cancelButton
+                            .addEventListener("click", function () {
+                                hidePanelNote();
+                                chrome.runtime.sendMessage({name: "panel-hidden"});
+                            });
+
+                        commonElements.submitButton
+                            .addEventListener("click", function () {
+                                commonElements.cancelButton.style.display = "none";
+                                commonElements.submitButton.style.display = "none";
+                                commonElements.advancedButton.style.display = "none";
+                                commonElements.loader.style.display = "block";
+
+                                chrome.runtime.sendMessage({name: "panel-note-submit-simple",
+                                    board_id: document.querySelectorAll(".qwant-panel__boards-container__element--active")[0].id
+                                });
+                            });
+
+                        commonElements.advancedButton
+                            .addEventListener("click", function () {
+                                var cancel = document.querySelectorAll(".qwant-panel__button--cancel")[0];
+                                var submit = document.querySelectorAll(".qwant-panel__button--submit")[0];
+                                var advanced = document.querySelectorAll(".qwant-panel__button--advanced")[0];
+                                loader = document.querySelectorAll(".icon-loading")[0];
+
+                                if (cancel) cancel.style.display = "none";
+                                if (submit)    submit.style.display = "none";
+                                if (advanced) advanced.style.display = "none";
+                                if (loader)    loader.style.display = "block";
+                                chrome.runtime.sendMessage({name: "panel-advanced"});
+                                //changeState(ADVANCED_PANEL, data);
+                            });
+
+                        panelContent.appendChild(commonElements.panelTitle);
+                        panelContent.appendChild(commonElements.panelCloseButton);
+                        panelContent.appendChild(panelSubtitle);
+                        panelBoardsContainer.appendChild(panelBoardsList);
+                        panelContent.appendChild(panelBoardsContainer);
+                        panelCreateBoardButton.appendChild(panelCreateBoardImg);
+                        panelCreateBoardButton.appendChild(panelCreateBoardText);
+                        panelContent.appendChild(panelCreateBoardButton);
+                        panelContent.appendChild(commonElements.loader);
+                        panelContent.appendChild(commonElements.cancelButton);
+                        panelContent.appendChild(commonElements.submitButton);
+                        panelContent.appendChild(commonElements.advancedButton);
+                        panelContent.appendChild(commonElements.poweredBy);
+
+                        resolve(panelContent);
+                    });
+            });
         }
-        changeState(chosenPanel, data);
-        showPanelNote();
-    }, 1);
+
+        function advancedPanelGenerator(data) {
+            return new Promise(function (resolve, reject) {
+                commonElementsGenerator(ADVANCED_PANEL)
+                    .then(function (resolveCommon) {
+                        var commonElements = resolveCommon;
+
+                        var panelSubtitle = document.createElement("h3");
+                        panelSubtitle.classList.add("qwant-panel__content__subtitle");
+                        panelSubtitle.textContent = data.advancedSubtitle;
+
+                        var panelBoardLabel = document.createElement("p");
+                        panelBoardLabel.textContent = data.advancedBoard;
+                        panelBoardLabel.classList.add("qwant-panel__content__label");
+                        panelBoardLabel.classList.add("qwant-panel__content__label--board");
+
+                        var panelBoardInput = document.createElement("input");
+                        panelBoardInput.type = "text";
+                        panelBoardInput.required = true;
+                        panelBoardInput.disabled = true;
+                        panelBoardInput.value = currentBoard;
+                        panelBoardInput.classList.add("qwant-panel__content__input");
+                        panelBoardInput.classList.add("qwant-panel__content__input--board");
+
+                        var panelURLLabel = document.createElement("p");
+                        panelURLLabel.textContent = "URL:";
+                        panelURLLabel.classList.add("qwant-panel__content__label");
+                        panelURLLabel.classList.add("qwant-panel__content__label--url");
+
+                        var panelURLInput = document.createElement("input");
+                        panelURLInput.type = "text";
+                        panelURLInput.required = true;
+                        panelURLInput.disabled = true;
+                        panelURLInput.value = document.URL;
+                        panelURLInput.classList.add("qwant-panel__content__input");
+                        panelURLInput.classList.add("qwant-panel__content__input--url");
+
+                        var panelImgLabel = document.createElement("p");
+                        panelImgLabel.textContent = data.advancedImage;
+                        panelImgLabel.classList.add("qwant-panel__content__label");
+                        panelImgLabel.classList.add("qwant-panel__content__label--image");
+
+                        var panelImgContainer = document.createElement("div");
+                        panelImgContainer.classList.add("qwant-panel__content__img-container");
+
+                        var panelEmptyImg = document.createElement("span");
+                        panelEmptyImg.classList.add("qwant-panel__content__img-container__empty-img");
+                        panelEmptyImg.classList.add("qwant-panel__content__img-container__element");
+                        panelEmptyImg.classList.add("qwant-panel__content__img-container__element--active");
+                        panelEmptyImg.textContent = data.advancedEmptyImage;
+                        panelEmptyImg.addEventListener("click", function (event) {
+                            selectAdvancedImage(event);
+                        });
+
+                        panelImgContainer.appendChild(panelEmptyImg);
+
+                        if (advancedNoteData.images && advancedNoteData.images.length > 0) {
+                            advancedNoteData.images.forEach(function (image, idx) {
+                                var panelImg = document.createElement("span");
+                                panelImg.classList.add("qwant-panel__content__img-container__element");
+
+                                var panelImgContent = document.createElement("img");
+                                panelImgContent.src = image.thumbnailMini;
+                                panelImgContent.classList.add("qwant-panel__content__img-container__element__content")
+
+                                panelImg.addEventListener("click", function (event) {
+                                    selectAdvancedImage(event);
+                                });
+
+                                panelImg.appendChild(panelImgContent);
+                                panelImgContainer.appendChild(panelImg);
+                            });
+                        }
+
+                        var panelTitleLabel = document.createElement("p");
+                        panelTitleLabel.textContent = data.advancedTitle;
+                        panelTitleLabel.classList.add("qwant-panel__content__label");
+                        panelTitleLabel.classList.add("qwant-panel__content__label--title");
+
+                        var panelTitleInput = document.createElement("input");
+                        panelTitleInput.type = "text";
+                        panelTitleInput.value = advancedNoteData.title;
+                        panelTitleInput.classList.add("qwant-panel__content__input");
+                        panelTitleInput.classList.add("qwant-panel__content__input--title");
+
+                        var panelContentLabel = document.createElement("p");
+                        panelContentLabel.textContent = data.advancedContent;
+                        panelContentLabel.classList.add("qwant-panel__content__label");
+                        panelContentLabel.classList.add("qwant-panel__content__label--content");
+
+                        var panelContentInput = document.createElement("textarea");
+                        panelContentInput.value = advancedNoteData.description;
+                        panelContentInput.classList.add("qwant-panel__content__input");
+                        panelContentInput.classList.add("qwant-panel__content__input--content");
+
+                        commonElements.cancelButton
+                            .addEventListener("click", function () {
+                                changeState(NOTE_PANEL, data);
+                            });
+                        commonElements.submitButton
+                            .addEventListener("click", function () {
+                                // Hide the buttons and display the loader
+                                var cancel = document.querySelectorAll(".qwant-panel__button--cancel")[0];
+                                var submit = document.querySelectorAll(".qwant-panel__button--submit")[0];
+                                var loader = document.querySelectorAll(".icon-loading")[0];
+
+                                if (cancel) cancel.style.display = "none";
+                                if (submit)    submit.style.display = "none";
+                                if (loader)    loader.style.display = "block";
+
+                                // Let's create the data object, as it may not contain all the params
+                                var data2 = {
+                                    title: document.querySelectorAll(".qwant-panel__content__input--title")[0].value,
+                                    description: document.querySelectorAll(".qwant-panel__content__input--content")[0].value,
+                                    type: advancedNoteData.type,
+                                    url: document.URL
+                                };
+
+                                // Get the board ID
+                                var chosenBoard = document.querySelectorAll(".qwant-panel__content__input--board")[0];
+                                data.userBoards.forEach(function (board) {
+                                    if (board.board_name === chosenBoard.value) {
+                                        data2.board_id = board.board_id;
+                                    }
+                                });
+
+                                // Get the chosen picture if there is one
+                                var chosenImg = document.querySelectorAll(".qwant-panel__content__img-container__element--active")[0] || null;
+                                if (chosenImg !== null) {
+                                    advancedNoteData.images.forEach(function (image) {
+                                        if (image.src === chosenImg.src) {
+                                            data2.image_src = image.src;
+                                            data2.image_key = image.key;
+                                        }
+                                    });
+                                }
+
+                                // Let's send the data to the
+                                data2.name = "panel-advanced-submit";
+                                chrome.runtime.sendMessage(data2);
+                            });
+
+                        panelContent.appendChild(commonElements.panelTitle);
+                        panelContent.appendChild(commonElements.panelCloseButton);
+                        panelContent.appendChild(panelSubtitle);
+                        panelContent.appendChild(panelBoardLabel);
+                        panelContent.appendChild(panelBoardInput);
+                        panelContent.appendChild(panelURLLabel);
+                        panelContent.appendChild(panelURLInput);
+                        panelContent.appendChild(panelImgLabel);
+                        panelContent.appendChild(panelImgContainer);
+                        panelContent.appendChild(panelTitleLabel);
+                        panelContent.appendChild(panelTitleInput);
+                        panelContent.appendChild(panelContentLabel);
+                        panelContent.appendChild(panelContentInput);
+                        panelContent.appendChild(commonElements.loader);
+                        panelContent.appendChild(commonElements.cancelButton);
+                        panelContent.appendChild(commonElements.submitButton);
+                        panelContent.appendChild(commonElements.poweredBy);
+
+                        resolve(panelContent);
+                    });
+            });
+        }
+
+        function boardPanelGenerator(data) {
+            return new Promise(function (resolve, reject) {
+                commonElementsGenerator(BOARD_PANEL)
+                    .then(function (resolveCommon) {
+                        var commonElements = resolveCommon;
+
+                        var panelSubtitle = document.createElement("h3");
+                        panelSubtitle.classList.add("qwant-panel__content__subtitle");
+                        panelSubtitle.textContent = data.boardSubtitle;
+
+                        var panelNameLabel = document.createElement("p");
+                        panelNameLabel.textContent = data.boardName;
+                        panelNameLabel.classList.add("qwant-panel__content__label");
+                        panelNameLabel.classList.add("qwant-panel__content__label--name");
+
+                        var panelNameInput = document.createElement("input");
+                        panelNameInput.type = "text";
+                        panelNameInput.required = true;
+                        panelNameInput.classList.add("qwant-panel__content__input");
+                        panelNameInput.classList.add("qwant-panel__content__input--name");
+
+                        var panelCategoryLabel = document.createElement("p");
+                        panelCategoryLabel.textContent = data.boardCategory;
+                        panelCategoryLabel.classList.add("qwant-panel__content__label");
+                        panelCategoryLabel.classList.add("qwant-panel__content__label--name");
+
+                        var panelCategorySelect = document.createElement("select");
+                        panelCategorySelect.required = true;
+                        panelCategorySelect.classList.add("qwant-panel__content__select");
+                        panelCategorySelect.classList.add("qwant-panel__content__input--category");
+
+                        data.categories.forEach(function (category) {
+                            var panelCategoryOption = document.createElement("option");
+                            panelCategoryOption.textContent = category.i18n;
+                            panelCategoryOption.value = category.id;
+
+                            panelCategorySelect.appendChild(panelCategoryOption);
+                        });
+
+                        var panelVisibilityLabel = document.createElement("p");
+                        panelVisibilityLabel.textContent = data.boardVisibility;
+                        panelVisibilityLabel.classList.add("qwant-panel__content__label");
+                        panelVisibilityLabel.classList.add("qwant-panel__content__label--visibility");
+
+                        var panelVisibility = document.createElement("div");
+                        panelVisibility.classList.add("qwant-panel__content__visibility");
+
+                        var panelVisibilityPrivate = document.createElement("span");
+                        panelVisibilityPrivate.textContent = data.boardPrivate;
+                        panelVisibilityPrivate.classList.add("qwant-panel__content__visibility__label");
+                        panelVisibilityPrivate.classList.add("qwant-panel__content__visibility__label--private");
+
+                        var panelVisibilityCheckbox = document.createElement("label");
+                        panelVisibilityCheckbox.classList.add("qwant-panel__content__visibility__container");
+
+                        var panelVisibilityCheckboxInput = document.createElement("input");
+                        panelVisibilityCheckboxInput.classList.add("qwant-panel__content__visibility__input");
+                        panelVisibilityCheckboxInput.type = "checkbox";
+
+                        var panelVisibilityCheckboxI = document.createElement("i");
+                        panelVisibilityCheckboxI.classList.add("qwant-panel__content__visibility__i");
+
+                        panelVisibilityCheckbox.appendChild(panelVisibilityCheckboxInput);
+                        panelVisibilityCheckbox.appendChild(panelVisibilityCheckboxI);
+
+                        var panelVisibilityPublic = document.createElement("span");
+                        panelVisibilityPublic.textContent = data.boardPublic;
+                        panelVisibilityPublic.classList.add("qwant-panel__content__visibility__label");
+                        panelVisibilityPublic.classList.add("qwant-panel__content__visibility__label--public");
+
+                        panelVisibility.appendChild(panelVisibilityPrivate);
+                        panelVisibility.appendChild(panelVisibilityCheckbox);
+                        panelVisibility.appendChild(panelVisibilityPublic);
+
+                        panelContent.appendChild(commonElements.panelTitle);
+                        panelContent.appendChild(commonElements.panelCloseButton);
+                        panelContent.appendChild(panelSubtitle);
+                        panelContent.appendChild(panelNameLabel);
+                        panelContent.appendChild(panelNameInput);
+                        panelContent.appendChild(panelCategoryLabel);
+                        panelContent.appendChild(panelCategorySelect);
+                        panelContent.appendChild(panelVisibilityLabel);
+                        panelContent.appendChild(panelVisibility);
+                        panelContent.appendChild(commonElements.loader);
+                        panelContent.appendChild(commonElements.cancelButton);
+                        panelContent.appendChild(commonElements.submitButton);
+                        panelContent.appendChild(commonElements.poweredBy);
+
+                        commonElements.cancelButton
+                            .addEventListener("click", function () {
+                                changeState(NOTE_PANEL, data);
+                            });
+
+                        commonElements.submitButton
+                            .addEventListener("click", function () {
+                                commonElements.loader.style.display = "block";
+                                chrome.runtime.sendMessage({
+                                    name: "panel-create-board",
+                                    data: {
+                                        board_name: document.querySelectorAll(".qwant-panel__content__input--name")[0].value,
+                                        board_category: document.querySelectorAll(".qwant-panel__content__input--category")[0].value,
+                                        board_status: document.querySelectorAll(".qwant-panel__content__visibility__input")[0].checked ? "1" : "0"
+                                    }
+                                });
+                            });
+
+                        resolve(panelContent);
+                    });
+            });
+        }
+
+        /**
+         * On script load, chooses the panel to be displayed whether the user has boards or not
+         */
+        setTimeout(function () {
+            var chosenPanel = NOTE_PANEL;
+            if (data.userBoards.length === 0) {
+                chosenPanel = BOARD_PANEL;
+            }
+            changeState(chosenPanel, data);
+            showPanelNote();
+        }, 1);
+    }
 }
 
 chrome.runtime.onMessage.addListener((message, sender, callback) => {
@@ -872,6 +886,7 @@ chrome.runtime.onMessage.addListener((message, sender, callback) => {
             break;
         case "bookmarks-display":
             createPanelBookmark(message);
+            break;
         case "panel-bookmark-destroy":
             hidePanelBookmark();
             break;
