@@ -19,6 +19,14 @@ var changeText = function (state) {
     textElement.textContent = state ? textOK : textKO;
 };
 
+function onSet(result) {
+    if (result) {
+      console.log("Value was updated");
+    } else {
+      console.log("Value was not updated");
+    }
+  }
+
 document.querySelectorAll(".tracking-protection__content__button")[0]
     .addEventListener("click", function () {
         var checkbox = document.querySelectorAll(".tracking-protection__content__button__checkbox")[0];
@@ -27,10 +35,18 @@ document.querySelectorAll(".tracking-protection__content__button")[0]
             chrome.runtime.sendMessage({name: "tracking_protection_on"});
             changeTPIcon(true);
             changeText(true);
+            var setting = browser.privacy.websites.trackingProtectionMode.set({
+                value: "always"
+            });
+            setting.then(onSet);
         } else {
             chrome.runtime.sendMessage({name: "tracking_protection_off"});
             changeTPIcon(false);
             changeText(false);
+            var setting = browser.privacy.websites.trackingProtectionMode.set({
+                value: "never"
+            });
+            setting.then(onSet);
         }
         chrome.runtime.sendMessage({name: "close-popup"});
     });
