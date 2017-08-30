@@ -1,9 +1,9 @@
 {
     "name": {
-        "message": "Qwant for Chrome"
+        "message": "Qwant Extension"
     },
     "description": {
-        "message": "Qwant for Chrome description"
+        "message": "Qwant Extension description"
     },
     "yes" : {
         "message" : "Yes"
@@ -12,13 +12,13 @@
         "message" : "No"
     },
     "toolbar_button_text" :  {
-        "message" : "Qwant for Chrome"
+        "message" : "Qwant Extension"
     },
     "welcome_title" :  {
-        "message" : "Welcome to Qwant for Chrome"
+        "message" : "Welcome to Qwant Extension"
     },
     "welcome_content" :  {
-        "message" : "Use Qwant as Chrome search engine, block privacy trackers, archive and organize your favorite Web content"
+        "message" : "Use Qwant as your search engine, block privacy trackers, archive and organize your favorite Web content"
     },
     "login_title" :  {
         "message" : "Log into your account"
