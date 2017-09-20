@@ -6,11 +6,6 @@ chrome.runtime.onMessage.addListener((message, sender, callback) => {
         case "close-popup":
             closePopup(message.timeout);
             break;
-        // case 'popup_login':
-        //     action = message.action;
-        //     console.log('location.href');
-        //     location.href='../html/login.html';
-        //     break;
         case "account":
             location.href="../html/account.html";
             break;
