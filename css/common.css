@@ -234,9 +234,8 @@ label > input:checked + i:after:hover {
     position      : absolute;
     border-radius : 5px;
     width         : 160px;
-    height        : 50px;
     bottom        : 50px;
-    right         : 8px;
+    right         : 15px;
     background    : white;
     padding       : 8px 16px;
     box-shadow    : 2px 2px 7px rgba(16, 20, 28, 0.2);
