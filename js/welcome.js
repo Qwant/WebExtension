@@ -26,12 +26,14 @@ document.querySelectorAll(".button__action--bookmark")[0]
 
 document.querySelectorAll(".button__link--board")[0]
     .addEventListener("click", function () {
-        chrome.runtime.sendMessage({name: "popup_login"});
+        login();
+        //chrome.runtime.sendMessage({name: "popup_login"});
     });
 
 document.querySelectorAll(".button__link--bookmark")[0]
     .addEventListener("click", function () {
-        chrome.runtime.sendMessage({name: "popup_login"});
+        login();
+        //chrome.runtime.sendMessage({name: "popup_login"});
     });
 
 chrome.storage.local.get(["userExtension"], object => {

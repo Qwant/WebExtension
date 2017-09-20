@@ -1,5 +1,5 @@
 chrome.runtime.sendMessage({name: "popup_loaded"});
-
+console.log('common events loaded');
 chrome.runtime.onMessage.addListener((message, sender, callback) => {
     console.log('common-events:message', message);
     switch (message.name) {
