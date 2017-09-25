@@ -31,7 +31,7 @@ var showAlert = function () {
     if (!alertVisible) {
         alert.classList.add(ALERT_SHOW_CLASS);
         alertVisible = true;
-        chrome.runtime.sendMessage({name: "alert-visible"});
+        browser.runtime.sendMessage({name: "alert-visible"});
         timeoutAlert = setTimeout(hideAlert, 30000);
     }
 };
@@ -42,7 +42,7 @@ var hideAlert = function () {
     if (alertVisible) {
         alert.classList.remove(ALERT_SHOW_CLASS);
         alertVisible = false;
-        chrome.runtime.sendMessage({name: "alert-hidden"});
+        browser.runtime.sendMessage({name: "alert-hidden"});
         //setTimeout(function () {
             if (body !== undefined) {
                 body.removeChild(alert);
@@ -60,7 +60,7 @@ var showPanelBookmark = function () {
             panel.classList.add(PANEL_SHOW_CLASS);
         }, 10);
         panelBookmarkVisible = true;
-        chrome.runtime.sendMessage({name: "panel-visible"});
+        browser.runtime.sendMessage({name: "panel-visible"});
     }
 };
 var hidePanelBookmark = function () {
@@ -70,7 +70,7 @@ var hidePanelBookmark = function () {
         if (body !== undefined) {
             panel.style.display = "none";
             panelBookmarkVisible = false;
-            chrome.runtime.sendMessage({name: "panel-hidden"});
+            browser.runtime.sendMessage({name: "panel-hidden"});
             body.removeChild(overlay);
             body.style.overflow = "auto";
             while (overlay.hasChildNodes()) {
@@ -90,7 +90,7 @@ var showPanelNote = function () {
             panel.classList.add(PANEL_SHOW_CLASS);
         }, 10);
         panelNoteVisible = true;
-        chrome.runtime.sendMessage({name: "panel-visible"});
+        browser.runtime.sendMessage({name: "panel-visible"});
     }
 };
 var hidePanelNote = function () {
@@ -101,7 +101,7 @@ var hidePanelNote = function () {
         if (body !== undefined) {
             panel.style.display = "none";
             panelNoteVisible = false;
-            chrome.runtime.sendMessage({name: "panel-hidden"});
+            browser.runtime.sendMessage({name: "panel-hidden"});
             body.removeChild(overlay);
             body.style.overflow = "auto";
             while (overlay.hasChildNodes()) {
@@ -168,7 +168,7 @@ function createAlert(data) {
         yes.href        = "javascript:;";
         yes.textContent = data.yes;
         yes.addEventListener("click", function () {
-            chrome.runtime.sendMessage({name: "reload-tabs"});
+            browser.runtime.sendMessage({name: "reload-tabs"});
             hideAlert();
         });
         spanYes.classList.add('icon');
@@ -183,7 +183,7 @@ function createAlert(data) {
         no.href        = "javascript:;";
         no.textContent = data.no;
         no.addEventListener("click", function () {
-            chrome.runtime.sendMessage({name: "reload-tabs-no"});
+            browser.runtime.sendMessage({name: "reload-tabs-no"});
             hideAlert();
         });
         spanNo.classList.add('icon');
@@ -305,7 +305,7 @@ function createPanelBookmark (data) {
             submitButton.style.display = "none";
 
             if (panelNameInput.value !== "") {
-                chrome.runtime.sendMessage({name: "panel-bookmark-submit", name2: panelNameInput.value, url: panelURLInput.value});
+                browser.runtime.sendMessage({name: "panel-bookmark-submit", name2: panelNameInput.value, url: panelURLInput.value});
             }
         });
 
@@ -536,7 +536,7 @@ function createPanelNote (data) {
                         commonElements.cancelButton
                             .addEventListener("click", function () {
                                 hidePanelNote();
-                                chrome.runtime.sendMessage({name: "panel-hidden"});
+                                browser.runtime.sendMessage({name: "panel-hidden"});
                             });
 
                         commonElements.submitButton
@@ -546,7 +546,7 @@ function createPanelNote (data) {
                                 commonElements.advancedButton.style.display = "none";
                                 commonElements.loader.style.display = "block";
 
-                                chrome.runtime.sendMessage({name: "panel-note-submit-simple",
+                                browser.runtime.sendMessage({name: "panel-note-submit-simple",
                                     board_id: document.querySelectorAll(".qwant-panel__boards-container__element--active")[0].id
                                 });
                             });
@@ -562,7 +562,7 @@ function createPanelNote (data) {
                                 if (submit)    submit.style.display = "none";
                                 if (advanced) advanced.style.display = "none";
                                 if (loader)    loader.style.display = "block";
-                                chrome.runtime.sendMessage({name: "panel-advanced"});
+                                browser.runtime.sendMessage({name: "panel-advanced"});
                                 //changeState(ADVANCED_PANEL, data);
                             });
 
@@ -723,7 +723,7 @@ function createPanelNote (data) {
 
                                 // Let's send the data to the
                                 data2.name = "panel-advanced-submit";
-                                chrome.runtime.sendMessage(data2);
+                                browser.runtime.sendMessage(data2);
                             });
 
                         panelContent.appendChild(commonElements.panelTitle);
@@ -845,7 +845,7 @@ function createPanelNote (data) {
                         commonElements.submitButton
                             .addEventListener("click", function () {
                                 commonElements.loader.style.display = "block";
-                                chrome.runtime.sendMessage({
+                                browser.runtime.sendMessage({
                                     name: "panel-create-board",
                                     data: {
                                         board_name: document.querySelectorAll(".qwant-panel__content__input--name")[0].value,
@@ -874,7 +874,7 @@ function createPanelNote (data) {
     }
 }
 
-chrome.runtime.onMessage.addListener((message, sender, callback) => {
+browser.runtime.onMessage.addListener((message, sender, callback) => {
     console.log("contentScript-onMessage", message);
 
     switch (message.name) {

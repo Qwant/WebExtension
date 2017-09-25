@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_name__",
-    "version": "3.0.1",
+    "version": "4.0",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -19,13 +19,13 @@
         "page": "html/background.html"
     },
     "chrome_settings_overrides": {
-        "homepage": "https://www.qwant.com/?client=qwant-browser",
+        "homepage": "https://www.qwant.com/?client=qwant-firefox",
         "search_provider": {
             "name": "Qwant.com",
             "keyword": "q",
-            "search_url": "https://www.qwant.com/?q={searchTerms}&client=qwant-browser",
+            "search_url": "https://www.qwant.com/?q={searchTerms}&client=qwant-firefox",
             "favicon_url": "https://www.qwant.com/favicon.ico",
-            "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=qwant-browser",
+            "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=qwant-firefox",
             "is_default": true
         }
     },

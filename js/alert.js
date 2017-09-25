@@ -15,7 +15,7 @@ var show = function (data) {
     if (!visible) {
         alert.classList.add(SHOW_CLASS);
         visible = true;
-        chrome.runtime.sendMessage({name: "alert-visible"});
+        browser.runtime.sendMessage({name: "alert-visible"});
         setTimeout(hide, 30000);
     }
 };
@@ -24,7 +24,7 @@ var hide = function () {
     if (visible) {
         alert.classList.remove(SHOW_CLASS);
         visible = false;
-        chrome.runtime.sendMessage({name: "alert-hidden"});
+        browser.runtime.sendMessage({name: "alert-hidden"});
         setTimeout(function () {
             if (body !== undefined) {
                 body.removeChild(alert);
@@ -87,7 +87,7 @@ function create(data) {
         yes.href        = "javascript:;";
         yes.textContent = data.yes;
         yes.addEventListener("click", function () {
-            chrome.runtime.sendMessage({name: "reload-tabs"});
+            browser.runtime.sendMessage({name: "reload-tabs"});
             hide();
         });
         spanYes.classList.add('icon');
@@ -102,7 +102,7 @@ function create(data) {
         no.href        = "javascript:;";
         no.textContent = data.no;
         no.addEventListener("click", function () {
-            chrome.runtime.sendMessage({name: "reload-tabs-no"});
+            browser.runtime.sendMessage({name: "reload-tabs-no"});
             hide();
         });
         spanNo.classList.add('icon');
@@ -121,7 +121,7 @@ function create(data) {
     setTimeout(show, 1);
 }
 
-chrome.runtime.onMessage.addListener((message, sender, callback) => {
+browser.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "alert-display":
             create(message);

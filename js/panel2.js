@@ -2,7 +2,7 @@
 
 var action;
 
-chrome.runtime.onMessage.addListener((message, sender, callback) => {
+browser.runtime.onMessage.addListener((message, sender, callback) => {
     console.log('message: ', message);
     switch(message.name) {
         case 'close-popup':

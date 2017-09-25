@@ -15,7 +15,7 @@ var showPanelBookmark = function () {
             panel.classList.add(SHOW_CLASS);
         }, 10);
         visible = true;
-        chrome.runtime.sendMessage({name: "panel-visible"});
+        browser.runtime.sendMessage({name: "panel-visible"});
     }
 };
 
@@ -26,7 +26,7 @@ var hidePanelBookmark = function () {
             if (body !== undefined) {
                 panel.style.display = "none";
                 visible = false;
-                chrome.runtime.sendMessage({name: "panel-hidden"});
+                browser.runtime.sendMessage({name: "panel-hidden"});
                 body.removeChild(overlay);
                 body.style.overflow = "auto";
                 while (overlay.hasChildNodes()) {
@@ -137,14 +137,14 @@ function createPanelBookmark (data) {
         submitButton.style.display = "none";
 
         if (panelNameInput.value !== "") {
-            chrome.runtime.sendMessage({name: "panel-submit", name2: panelNameInput.value, url: panelURLInput.value});
+            browser.runtime.sendMessage({name: "panel-submit", name2: panelNameInput.value, url: panelURLInput.value});
         }
     });
 
     setTimeout(showPanelBookmark, 1);
 }
 
-chrome.runtime.onMessage.addListener((message, sender, callback) => {
+browser.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "bookmarks-display":
             createPanelBookmark(message);

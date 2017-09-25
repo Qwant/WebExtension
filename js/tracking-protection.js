@@ -32,7 +32,7 @@ document.querySelectorAll(".tracking-protection__content__button")[0]
         var checkbox = document.querySelectorAll(".tracking-protection__content__button__checkbox")[0];
 
         if (checkbox.checked === true) {
-            chrome.runtime.sendMessage({name: "tracking_protection_on"});
+            browser.runtime.sendMessage({name: "tracking_protection_on"});
             changeTPIcon(true);
             changeText(true);
             var setting = browser.privacy.websites.trackingProtectionMode.set({
@@ -40,7 +40,7 @@ document.querySelectorAll(".tracking-protection__content__button")[0]
             });
             setting.then(onSet);
         } else {
-            chrome.runtime.sendMessage({name: "tracking_protection_off"});
+            browser.runtime.sendMessage({name: "tracking_protection_off"});
             changeTPIcon(false);
             changeText(false);
             var setting = browser.privacy.websites.trackingProtectionMode.set({
@@ -48,10 +48,10 @@ document.querySelectorAll(".tracking-protection__content__button")[0]
             });
             setting.then(onSet);
         }
-        chrome.runtime.sendMessage({name: "close-popup"});
+        browser.runtime.sendMessage({name: "close-popup"});
     });
 
-chrome.runtime.onMessage.addListener((message, sender, callback) => {
+browser.runtime.onMessage.addListener((message, sender, callback) => {
     console.log('tracking-protection:message', message);
     switch (message.name) {
         case "tracking_protection_status":
@@ -72,5 +72,5 @@ chrome.runtime.onMessage.addListener((message, sender, callback) => {
 
 document.querySelectorAll(".tracking-protection__content__text")[0]
     .addEventListener("click", function () {
-        chrome.runtime.sendMessage({name: "close-popup"});
+        browser.runtime.sendMessage({name: "close-popup"});
     });
