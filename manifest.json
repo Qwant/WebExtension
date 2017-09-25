@@ -47,7 +47,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://*.qwant.com/*"
+                "https://*.qwant.com/*",
+                "http://*.qwant.loc/*"
             ],
             "css": [
                 "css/no-popin.css"
