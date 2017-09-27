@@ -38,7 +38,7 @@
   "login_input_register": {
     "message": "Registrieren"
   },
-  "login_input_lost-password": {
+  "login_input_lost_password": {
     "message": "Passwort vergessen?"
   },
   "login_input_submit": {
@@ -86,13 +86,13 @@
   "bookmark_success": {
     "message": "Dein neues Lesezeichen wurde erstellt."
   },
-  "tracking-protection_title": {
+  "tracking_protection_title": {
     "message": "Tracking-Schutz"
   },
-  "tracking-protection_content_enabled": {
+  "tracking_protection_content_enabled": {
     "message": "Tracking-Schutz aktiviert"
   },
-  "tracking-protection_content_disabled": {
+  "tracking_protection_content_disabled": {
     "message": "Tracking-Schutz aktivieren"
   },
   "informations_about": {

@@ -40,7 +40,7 @@
     "login_input_register": {
         "message": "S'inscrire"
     },
-    "login_input_lost-password": {
+    "login_input_lost_password": {
         "message": "Mot de passe perdu ?"
     },
     "login_input_submit": {
@@ -88,13 +88,13 @@
     "bookmark_success": {
         "message": "Votre nouveau favori a été créé."
     },
-    "tracking-protection_title": {
+    "tracking_protection_title": {
         "message": "Protection contre le pistage"
     },
-    "tracking-protection_content_enabled": {
+    "tracking_protection_content_enabled": {
         "message": "Protection contre le pistage active"
     },
-    "tracking-protection_content_disabled": {
+    "tracking_protection_content_disabled": {
         "message": "Activer la protection contre le pistage"
     },
     "informations_about": {
