@@ -246,7 +246,7 @@ label > input:checked + i:after:hover {
     position     : absolute;
     width        : 0;
     height       : 0;
-    top          : 64px;
+    bottom       : -19px;
     right        : 17px;
     border-width : 10px;
     border-style : solid;
