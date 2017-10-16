@@ -1,4 +1,7 @@
 {
+    "locale" : {
+        "message" : "fr_fr"
+    },
     "name" : {
         "message" : "Extension Qwant",
         "description" : "Nom de l'extension"

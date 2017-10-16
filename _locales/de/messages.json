@@ -1,4 +1,7 @@
 {
+  "locale" : {
+    "message" : "de_de"
+  },
   "name": {
     "message": "Qwant Extension"
   },
