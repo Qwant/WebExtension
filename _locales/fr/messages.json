@@ -3,11 +3,11 @@
         "message" : "fr_fr"
     },
     "name" : {
-        "message" : "Qwant pour Firefox",
+        "message" : "Qwant Junior Pour Firefox",
         "description" : "Nom de l'extension"
     },
     "description" :  {
-        "message" : "L'extension Qwant définit qwant.com comme votre moteur de recherche et page d'accueil par défaut.",
+        "message" : "L'extension Qwant Junior définit qwantjunior.com comme votre moteur de recherche et page d'accueil par défaut.",
         "description" : "Description de l'extension"
     },
     "yes": {
@@ -17,22 +17,22 @@
         "message": "Non"
     },
     "toolbar_button_text": {
-        "message": "Qwant pour Firefox"
+        "message": "Qwant Junior pour Firefox"
     },
     "search_placeholder": {
         "message": "Que recherchez-vous ?"
     },
     "welcome_title": {
-        "message": "Bienvenue dans Qwant pour Firefox !"
+        "message": "Bienvenue dans Qwant Junior pour Firefox !"
     },
     "welcome_content": {
-        "message": "Recherchez et naviguez dès maintenant en toute confidentialitè. Si vous souhaitez mémoriser vos favoris, vos paramètres ou écrire des notes dans les Carnets, connectez-vous à Qwant."
+        "message": "Recherchez et naviguez dès maintenant en toute confidentialitè. Si vous souhaitez mémoriser vos favoris, vos paramètres ou écrire des notes dans les Carnets, connectez-vous à Qwant Junior."
     },
     "login_title": {
-        "message": "Connexion à votre compte Qwant"
+        "message": "Connexion à votre compte Qwant Junior"
     },
     "login_text": {
-        "message": "Vous devez disposer d'un compte Qwant pour utiliser les Carnets ou les Favoris."
+        "message": "Vous devez disposer d'un compte Qwant Junior pour utiliser les Carnets ou les Favoris."
     },
     "account_settings": {
         "message": "Mes réglages"
@@ -74,7 +74,7 @@
         "message": "Mes favoris"
     },
     "bookmarks_group": {
-        "message": "Qwant"
+        "message": "Qwant Junior"
     },
     "bookmark_title": {
         "message": "Ajouter à vos favoris"

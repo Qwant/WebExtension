@@ -1,7 +1,7 @@
 "use strict";
 
 var PROTOCOLE = "https:";
-var BOARDS_URL = "//boards.qwant.com";
+var BOARDS_URL = "//www.qwantjunior.com/carnets";
 
 var avatar = document.querySelectorAll(".account__avatar")[0];
 var username = document.querySelectorAll(".account__username")[0];
@@ -56,7 +56,7 @@ browser.storage.local.get(["userExtension"], object => {
     object = JSON.parse(object.userExtension);
     avatar.src = PROTOCOLE + object.avatar;
     username.textContent = object.username;
-    boardsLink.href = PROTOCOLE + BOARDS_URL + "/user/" + object.username + '?client=ext-firefox-ol';
+    boardsLink.href = PROTOCOLE + BOARDS_URL + "/user/" + object.username + '?client=ext-firefox-jr-ol';
 });
 
 browser.runtime.sendMessage({name: "get_login_action"});

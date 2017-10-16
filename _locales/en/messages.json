@@ -3,10 +3,10 @@
         "message" : "en_us"
     },
     "name": {
-        "message": "Qwant for Firefox"
+        "message": "Qwant Junior for Firefox"
     },
     "description": {
-        "message": "Qwant Extension defines qwant.com as your default homepage and search engine."
+        "message": "Qwant Junior Extension define qwantjunior.com as your default homepage and search engine."
     },
     "yes" : {
         "message" : "Yes"
@@ -15,22 +15,22 @@
         "message" : "No"
     },
     "toolbar_button_text" :  {
-        "message" : "Qwant Extension"
+        "message" : "Qwant Junior Extension"
     },
     "search_placeholder": {
         "message": "What are you looking for?"
     },
     "welcome_title" :  {
-        "message" : "Welcome to Qwant Extension"
+        "message" : "Welcome to Qwant Junior Extension"
     },
     "welcome_content" :  {
-        "message" : "Use Qwant as your search engine, block privacy trackers, archive and organize your favorite Web content"
+        "message" : "Use Qwant Junior as your search engine, block privacy trackers, archive and organize your favorite Web content"
     },
     "login_title" :  {
         "message" : "Log into your account"
     },
     "login_text" :  {
-        "message" : "You need a Qwant account to be able to use Qwant Boards or Qwant Bookmarks."
+        "message" : "You need a Qwant Junior account to be able to use Qwant Junior Boards or Qwant Junior Bookmarks."
     },
     "account_settings" :  {
         "message" : "My settings"
@@ -72,7 +72,7 @@
         "message" : "My bookmarks"
     },
     "bookmarks_group" :  {
-        "message" : "Qwant"
+        "message" : "Qwant Junior"
     },
     "bookmark_title" :  {
         "message" : "Add to your bookmarks"
