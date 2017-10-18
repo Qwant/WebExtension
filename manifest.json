@@ -48,7 +48,8 @@
         {
             "matches": [
                 "https://*.qwant.com/*",
-                "http://*.qwant.loc/*"
+                "http://*.qwant.loc/*",
+                "http://*.qwant.uat/*"
             ],
             "css": [
                 "css/no-popin.css"
