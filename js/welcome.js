@@ -15,17 +15,7 @@ document.querySelectorAll(".button__action--board")[0]
         login("boards");
     });
 
-document.querySelectorAll(".button__action--bookmark")[0]
-    .addEventListener("click", function () {
-        login("bookmarks");
-    });
-
 document.querySelectorAll(".button__link--board")[0]
-    .addEventListener("click", function () {
-        login();
-    });
-
-document.querySelectorAll(".button__link--bookmark")[0]
     .addEventListener("click", function () {
         login();
     });

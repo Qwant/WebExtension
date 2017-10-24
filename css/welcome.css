@@ -8,10 +8,11 @@ html, body {
 }
 
 .welcome__title {
-    font-family: "source_sans_prolight";
+    font-family: "LuckiestGuy-Regular";
     font-weight: 200;
-    font-size: 27px;
+    font-size: 23px;
     padding: 0 20px 0 0;
+    color     : rgb(50, 149, 223);
 }
 
 .welcome__text {

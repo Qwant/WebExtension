@@ -39,6 +39,7 @@ input:focus {
 
 .login__access {
     margin-top : 12px;
+    padding: 0 32px;
 }
 
 .login__input__submit {
@@ -67,9 +68,7 @@ input:focus {
  * Main buttons
  */
 .buttons {
-    padding       : 18px 0;
-    border-top    : 1px solid rgb(234, 235, 236);
-    border-bottom : 1px solid rgb(234, 235, 236);
+    padding       : 18px 32px;
 }
 
 .buttons__actions,
@@ -101,11 +100,11 @@ input:focus {
 }
 
 .icon.icon__board {
-    margin-right : 8px;
+    margin-left : 8px;
 }
 
 .button__action__text, .button__link__text {
-    vertical-align : top;
+    vertical-align : 50%;
 }
 
 /**
@@ -114,17 +113,20 @@ input:focus {
 
 .tracking-protection {
     padding-top : 16px;
+    height: 187px;
+    background: url(../img/fond-dino.jpg) no-repeat center;
 }
 
 .tracking-protection__title {
-    font-family    : 'source_sans_prosemibold', Helvetica, "Droid Sans", Arial, sans-serif;
+    font-family    : 'LuckiestGuy-Regular', Helvetica, "Droid Sans", Arial, sans-serif;
     text-transform : uppercase;
-    font-size      : 13px;
+    font-size      : 16px;
+    padding: 0 48px;
 }
 
 .tracking-protection__content {
     display     : table;
-    padding-top : 4px;
+    padding : 4px 48px;
 }
 
 .tracking-protection__content__element {

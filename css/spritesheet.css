@@ -52,16 +52,16 @@ only screen and (min-device-pixel-ratio: 1.5) {
  */
 
 .icon__board {
-    background-position: -5px -112px;
-    width: 10px;
-    height: 13px;
+    background: url(../img/bt-boards.png) no-repeat center;
+    width: 30px;
+    height: 30px;
     margin: 1px 3px 1px 2px;
 }
 
 .icon__board__add {
-    background-position: -21px -110px;
-    width: 18px;
-    height: 18px;
+    background: url(../img/bt-plus.png) no-repeat center;
+    width: 30px;
+    height: 30px;
 }
 
 .icon__bookmark {

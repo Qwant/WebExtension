@@ -18,3 +18,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'LuckiestGuy-Regular';
+    src: url(../font/LuckiestGuy-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}

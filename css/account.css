@@ -8,7 +8,7 @@ html, body {
 }
 
 .account {
-    margin: 16px 0;
+    margin: 16px 32px;
 }
 
 .account__avatar__container,
@@ -31,11 +31,10 @@ html, body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    font-family: "source_sans_prolight", Helvetica, "Droid Sans", Arial, sans-serif;
+    font-family: "LuckiestGuy-Regular", Helvetica, "Droid Sans", Arial, sans-serif;
     font-weight: 200;
     font-size: 21px;
-    color: rgb(77, 84, 92);
-
+    color     : rgb(50, 149, 223);
 }
 
 .account__username:hover {

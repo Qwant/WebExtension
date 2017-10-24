@@ -8,11 +8,11 @@ html, body {
 }
 
 .login__title {
-    font-family : "source_sans_prolight";
+    font-family : "LuckiestGuy-Regular";
     padding     : 0 50px 0 0;
     font-weight : 200;
-    font-size   : 27px;
-    margin: 5px;
+    font-size   : 23px;
+    color     : rgb(50, 149, 223);
 }
 
 .login__text {

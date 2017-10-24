@@ -19,16 +19,7 @@ document.querySelectorAll(".button__action--board")[0]
         browser.runtime.sendMessage({name: "do_boards"});
     });
 
-document.querySelectorAll(".button__action--bookmark")[0]
-    .addEventListener("click", function () {
-        browser.runtime.sendMessage({name: "do_bookmarks"});
-    });
-
 boardsLink.addEventListener("click", function () {
-    browser.runtime.sendMessage({name: "close-popup"});
-});
-
-bookmarksLink.addEventListener("click", function () {
     browser.runtime.sendMessage({name: "close-popup"});
 });
 
