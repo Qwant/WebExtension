@@ -25,6 +25,7 @@ var formValidation = function (event) {
     var username = document.querySelectorAll(".login__input__login")[0].value;
     var password = document.querySelectorAll(".login__input__password")[0].value;
 
+    document.querySelectorAll(".login-error")[0].style.display = 'none';
     hideSubmit();
     browser.runtime.sendMessage({name: "do_login", username: username, password: password});
 };
@@ -40,6 +41,7 @@ browser.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "popup_display_submit":
             displaySubmit();
+            document.querySelectorAll(".login-error")[0].style.display = 'block';
             break;
         case "popup_previous":
             location.href="../html/welcome.html";

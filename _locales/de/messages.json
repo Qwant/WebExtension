@@ -170,6 +170,9 @@
   "alert_linkText": {
     "message": "Siehe hier"
   },
+  "alert_reload": {
+    "message": "Möchten Sie alle Tabs neu laden, um die Veränderungen zu aktivieren?"
+  },
   "alert_reloadOK": {
     "message": "Reload alle Registerkarten Tracking-Schutz zu aktivieren?"
   },

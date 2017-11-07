@@ -172,6 +172,9 @@
     "alert_linkText": {
         "message": "Y accéder"
     },
+    "alert_reload": {
+        "message": "Recharger tous les onglets pour activer les modifications ?"
+    },
     "alert_reloadOK": {
         "message": "Recharger tous les onglets pour y activer la protection contre le pistage?"
     },

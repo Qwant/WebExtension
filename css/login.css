@@ -1,6 +1,6 @@
 html, body {
     width: 350px;
-    height: 580px;
+    min-height: 550px;
 }
 
 .login {
@@ -55,4 +55,14 @@ html, body {
 .login__input__loader {
     display : none;
     margin  : 32px auto;
+}
+
+.login-error {
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+
+.tracking-protection {
+    padding-top : 0;
 }

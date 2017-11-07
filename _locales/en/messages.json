@@ -170,6 +170,9 @@
     "alert_linkText" : {
         "message" : "View it here"
     },
+    "alert_reload" : {
+        "message" : "Reload all tabs to enable changes?"
+    },
     "alert_reloadOK" : {
         "message" : "Reload all tabs to activate tracking protection?"
     },

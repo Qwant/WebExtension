@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_name__",
-    "version": "4.0.2",
+    "version": "4.1",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -33,41 +33,21 @@
         "keyword": "q"
     },
     "permissions": [
-        "browserSettings",
         "contextMenus",
         "storage",
         "tabs",
         "activeTab",
         "bookmarks",
-        "webNavigation",
-        "webRequest",
         "privacy",
-        "<all_urls>"
+        "https://*.qwant.com/*"
     ],
     "content_scripts": [
         {
             "matches": [
-                "https://*.qwant.com/*",
-                "http://*.qwant.loc/*",
-                "http://*.qwant.uat/*"
+                "https://*.qwant.com/*"
             ],
             "css": [
                 "css/no-popin.css"
-            ]
-        },
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
-                "js/contentScript.js",
-                "js/events.js"
-            ],
-            "css": [
-                "css/reset.css",
-                "css/alert.css",
-                "css/panel.css",
-                "css/panel-note.css"
             ]
         }
     ]

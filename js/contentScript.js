@@ -36,7 +36,7 @@ var showAlert = function () {
     }
 };
 var hideAlert = function () {
-    console.log('hideAlert---');
+    //console.log('hideAlert---');
     if(timeoutAlert) clearTimeout(timeoutAlert);
 
     if (alertVisible) {
@@ -206,7 +206,7 @@ function createPanelBookmark (data) {
     if(!panelBookmarkVisible) {
         hidePanelNote();
 
-        console.log('panel-bookmark-create');
+        //console.log('panel-bookmark-create');
 
         overlay = document.createElement("div");
         overlay.classList.add("qwant-overlay");
@@ -336,7 +336,7 @@ function createPanelNote (data) {
     if(!panelNoteVisible) {
         hidePanelBookmark();
 
-        console.log('creatingPanelNote...');
+        //console.log('creatingPanelNote...');
 
         noteData = data;
 
@@ -875,7 +875,7 @@ function createPanelNote (data) {
 }
 
 browser.runtime.onMessage.addListener((message, sender, callback) => {
-    console.log("contentScript-onMessage", message);
+    //console.log("contentScript-onMessage", message);
 
     switch (message.name) {
         case "alert-display":
@@ -917,7 +917,7 @@ browser.runtime.onMessage.addListener((message, sender, callback) => {
             changeState(NOTE_PANEL, noteData);
             break;
         case "panel-note-advanced":
-            console.log('panel-advanced data: ', message.data);
+            //console.log('panel-advanced data: ', message.data);
 
             advancedNoteData = message.data;
             changeState(ADVANCED_PANEL, noteData);

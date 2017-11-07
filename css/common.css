@@ -144,6 +144,32 @@ input:focus {
 }
 
 /**
+ * Reload message
+ */
+
+.reload-msg {
+    font-size: 14px;
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px solid rgb(234, 235, 236);
+    display: none;
+}
+
+.reload-msg a {
+    position: relative;
+    padding-left: 10px;
+}
+
+.reload-msg a img {
+    position: absolute;
+    top: 3px;
+}
+
+.reload-msg a span {
+    padding-left: 17px;
+}
+
+/**
  * Checkbox
  */
 

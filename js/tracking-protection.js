@@ -21,15 +21,21 @@ var changeText = function (state) {
 
 function onSet(result) {
     if (result) {
-      console.log("Value was updated");
+      //console.log("Value was updated");
     } else {
-      console.log("Value was not updated");
+      //console.log("Value was not updated");
     }
   }
 
 document.querySelectorAll(".tracking-protection__content__button")[0]
     .addEventListener("click", function () {
         var checkbox = document.querySelectorAll(".tracking-protection__content__button__checkbox")[0];
+
+        var blockDisplay = document.querySelectorAll('.reload-msg')[0].style.display;
+        if (!blockDisplay || blockDisplay === 'none') {
+            document.body.style.height = parseInt(document.body.clientHeight + 50) + "px";
+            document.querySelectorAll('.reload-msg')[0].style.display = 'block';
+        }
 
         if (checkbox.checked === true) {
             browser.runtime.sendMessage({name: "tracking_protection_on"});
@@ -52,7 +58,7 @@ document.querySelectorAll(".tracking-protection__content__button")[0]
     });
 
 browser.runtime.onMessage.addListener((message, sender, callback) => {
-    console.log('tracking-protection:message', message);
+    //console.log('tracking-protection:message', message);
     switch (message.name) {
         case "tracking_protection_status":
             var checkbox = document.querySelectorAll(".tracking-protection__content__button__checkbox")[0];

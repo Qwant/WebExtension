@@ -1,6 +1,6 @@
 html, body {
     width: 350px;
-    height: 515px;
+    min-height: 515px;
 }
 
 .welcome {
