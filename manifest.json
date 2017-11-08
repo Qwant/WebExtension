@@ -37,7 +37,6 @@
         "storage",
         "tabs",
         "activeTab",
-        "bookmarks",
         "privacy",
         "https://*.qwant.com/*"
     ],
