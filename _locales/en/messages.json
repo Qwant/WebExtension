@@ -101,6 +101,9 @@
     "informations_about" :  {
         "message" : "About the addon"
     },
+    "informations_uninstall": {
+        "message": "Uninstall the addon"
+    },
     "informations_contact" :  {
         "message" : "Contact us"
     },

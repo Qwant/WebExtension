@@ -103,6 +103,9 @@
     "informations_about": {
         "message": "A propos de l'extension"
     },
+    "informations_uninstall": {
+        "message": "Désinstaller l'extension"
+    },
     "informations_contact": {
         "message": "Contactez-nous"
     },

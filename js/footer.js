@@ -23,6 +23,11 @@ document.querySelectorAll(".tooltip__informations__list__element")[0]
     });
 
 document.querySelectorAll(".tooltip__informations__list__element")[1]
+    .addEventListener('click', function() {
+        browser.runtime.sendMessage({name: 'uninstall'});
+    });
+
+document.querySelectorAll(".tooltip__informations__list__element")[2]
     .addEventListener("click", function () {
         browser.runtime.sendMessage({name: "close-popup"});
     });
