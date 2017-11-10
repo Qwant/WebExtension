@@ -98,6 +98,9 @@
   "tracking_protection_content_disabled": {
     "message": "Tracking-Schutz aktivieren"
   },
+  "informations_uninstall": {
+    "message": "Die Erweiterung deinstallieren"
+  },
   "informations_about": {
     "message": "Über die Erweiterung"
   },
