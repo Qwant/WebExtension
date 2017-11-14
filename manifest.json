@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_name__",
-    "version": "4.1.2",
+    "version": "4.1.4",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -47,6 +47,10 @@
             ],
             "css": [
                 "css/no-popin.css"
+            ],
+            "js": [
+                "js/events.js",
+                "js/contentScript.js"
             ]
         }
     ]
