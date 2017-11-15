@@ -5,13 +5,26 @@ var extensionInstalled = true;
 //unsafeWindow.extensionInstalled = cloneInto(extensionInstalled, unsafeWindow);
 
 document.addEventListener("qwant_website_login", function () {
-    var qwantUser = JSON.parse(localStorage.getItem('user'));
-    browser.runtime.sendMessage({
-        name: "qwant_website_login",
-        username: qwantUser.username,
-        avatar: qwantUser.avatar,
-        session_token: qwantUser.token
-    });
+    var qwantUser;
+    if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
+        window.wrappedJSObject.Model.restore('user').then(function (data) {
+            qwantUser = data;
+            browser.runtime.sendMessage({
+                name: "qwant_website_login",
+                username: qwantUser.username,
+                avatar: qwantUser.avatar,
+                session_token: qwantUser.token
+            });
+        });
+    } else {
+        qwantUser = JSON.parse(localStorage.getItem('user'));
+        browser.runtime.sendMessage({
+            name: "qwant_website_login",
+            username: qwantUser.username,
+            avatar: qwantUser.avatar,
+            session_token: qwantUser.token
+        });
+    }
 });
 
 document.addEventListener("qwant_website_logout", function () {
@@ -50,28 +63,32 @@ document.addEventListener("qwant_website_tp_off", function () {
 browser.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "qwant_extension_login":
-            var json = JSON.stringify({
-                username: message.user.username,
-                avatar: message.user.avatar,
-                session_token: message.user.session_token
-            });
+            if (!window.wrappedJSObject.applicationState.user.isLogged) {
+                var json = JSON.stringify({
+                    username: message.user.username,
+                    avatar: message.user.avatar,
+                    session_token: message.user.session_token
+                });
 
-            if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-                window.wrappedJSObject.CrossDomainStore.store('userExtension', json);
-            } else {
-                localStorage.setItem('userExtension', json);
+                if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
+                    window.wrappedJSObject.CrossDomainStore.store('userExtension', json);
+                } else {
+                    localStorage.setItem('userExtension', json);
+                }
+                document.dispatchEvent(new CustomEvent("qwant_extension_login"));
             }
-            document.dispatchEvent(new CustomEvent("qwant_extension_login"));
             break;
         case "qwant_extension_logout":
-            if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-                window.wrappedJSObject.CrossDomainStore.remove('user');
-                window.wrappedJSObject.CrossDomainStore.remove('userExtension');
-            } else {
-                localStorage.removeItem('user');
-                localStorage.removeItem('userExtension');
+            if (window.wrappedJSObject.applicationState.user.isLogged) {
+                if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
+                    window.wrappedJSObject.CrossDomainStore.remove('user');
+                    window.wrappedJSObject.CrossDomainStore.remove('userExtension');
+                } else {
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('userExtension');
+                }
+                document.dispatchEvent(new CustomEvent("qwant_extension_logout"));
             }
-            document.dispatchEvent(new CustomEvent("qwant_extension_logout"));
             break;
         case "qwant_extension_tp_status":
             if (message.data === true) {

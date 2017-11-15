@@ -8,6 +8,7 @@ body {
     background    : white;
     color         : rgb(74, 76, 78);
     font-family   : 'source_sans_proregular', Helvetica, "Droid Sans", Arial, sans-serif;
+    overflow: hidden;
 }
 
 a, a:active, a:visited {
@@ -155,9 +156,13 @@ input:focus {
     display: none;
 }
 
+.reload-msg .choices {
+    display: inline-block;
+}
+
 .reload-msg a {
     position: relative;
-    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .reload-msg a img {

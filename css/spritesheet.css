@@ -3,6 +3,16 @@
     background: url('../img/spritesheet.png') no-repeat;
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+    .icon {
+        background: url('../img/spritesheet-x4.png') no-repeat;
+        background-size: 183px 268px;
+    }
+}
+
 /**
  * Login
  */
