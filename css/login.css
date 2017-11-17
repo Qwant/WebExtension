@@ -4,7 +4,7 @@ html, body {
 }
 
 .login {
-    margin : 0 0 26px;
+    margin : 0;
 }
 
 .login__title {
@@ -12,10 +12,11 @@ html, body {
     padding     : 0 50px 0 0;
     font-weight : 200;
     font-size   : 27px;
+    margin: 5px;
 }
 
 .login__text {
-    margin      : 22px 0 0;
+    margin      : 16px 0 0;
     font-size   : 14px;
     line-height : 1.2rem;
 }

@@ -17,6 +17,9 @@
   "toolbar_button_text": {
     "message": "Qwant für Firefox"
   },
+  "search_placeholder": {
+    "message": "Wonach suchen Sie?"
+  },
   "welcome_title": {
     "message": "Danke für das Installieren von Firefox für Qwant."
   },

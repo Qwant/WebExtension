@@ -19,6 +19,9 @@
     "toolbar_button_text": {
         "message": "Qwant pour Firefox"
     },
+    "search_placeholder": {
+        "message": "Que recherchez-vous ?"
+    },
     "welcome_title": {
         "message": "Bienvenue dans Qwant pour Firefox !"
     },

@@ -30,6 +30,7 @@ input:focus {
 
 .content {
     padding : 8px 32px;
+    border-top: 6px solid #f6f6f6;
 }
 
 /**
@@ -41,7 +42,7 @@ input:focus {
 }
 
 .login__input__submit {
-    font-size : 13px;
+    font-size : 15px;
     color     : rgb(50, 149, 223);
 }
 
@@ -297,4 +298,25 @@ label > input:checked + i:after:hover {
 .tooltip__informations__list__element a, .tooltip__informations__list__element a:active, .tooltip__informations__list__element a:visited {
     color     : rgba(42, 44, 48, 0.48);
     font-size : 14px;
+}
+
+.search__bar {
+    height: 40px;
+    width: 100%;
+    border-bottom: 2px solid #e1e1e1;
+    padding: 0 0 0 30px;
+}
+
+.search__bar__input {
+    border: none;
+    width: 245px;
+    margin-left: 25px;
+    font-size: 15px;
+    padding: 5px;
+    height: 37px;
+    color: rgb(74, 76, 78);
+}
+
+.search__bar__input::-moz-placeholder {
+    color: #9999b4;
 }

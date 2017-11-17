@@ -17,6 +17,9 @@
     "toolbar_button_text" :  {
         "message" : "Qwant Extension"
     },
+    "search_placeholder": {
+        "message": "What are you looking for?"
+    },
     "welcome_title" :  {
         "message" : "Welcome to Qwant Extension"
     },

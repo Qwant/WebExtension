@@ -110,3 +110,21 @@ only screen and (min-device-pixel-ratio: 1.5) {
     width: 18px;
     height: 18px;
 }
+
+.icon__search__bar {
+    background-position: -60px -155px;
+    width: 20px;
+    height: 22px;
+    margin: 8px 0 0 0;
+    position: absolute;
+}
+
+.icon__search__submit {
+    background-position: -80px -155px;
+    width: 22px;
+    height: 20px;
+    position: absolute;
+    right: 25px;
+    top: 8px;
+    cursor: pointer;
+}
