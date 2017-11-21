@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_name__",
-    "version": "4.2.1",
+    "version": "1.0",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -19,11 +19,10 @@
         "page": "html/background.html"
     },
     "chrome_settings_overrides": {
-        "homepage": "https://www.qwant.com/?client=ext-firefox-hp",
         "search_provider": {
             "name": "Qwant",
             "keyword": "q",
-            "search_url": "https://www.qwant.com/?q={searchTerms}&client=ext-firefox-sb",
+            "search_url": "https://www.qwant.com/?q={searchTerms}&client=ext-firefox-light-sb",
             "favicon_url": "https://www.qwant.com/favicon.ico",
             "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=opensearch&lang=__MSG_locale__",
             "is_default": true
@@ -34,10 +33,6 @@
     },
     "permissions": [
         "contextMenus",
-        "storage",
-        "tabs",
-        "activeTab",
-        "privacy",
         "https://*.qwant.com/*"
     ],
     "content_scripts": [
@@ -47,10 +42,6 @@
             ],
             "css": [
                 "css/no-popin.css"
-            ],
-            "js": [
-                "js/events.js",
-                "js/contentScript.js"
             ]
         }
     ]

@@ -1,21 +1,34 @@
 html, body {
     width: 350px;
-    min-height: 550px;
+    min-height: 40px;
 }
 
-.welcome {
-    margin: 0 0 20px;
+body {
+    margin        : 0;
+    border-radius : 5px;
+    background    : white;
+    color         : rgb(74, 76, 78);
+    font-family   : 'source_sans_proregular', Helvetica, "Droid Sans", Arial, sans-serif;
+    overflow: hidden;
 }
 
-.welcome__title {
-    font-family: "source_sans_prolight";
-    font-weight: 200;
-    font-size: 27px;
-    padding: 0 20px 0 0;
+.search__bar {
+    height: 40px;
+    width: 100%;
+    border-bottom: 2px solid #e1e1e1;
+    padding: 0 0 0 30px;
 }
 
-.welcome__text {
-    margin: 22px 0 0;
-    font-size: 14px;
-    line-height: 1.2rem;
+.search__bar__input {
+    border: none;
+    width: 245px;
+    margin-left: 25px;
+    font-size: 15px;
+    padding: 5px;
+    height: 37px;
+    color: rgb(74, 76, 78);
+}
+
+.search__bar__input::-moz-placeholder {
+    color: #9999b4;
 }
