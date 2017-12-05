@@ -8,7 +8,7 @@ body {
     border-radius : 5px;
     background    : white;
     color         : rgb(74, 76, 78);
-    font-family   : 'source_sans_proregular', Helvetica, "Droid Sans", Arial, sans-serif;
+    font-family   : Helvetica, "Droid Sans", Arial, sans-serif;
     overflow: hidden;
 }
 
