@@ -99,35 +99,3 @@ browser.runtime.onMessage.addListener((message, sender, callback) => {
             break;
     }
 });
-
-/*document.addEventListener("pageRendered", function() {
-    console.log("rendered");
-    browser.storage.local.get("lastLogAction").then(function(lastLogAction) {
-        if (lastLogAction) {
-            if (lastLogAction === "in") {
-                browser.storage.local.get("userExtension").then(function(userExt) {
-                    if(userExt) {
-                        var json = userExt;
-                        if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-                            window.wrappedJSObject.CrossDomainStore.store('userExtension', json);
-                        } else {
-                            localStorage.setItem('userExtension', json);
-                        }
-                        document.dispatchEvent(new CustomEvent("qwant_extension_login"));
-                        browser.storage.local.set({lastLogAction: ""});
-                    }
-                });
-            } else if (lastLogAction === "out") {
-                if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-                    window.wrappedJSObject.CrossDomainStore.remove('user');
-                    window.wrappedJSObject.CrossDomainStore.remove('userExtension');
-                } else {
-                    localStorage.removeItem('user');
-                    localStorage.removeItem('userExtension');
-                }
-                document.dispatchEvent(new CustomEvent("qwant_extension_logout"));
-                browser.storage.local.set({lastLogAction: ""});
-            }
-        }
-    });
-});*/
