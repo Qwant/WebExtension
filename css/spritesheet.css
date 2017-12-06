@@ -1,6 +1,6 @@
 .icon {
     display: inline-block;
-    background: url('../img/spritesheet.png') no-repeat;
+    background: url('../img/spritesheet-lite-x1.png') no-repeat;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
@@ -8,22 +8,22 @@ only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (min-device-pixel-ratio: 1.5) {
     .icon {
-        background: url('../img/spritesheet-x4.png') no-repeat;
-        background-size: 183px 268px;
+        background: url('../img/spritesheet-lite-x4.png') no-repeat;
+        background-size: 40px 20px;
     }
 }
 
 .icon__search__bar {
-    background-position: -60px -155px;
+    background-position: 0 0;
     width: 20px;
-    height: 22px;
+    height: 20px;
     margin: 8px 0 0 0;
     position: absolute;
 }
 
 .icon__search__submit {
-    background-position: -80px -155px;
-    width: 22px;
+    background-position: -20px 0;
+    width: 20px;
     height: 20px;
     position: absolute;
     right: 25px;
