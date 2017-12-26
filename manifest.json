@@ -39,12 +39,12 @@
         "activeTab",
         "privacy",
         "https://*.qwant.com/*",
-        "https://*.qwantjunior.com/*"
+        "https://www.qwantjunior.com/*"
     ],
     "content_scripts": [
         {
             "matches": [
-                "https://*.qwantjunior.com/*"
+                "https://www.qwantjunior.com/*"
             ],
             "css": [
                 "css/no-popin.css"

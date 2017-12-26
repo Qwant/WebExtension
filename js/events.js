@@ -5,26 +5,13 @@ var extensionInstalled = true;
 //unsafeWindow.extensionInstalled = cloneInto(extensionInstalled, unsafeWindow);
 
 document.addEventListener("qwant_website_login", function () {
-    var qwantUser;
-    if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-        window.wrappedJSObject.Model.restore('user').then(function (data) {
-            qwantUser = data;
-            browser.runtime.sendMessage({
-                name: "qwant_website_login",
-                username: qwantUser.username,
-                avatar: qwantUser.avatar,
-                session_token: qwantUser.token
-            });
-        });
-    } else {
-        qwantUser = JSON.parse(localStorage.getItem('user'));
-        browser.runtime.sendMessage({
-            name: "qwant_website_login",
-            username: qwantUser.username,
-            avatar: qwantUser.avatar,
-            session_token: qwantUser.token
-        });
-    }
+    var qwantUser = JSON.parse(localStorage.getItem('user'));
+    browser.runtime.sendMessage({
+        name: "qwant_website_login",
+        username: qwantUser.username,
+        avatar: qwantUser.avatar,
+        session_token: qwantUser.token
+    });
 });
 
 document.addEventListener("qwant_website_logout", function () {
@@ -69,24 +56,14 @@ browser.runtime.onMessage.addListener((message, sender, callback) => {
                     avatar: message.user.avatar,
                     session_token: message.user.session_token
                 });
-
-                if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-                    window.wrappedJSObject.CrossDomainStore.store('userExtension', json);
-                } else {
-                    localStorage.setItem('userExtension', json);
-                }
+                localStorage.setItem('userExtension', json);
                 document.dispatchEvent(new CustomEvent("qwant_extension_login"));
             }
             break;
         case "qwant_extension_logout":
             if (window.wrappedJSObject.applicationState.user.isLogged) {
-                if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-                    window.wrappedJSObject.CrossDomainStore.remove('user');
-                    window.wrappedJSObject.CrossDomainStore.remove('userExtension');
-                } else {
-                    localStorage.removeItem('user');
-                    localStorage.removeItem('userExtension');
-                }
+                localStorage.removeItem('user');
+                localStorage.removeItem('userExtension');
                 document.dispatchEvent(new CustomEvent("qwant_extension_logout"));
             }
             break;

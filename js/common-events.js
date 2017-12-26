@@ -20,7 +20,7 @@ function submitSearchBar() {
     var q = document.querySelectorAll(".search__bar__input")[0].value;
     if (q !== "") {
         browser.tabs.create({
-            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-firefox-ol",
+            url: "https://www.qwantjunior.com/?q=" + encodeURIComponent(q) + "&client=ext-firefox-ol",
             active: true
         });
         closePopup();
@@ -40,12 +40,16 @@ document.querySelectorAll(".reload-msg--no")[0]
         document.querySelectorAll('.reload-msg')[0].style.display = 'none';
     });
 
-document.querySelectorAll(".search__bar__form")[0]
-    .addEventListener('submit', function() {
-        submitSearchBar();
-    });
+if (document.querySelectorAll(".search__bar__form")[0]) {
+    document.querySelectorAll(".search__bar__form")[0]
+        .addEventListener('submit', function () {
+            submitSearchBar();
+        });
+}
 
-document.querySelectorAll(".icon__search__submit")[0]
-    .addEventListener('click', function() {
-        submitSearchBar();
-    });
+if (document.querySelectorAll(".icon__search__submit")[0]) {
+    document.querySelectorAll(".icon__search__submit")[0]
+        .addEventListener('click', function () {
+            submitSearchBar();
+        });
+}

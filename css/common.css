@@ -29,7 +29,7 @@ input:focus {
 }
 
 .content {
-    padding : 8px 32px;
+    padding : 8px 0;
     border-top: 6px solid #f6f6f6;
 }
 
@@ -38,7 +38,6 @@ input:focus {
  */
 
 .login__access {
-    margin-top : 12px;
     padding: 0 32px;
 }
 
@@ -153,10 +152,10 @@ input:focus {
 
 .reload-msg {
     font-size: 14px;
-    margin-top: 10px;
-    padding-top: 15px;
+    padding-top: 10px;
     border-top: 1px solid rgb(234, 235, 236);
     display: none;
+    padding-left: 3px;
 }
 
 .reload-msg .choices {
