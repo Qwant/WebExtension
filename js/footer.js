@@ -14,20 +14,20 @@ document.querySelectorAll(".content")[0]
 
 document.querySelectorAll(".footer__powered")[0]
     .addEventListener("click", function () {
-        browser.runtime.sendMessage({name: "close-popup"});
+        chrome.runtime.sendMessage({name: "close-popup"});
     });
 
 document.querySelectorAll(".tooltip__informations__list__element")[0]
     .addEventListener("click", function () {
-        browser.runtime.sendMessage({name: "close-popup"});
+        chrome.runtime.sendMessage({name: "close-popup"});
     });
 
 document.querySelectorAll(".tooltip__informations__list__element")[1]
     .addEventListener('click', function() {
-        browser.runtime.sendMessage({name: 'uninstall'});
+        chrome.runtime.sendMessage({name: 'uninstall'});
     });
 
 document.querySelectorAll(".tooltip__informations__list__element")[2]
     .addEventListener("click", function () {
-        browser.runtime.sendMessage({name: "close-popup"});
+        chrome.runtime.sendMessage({name: "close-popup"});
     });

@@ -1,7 +1,7 @@
 "use strict";
 
 var login = function(action) {
-    if(action) browser.runtime.sendMessage({name: "login_action", action: action});
+    if(action) chrome.runtime.sendMessage({name: "login_action", action: action});
     location.href='../html/login.html';
 }
 
@@ -30,7 +30,7 @@ document.querySelectorAll(".button__link--bookmark")[0]
         login();
     });
 
-browser.storage.local.get(["userExtension"], object => {
+chrome.storage.local.get(["userExtension"], object => {
     if(object && object.userExtension) {
         object = JSON.parse(object.userExtension);
         if(object.avatar && object.username) {

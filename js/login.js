@@ -27,7 +27,7 @@ var formValidation = function (event) {
 
     document.querySelectorAll(".login-error")[0].style.display = 'none';
     hideSubmit();
-    browser.runtime.sendMessage({name: "do_login", username: username, password: password});
+    chrome.runtime.sendMessage({name: "do_login", username: username, password: password});
 };
 
 document.querySelectorAll(".login__input__submit")[0]
@@ -37,7 +37,7 @@ document.querySelectorAll(".login__input__login")[0]
 document.querySelectorAll(".login__input__password")[0]
     .addEventListener("keyup", formValidation);
 
-browser.runtime.onMessage.addListener((message, sender, callback) => {
+chrome.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "popup_display_submit":
             displaySubmit();
@@ -51,10 +51,10 @@ browser.runtime.onMessage.addListener((message, sender, callback) => {
 
 document.querySelectorAll(".login__input__register")[0]
     .addEventListener("click", function () {
-        browser.runtime.sendMessage("close-popup");
+        chrome.runtime.sendMessage("close-popup");
     });
 
 document.querySelectorAll(".login__input__lost-password")[0]
     .addEventListener("click", function () {
-        browser.runtime.sendMessage("close-popup");
+        chrome.runtime.sendMessage("close-popup");
     });

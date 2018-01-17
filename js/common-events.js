@@ -1,6 +1,6 @@
-browser.runtime.sendMessage({name: "popup_loaded"});
+chrome.runtime.sendMessage({name: "popup_loaded"});
 //console.log('common events loaded');
-browser.runtime.onMessage.addListener((message, sender, callback) => {
+chrome.runtime.onMessage.addListener((message, sender, callback) => {
     //console.log('common-events:message', message);
     switch (message.name) {
         case "close-popup":
@@ -19,8 +19,8 @@ function closePopup(timeout) {
 function submitSearchBar() {
     var q = document.querySelectorAll(".search__bar__input")[0].value;
     if (q !== "") {
-        browser.tabs.create({
-            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-firefox-ol",
+        chrome.tabs.create({
+            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-opera-ol",
             active: true
         });
         closePopup();
@@ -31,7 +31,7 @@ document.querySelectorAll(".reload-msg--yes")[0]
     .addEventListener('click', function() {
         document.body.style.height = parseInt(document.body.clientHeight - 50) + "px";
         document.querySelectorAll('.reload-msg')[0].style.display = 'none';
-        browser.runtime.sendMessage({name: 'reload-tabs'});
+        chrome.runtime.sendMessage({name: 'reload-tabs'});
     });
 
 document.querySelectorAll(".reload-msg--no")[0]
