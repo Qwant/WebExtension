@@ -52,6 +52,16 @@ document.querySelectorAll(".account__logout")[0]
         browser.runtime.sendMessage({name: "close-popup"});
     });
 
+document.querySelectorAll(".button__link--board")[0]
+    .addEventListener("mousedown", function() {
+        browser.runtime.sendMessage({name: "link_boards"});
+    });
+
+document.querySelectorAll(".button__link--bookmark")[0]
+    .addEventListener("mousedown", function() {
+        browser.runtime.sendMessage({name: "link_bookmarks"});
+    });
+
 browser.storage.local.get(["userExtension"], object => {
     object = JSON.parse(object.userExtension);
     avatar.src = PROTOCOLE + object.avatar;

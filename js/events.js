@@ -28,7 +28,6 @@ document.addEventListener("qwant_website_login", function () {
 });
 
 document.addEventListener("qwant_website_logout", function () {
-    //console.log("events.js: qwant_website_logout");
     browser.runtime.sendMessage({name: "qwant_website_logout"});
 });
 
