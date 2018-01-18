@@ -48,7 +48,6 @@ document.querySelectorAll(".tracking-protection__content__button")[0]
     });
 
 chrome.runtime.onMessage.addListener((message, sender, callback) => {
-    //console.log('tracking-protection:message', message);
     switch (message.name) {
         case "tracking_protection_status":
             var checkbox = document.querySelectorAll(".tracking-protection__content__button__checkbox")[0];
