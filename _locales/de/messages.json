@@ -185,6 +185,9 @@
   "alert_reloadKO": {
     "message": "Reload alle Registerkarten Tracking-Schutz zu deaktivieren?"
   },
+  "alert_uninstall": {
+      "message": "Sind Sie sicher, dass Sie diese Erweiterung deinstallieren möchten?"
+  },
   "category_adult": {
     "message": "Erwachsene"
   },

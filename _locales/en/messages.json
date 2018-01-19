@@ -185,6 +185,9 @@
     "alert_reloadKO" : {
         "message" : "Reload all tabs to disable tracking protection?"
     },
+    "alert_uninstall" : {
+        "message" : "Are you sure you want to uninstall this addon?"
+    },
     "category_adult" : {
         "message" : "Adult"
     },

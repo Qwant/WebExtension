@@ -187,6 +187,9 @@
     "alert_reloadKO": {
         "message": "Recharger tous les onglets pour y désactiver la protection contre le pistage?"
     },
+    "alert_uninstall" : {
+        "message" : "Êtes-vous sûr de vouloir désinstaller cette extension ?"
+    },
     "category_adult": {
         "message": "Adult"
     },
