@@ -19,11 +19,11 @@
         "page": "html/background.html"
     },
     "chrome_settings_overrides": {
-        "homepage": "https://www.qwant.com/?client=ext-chrome-hp",
+        "homepage": "https://www.qwant.com/?client=ext-opera-hp",
         "search_provider": {
             "name": "Qwant",
             "keyword": "www.qwant.com",
-            "search_url": "https://www.qwant.com/?q={searchTerms}&client=ext-chrome-sb",
+            "search_url": "https://www.qwant.com/?q={searchTerms}&client=ext-opera-sb",
             "favicon_url": "https://www.qwant.com/favicon.ico",
             "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=opensearch&lang=__MSG_locale__",
             "encoding": "UTF-8",

@@ -18,7 +18,7 @@ function submitSearchBar() {
     var q = document.querySelectorAll(".search__bar__input")[0].value;
     if (q !== "") {
         chrome.tabs.create({
-            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-chrome-ol",
+            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-opera-ol",
             active: true
         });
         closePopup();

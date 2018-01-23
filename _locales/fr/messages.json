@@ -3,7 +3,7 @@
         "message" : "fr_fr"
     },
     "name" : {
-        "message" : "Qwant pour Chrome",
+        "message" : "Qwant pour Opera",
         "description" : "Nom de l'extension"
     },
     "description" :  {
@@ -17,13 +17,13 @@
         "message": "Non"
     },
     "toolbar_button_text": {
-        "message": "Qwant pour Chrome"
+        "message": "Qwant pour Opera"
     },
     "search_placeholder": {
         "message": "Que recherchez-vous ?"
     },
     "welcome_title": {
-        "message": "Bienvenue dans Qwant pour Chrome !"
+        "message": "Bienvenue dans Qwant pour Opera !"
     },
     "welcome_content": {
         "message": "Recherchez et naviguez dès maintenant en toute confidentialité. Si vous souhaitez mémoriser vos favoris, vos paramètres ou écrire des notes dans les Carnets, connectez-vous à Qwant."

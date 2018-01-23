@@ -3,7 +3,7 @@
     "message" : "de_de"
   },
   "name": {
-    "message": "Qwant für Chrome"
+    "message": "Qwant für Opera"
   },
   "description": {
     "message": "Qwant Extension define qwant.com as your default homepage and search engine."
@@ -15,13 +15,13 @@
     "message": "Nein"
   },
   "toolbar_button_text": {
-    "message": "Qwant für Chrome"
+    "message": "Qwant für Opera"
   },
   "search_placeholder": {
     "message": "Wonach suchen Sie?"
   },
   "welcome_title": {
-    "message": "Danke für das Installieren von Chrome für Qwant."
+    "message": "Danke für das Installieren von Opera für Qwant."
   },
   "welcome_content": {
     "message": "Recherchieren und Surfen Sie ab jetzt sicher und anonym. Um Ihre Favoriten, Einstellungen und Notizen speichern zu können, melden sie sich bitte an."
