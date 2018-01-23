@@ -24,7 +24,7 @@ document.querySelectorAll(".tooltip__informations__list__element")[0]
 
 document.querySelectorAll(".tooltip__informations__list__element")[1]
     .addEventListener('click', function() {
-        chrome.runtime.sendMessage({name: 'uninstall', text: this.getAttribute('data-text')});
+        chrome.runtime.sendMessage({name: 'uninstall'});
     });
 
 document.querySelectorAll(".tooltip__informations__list__element")[2]

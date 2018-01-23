@@ -56,7 +56,7 @@ chrome.storage.local.get(["userExtension"], object => {
     object = JSON.parse(object.userExtension);
     avatar.src = PROTOCOLE + object.avatar;
     username.textContent = object.username;
-    boardsLink.href = PROTOCOLE + BOARDS_URL + "/user/" + object.username + '?client=ext-opera-ol';
+    boardsLink.href = PROTOCOLE + BOARDS_URL + "/user/" + object.username + '?client=ext-chrome-ol';
 });
 
 chrome.runtime.sendMessage({name: "get_login_action"});

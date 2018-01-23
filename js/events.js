@@ -7,7 +7,7 @@ var extensionInstalled = true;
 document.addEventListener("qwant_website_login", function () {
     var qwantUser;
     if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-        window.wrappedJSObject.Model.restore('user').then(function (data) {
+        window.Model.restore('user').then(function (data) {
             qwantUser = data;
             chrome.runtime.sendMessage({
                 name: "qwant_website_login",
@@ -28,7 +28,6 @@ document.addEventListener("qwant_website_login", function () {
 });
 
 document.addEventListener("qwant_website_logout", function () {
-    //console.log("events.js: qwant_website_logout");
     chrome.runtime.sendMessage({name: "qwant_website_logout"});
 });
 
@@ -60,35 +59,43 @@ document.addEventListener("qwant_website_tp_off", function () {
     chrome.runtime.sendMessage({name: "qwant_website_tp_off"});
 });
 
+function injectScript(file_name) {
+    var node = document.getElementsByTagName('body')[0];
+    var script = document.createElement('script');
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('src', chrome.extension.getURL('js/inject_' + file_name + '.js'));
+    node.appendChild(script);
+}
+
+function injectJSON(key, value) {
+    var node = document.getElementsByTagName('body')[0];
+    var span = document.getElementsByClassName('chrome-ext-vars');
+    var object = {};
+    if (span.length > 0) {
+        span = span[0];
+        object = JSON.parse(span.innerHTML);
+    } else {
+        span = document.createElement('span');
+        span.className = 'chrome-ext-vars';
+        span.style.display = 'none';
+        node.appendChild(span);
+    }
+    object[key] = value;
+    span.innerHTML = JSON.stringify(object);
+}
+
 chrome.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "qwant_extension_login":
-            if (!window.wrappedJSObject.applicationState.user.isLogged) {
-                var json = JSON.stringify({
-                    username: message.user.username,
-                    avatar: message.user.avatar,
-                    session_token: message.user.session_token
-                });
-
-                if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-                    window.wrappedJSObject.CrossDomainStore.store('userExtension', json);
-                } else {
-                    localStorage.setItem('userExtension', json);
-                }
-                document.dispatchEvent(new CustomEvent("qwant_extension_login"));
-            }
+            injectJSON('userExtension', {
+                username: message.user.username,
+                avatar: message.user.avatar,
+                session_token: message.user.session_token
+            });
+            injectScript('login');
             break;
         case "qwant_extension_logout":
-            if (window.wrappedJSObject.applicationState.user.isLogged) {
-                if (window.location.href.match(/^https:\/\/boards\.qwant\.com/)) {
-                    window.wrappedJSObject.CrossDomainStore.remove('user');
-                    window.wrappedJSObject.CrossDomainStore.remove('userExtension');
-                } else {
-                    localStorage.removeItem('user');
-                    localStorage.removeItem('userExtension');
-                }
-                document.dispatchEvent(new CustomEvent("qwant_extension_logout"));
-            }
+            injectScript('logout');
             break;
         case "qwant_extension_tp_status":
             if (message.data === true) {

@@ -1,7 +1,5 @@
 chrome.runtime.sendMessage({name: "popup_loaded"});
-//console.log('common events loaded');
 chrome.runtime.onMessage.addListener((message, sender, callback) => {
-    //console.log('common-events:message', message);
     switch (message.name) {
         case "close-popup":
             closePopup(message.timeout);
@@ -20,7 +18,7 @@ function submitSearchBar() {
     var q = document.querySelectorAll(".search__bar__input")[0].value;
     if (q !== "") {
         chrome.tabs.create({
-            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-opera-ol",
+            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-chrome-ol",
             active: true
         });
         closePopup();
