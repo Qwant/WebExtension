@@ -21,10 +21,10 @@
     "chrome_settings_overrides": {
         "homepage": "https://www.qwantjunior.com/?client=ext-firefox-hp",
         "search_provider": {
-            "name": "Qwant",
+            "name": "Qwant Junior",
             "keyword": "qj",
             "search_url": "https://www.qwantjunior.com/?q={searchTerms}&client=ext-firefox-sb",
-            "favicon_url": "https://www.qwantjunior.com/favicon.ico",
+            "favicon_url": "https://www.qwantjunior.com/img/edu/favicon.ico",
             "suggest_url": "https://api.qwant.com/egp/suggest/?q={searchTerms}&client=opensearch&lang=__MSG_locale__",
             "is_default": true
         }

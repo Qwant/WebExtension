@@ -9,13 +9,6 @@
     <link rel="stylesheet" href='../css/welcome.css'/>
 </head>
 <body>
-<div class="search__bar">
-    <form class="search__bar__form">
-        <div class="icon icon__search__bar"></div>
-        <input type="search" class="search__bar__input" autofocus="autofocus" placeholder="__MSG_search_placeholder__" />
-        <div class="icon icon__search__submit"></div>
-    </form>
-</div>
 <div class="content">
     <div class="login__access">
         <a class="login__input__submit" href="#">
@@ -27,37 +20,34 @@
         <p class="welcome__text">__MSG_welcome_content__</p>
     </div>
     <div class="buttons">
-        <div class="buttons__actions">
-            <a class="button__action button__action--board" href="#">
-                <span class="button__action__icon button__action__icon--board icon icon__board__add"></span>
-                <span class="button__action__text button__action__text--board">__MSG_buttons_new_note__</span>
-            </a>
-        </div>
-        <div class="buttons__links">
-            <a class="button__link button__link--board" href="#">
-                <span class="button__link__icon button__link__icon--board icon icon__board"></span>
-                <span class="button__link__text button__link__text--board">__MSG_buttons_link_boards__</span>
-            </a>
-        </div>
+        <a class="button__action button__action--board" href="#">
+            <svg class="newnote_svg">
+                <use xlink:href="../img/spritesheet.svg#newnote"></use>
+            </svg>
+            <span class="button__action__text button__action__text--board">__MSG_buttons_new_note__</span>
+        </a>
+        <a class="button__link button__link--board" href="#">
+            <svg class="notebook_svg">
+                <use xlink:href="../img/spritesheet.svg#notebook"></use>
+            </svg>
+            <span class="button__link__text button__link__text--board">__MSG_buttons_link_boards__</span>
+        </a>
     </div>
     <div class="tracking-protection">
-        <h2 class="tracking-protection__title">__MSG_tracking_protection_title__</h2>
         <div class="tracking-protection__content">
-            <div class="tracking-protection__content__element">
-                <span class="tracking-protection__content__icon icon icon__tracking-protection--enabled"></span>
-            </div>
-            <div class="tracking-protection__content__element">
-                <a href="https://www.qwantjunior.com/extension/tracking-protection" target="_blank"
-                   class="tracking-protection__content__text">
-                    Enable all the privacy protection settings
-                </a>
-            </div>
-            <div class="tracking-protection__content__element">
+            <svg class="tracking_svg">
+                <use xlink:href="../img/spritesheet.svg#trackingprotection"></use>
+            </svg>
+            <div class="tracking-protection__content__toggle">
                 <label class="tracking-protection__content__button">
                     <input class="tracking-protection__content__button__checkbox" type="checkbox"/>
                     <i></i>
                 </label>
             </div>
+            <a href="https://www.qwantjunior.com/extension/tracking-protection" target="_blank"
+               class="tracking-protection__content__text">
+                Enable all the privacy protection settings
+            </a>
         </div>
     </div>
     <div class="reload-msg">
@@ -76,11 +66,14 @@
 </div>
 <div class="footer">
     <a class="footer__powered" href="https://www.qwantjunior.com" target="_blank">
-        <span class="icon icon__powered-by-qwant"></span>
+        <svg class="qjlogo-svg">
+            <use xlink:href="../img/spritesheet.svg#qwantjuniorlogo"></use>
+        </svg>
     </a>
     <a class="footer__informations" href="#">
-				<span class="footer__informations__icon icon icon__about">
-				</span>
+        <svg class="info-svg">
+            <use xlink:href="../img/spritesheet.svg#informations"></use>
+        </svg>
     </a>
 </div>
 <div class="tooltip__informations" style="display:none;">

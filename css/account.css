@@ -1,6 +1,6 @@
 html, body {
     width: 350px;
-    min-height: 489px;
+    min-height: 550px;
 }
 
 .content {
@@ -8,14 +8,11 @@ html, body {
 }
 
 .account {
-    margin: 16px 32px;
+    margin: 16px 32px 0 32px;
 }
 
-.account__avatar__container,
 .account__informations {
-    width: calc(50% - 2px);
-    display: inline-block;
-    vertical-align: top;
+    margin-bottom: 50px;
 }
 
 .account__avatar {
@@ -27,14 +24,16 @@ html, body {
 
 .account__username, .account__username:visited, .account__username:active {
     width: 100%;
-    margin: 0 0 8px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    font-family: "LuckiestGuy-Regular", Helvetica, "Droid Sans", Arial, sans-serif;
+    font-family: "Bangers-Regular", Helvetica, "Droid Sans", Arial, sans-serif;
     font-weight: 200;
-    font-size: 21px;
-    color     : rgb(50, 149, 223);
+    letter-spacing: .05em;
+    font-size: 26px;
+    color          : #2098F6;
+    text-align: center;
+    display: inline-block;
 }
 
 .account__username:hover {
@@ -47,6 +46,17 @@ html, body {
     margin: 7px 0;
     font-size: 15px;
     color: rgb(77, 84, 92);
+    position: absolute;
+    top: 10px;
+}
+
+.account__settings, .account__settings:visited, .account__settings:active {
+    right: 32px;
+}
+
+.account__settings__text,
+.account__logout__text {
+    vertical-align: 6px;
 }
 
 .account__settings__text:hover,

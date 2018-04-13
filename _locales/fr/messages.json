@@ -26,13 +26,13 @@
         "message": "Bienvenue dans Qwant Junior pour Firefox !"
     },
     "welcome_content": {
-        "message": "Recherchez et naviguez dès maintenant en toute confidentialitè. Si vous souhaitez mémoriser vos favoris, vos paramètres ou écrire des notes dans les Carnets, connectez-vous à Qwant Junior."
+        "message": "Recherche et navigue dès maintenant en toute confidentialité. Si tu souhaites mémoriser tes paramètres ou écrire des notes dans les Carnets, connectes-toi à Qwant Junior."
     },
     "login_title": {
-        "message": "Connexion à votre compte Qwant Junior"
+        "message": "Connexion à ton compte Qwant Junior"
     },
     "login_text": {
-        "message": "Vous devez disposer d'un compte Qwant Junior pour utiliser les Carnets ou les Favoris."
+        "message": "Tu as besoin d'un compte Qwant Junior pour utiliser les carnets Qwant."
     },
     "account_settings": {
         "message": "Mes réglages"

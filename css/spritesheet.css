@@ -78,24 +78,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 /**
- * Tracking protection
- */
-
-.icon__tracking-protection--enabled {
-    background-position: -48px -3px;
-    width: 36px;
-    height: 40px;
-    margin: 0 2px;
-}
-
-.icon__tracking-protection--disabled {
-    background-position: -92px -3px;
-    width: 36px;
-    height: 40px;
-    margin: 0 2px;
-}
-
-/**
  * Footer
  */
 
@@ -127,4 +109,51 @@ only screen and (min-device-pixel-ratio: 1.5) {
     right: 25px;
     top: 8px;
     cursor: pointer;
+}
+
+
+/**
+ * SVG
+ */
+
+.qjlogo-svg {
+    display: block;
+    position: absolute;
+    width: 78px;
+    height: 34px;
+}
+
+.info-svg {
+    width: 18px;
+    height: 18px;
+}
+
+.newnote_svg, .notebook_svg {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 16px;
+    top: 16px;
+}
+
+.tracking_svg {
+    height: 114px;
+    width: 114px;
+    opacity: .3;
+    position: absolute;
+    left: calc(50% - 57px);
+    top: 13px;
+}
+
+.settings_svg, .logout_svg {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+
+.dino_svg {
+    height: 60px;
+    width: 60px;
+    margin-left: calc(50% - 30px);
+    margin-bottom: 20px;
 }

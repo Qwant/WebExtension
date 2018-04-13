@@ -1,6 +1,6 @@
 html, body {
     width: 350px;
-    min-height: 542px;
+    min-height: 550px;
 }
 
 .welcome {
@@ -8,11 +8,12 @@ html, body {
 }
 
 .welcome__title {
-    font-family: "LuckiestGuy-Regular";
+    font-family: "Bangers-Regular";
+    font-size: 26px;
     font-weight: 200;
-    font-size: 23px;
     padding: 0 20px 0 0;
-    color     : rgb(50, 149, 223);
+    letter-spacing: .03em;
+    color          : #2098F6;
 }
 
 .welcome__text {

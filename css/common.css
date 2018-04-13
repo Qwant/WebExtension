@@ -30,7 +30,6 @@ input:focus {
 
 .content {
     padding : 8px 0;
-    border-top: 6px solid #f6f6f6;
 }
 
 /**
@@ -43,7 +42,7 @@ input:focus {
 
 .login__input__submit {
     font-size : 15px;
-    color     : rgb(50, 149, 223);
+    color     : #626466;
 }
 
 .login__input__submit:hover {
@@ -70,8 +69,6 @@ input:focus {
     padding       : 18px 32px;
 }
 
-.buttons__actions,
-.buttons__links,
 .login__input__lost-password,
 .login__input__register {
     width          : calc(50% - 2px);
@@ -81,12 +78,17 @@ input:focus {
 
 .button__action, .button__action:visited, .button__action:active,
 .button__link, .button__link:visited, .button__link:active {
-    display     : block;
-    margin      : 8px 0;
-    height      : 20px;
-    line-height : 20px;
-    font-size   : 15px;
-    color       : rgb(77, 84, 92);
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background: #ddd;
+    color: #808284;
+    display: block;
+    position: relative;
 }
 
 .button__action__text:hover,
@@ -111,35 +113,40 @@ input:focus {
  */
 
 .tracking-protection {
-    padding-top : 16px;
-    height: 187px;
-    background: url(../img/fond-dino.jpg) no-repeat center;
+    padding: 0 32px;
 }
 
 .tracking-protection__title {
-    font-family    : 'LuckiestGuy-Regular', Helvetica, "Droid Sans", Arial, sans-serif;
-    text-transform : uppercase;
+    font-family    : Helvetica, "Droid Sans", Arial, sans-serif;
     font-size      : 16px;
     padding: 0 48px;
 }
 
 .tracking-protection__content {
-    display     : table;
-    padding : 4px 48px;
+    padding : 20px 30px;
+    text-align: center;
+    background: #00b353;
+    border-radius: 7px;
+    position: relative;
+    height: 140px;
 }
 
-.tracking-protection__content__element {
-    display        : table-cell;
-    vertical-align : middle;
-}
-
-.tracking-protection__content__icon {
+.tracking-protection__content__toggle {
+    padding-bottom: 15px;
+    text-align: initial;
 }
 
 .tracking-protection__content__text {
     display   : block;
     padding   : 0 14px;
-    font-size : 14px;
+    color: white;
+    font-family: Helvetica, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    max-width: 350px;
+    left: 0;
+    text-align: center;
 }
 
 .tracking-protection__content__button {
@@ -179,11 +186,10 @@ input:focus {
 /**
  * Checkbox
  */
-
 label {
     display    : inline-block;
-    background : #FFF;
     cursor     : pointer;
+    margin-left: calc(50% - 31px);
 }
 
 label > input {
@@ -192,15 +198,14 @@ label > input {
 
 label i {
     display        : inline-block;
-    float          : right;
     padding        : 2px;
-    width          : 40px;
-    height         : 20px;
-    border-radius  : 13px;
+    width          : 58px;
+    height         : 30px;
+    border-radius  : 16px;
+    background    : #FFF;
     vertical-align : middle;
     transition     : .25s .09s;
     position       : relative;
-    background     : rgb(240, 83, 80);
     box-sizing     : initial;
 }
 
@@ -210,20 +215,18 @@ label i:after {
     width         : 30px;
     height        : 30px;
     border-radius : 50%;
-    background    : #FFF;
+    background     : #00b353;
     position      : absolute;
-    top           : -4px;
-    left          : -2px;
+    top           : 2px;
+    left          : 2px;
     transition    : .25s;
-    box-shadow    : 2px 2px 5px rgba(16, 20, 28, 0.2);
 }
 
 label > input:checked + i {
-    background : rgb(140, 225, 150);
 }
 
 label > input:checked + i:after {
-    transform : translateX(20px);
+    transform : translateX(28px);
 }
 
 label > input:checked + i:after:hover {
@@ -255,10 +258,6 @@ label > input:checked + i:after:hover {
     height : 18px;
     margin : 18px 32px 0 0;
 }
-
-.footer__informations__icon {
-}
-
 /**
  * Tooltip
  */
@@ -299,25 +298,4 @@ label > input:checked + i:after:hover {
 .tooltip__informations__list__element a, .tooltip__informations__list__element a:active, .tooltip__informations__list__element a:visited {
     color     : rgba(42, 44, 48, 0.48);
     font-size : 14px;
-}
-
-.search__bar {
-    height: 40px;
-    width: 100%;
-    border-bottom: 2px solid #e1e1e1;
-    padding: 0 0 0 30px;
-}
-
-.search__bar__input {
-    border: none;
-    width: 245px;
-    margin-left: 25px;
-    font-size: 15px;
-    padding: 5px;
-    height: 37px;
-    color: rgb(74, 76, 78);
-}
-
-.search__bar__input::-moz-placeholder {
-    color: #9999b4;
 }

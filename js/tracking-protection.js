@@ -4,19 +4,20 @@ var textElement = document.querySelectorAll(".tracking-protection__content__text
 var textOK = "";
 var textKO = "";
 
-var changeTPIcon = function (state) {
-    var icon = document.querySelectorAll(".tracking-protection__content__icon")[0];
-    if (state === true) {
-        icon.classList.remove("icon__tracking-protection--disabled");
-        icon.classList.add("icon__tracking-protection--enabled");
-    } else {
-        icon.classList.remove("icon__tracking-protection--enabled");
-        icon.classList.add("icon__tracking-protection--disabled");
-    }
-};
 
 var changeText = function (state) {
     textElement.textContent = state ? textOK : textKO;
+    textElement.style.color = state ? '#fff' : '#626466';
+};
+
+var changeStyle = function (state) {
+    if (state) {
+        document.querySelectorAll(".tracking-protection__content")[0].style.background = '#00b353';
+        document.querySelectorAll(".tracking-protection__content")[0].style.border     = 'none';
+    } else {
+        document.querySelectorAll(".tracking-protection__content")[0].style.background = '#f5f5f5';
+        document.querySelectorAll(".tracking-protection__content")[0].style.border     = '1px solid #d4d4d4';
+    }
 };
 
 function onSet(result) {
@@ -39,16 +40,16 @@ document.querySelectorAll(".tracking-protection__content__button")[0]
 
         if (checkbox.checked === true) {
             browser.runtime.sendMessage({name: "tracking_protection_on"});
-            changeTPIcon(true);
             changeText(true);
+            changeStyle(true);
             var setting = browser.privacy.websites.trackingProtectionMode.set({
                 value: "always"
             });
             setting.then(onSet);
         } else {
             browser.runtime.sendMessage({name: "tracking_protection_off"});
-            changeTPIcon(false);
             changeText(false);
+            changeStyle(false);
             var setting = browser.privacy.websites.trackingProtectionMode.set({
                 value: "never"
             });
@@ -69,8 +70,8 @@ browser.runtime.onMessage.addListener((message, sender, callback) => {
 
             checkboxElement.style.display = "inherit";
             checkbox.checked = message.status;
-            changeTPIcon(message.status);
             changeText(message.status);
+            changeStyle(message.status);
             break;
     }
 });

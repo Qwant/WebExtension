@@ -38,25 +38,21 @@
             <span class="login__input__lost-password__text">__MSG_login_input_lost_password__</span>
         </a>
     </div>
-
     <div class="tracking-protection">
-        <h2 class="tracking-protection__title">__MSG_tracking_protection_title__</h2>
         <div class="tracking-protection__content">
-            <div class="tracking-protection__content__element">
-                <span class="tracking-protection__content__icon icon icon__tracking-protection--enabled"></span>
-            </div>
-            <div class="tracking-protection__content__element">
-                <a href="https://www.qwantjunior.com/extension/tracking-protection" target="_blank"
-                   class="tracking-protection__content__text">
-                    Enable all the privacy protection settings
-                </a>
-            </div>
-            <div class="tracking-protection__content__element">
+            <svg class="tracking_svg">
+                <use xlink:href="../img/spritesheet.svg#trackingprotection"></use>
+            </svg>
+            <div class="tracking-protection__content__toggle">
                 <label class="tracking-protection__content__button">
                     <input class="tracking-protection__content__button__checkbox" type="checkbox"/>
                     <i></i>
                 </label>
             </div>
+            <a href="https://www.qwantjunior.com/extension/tracking-protection" target="_blank"
+               class="tracking-protection__content__text">
+                Enable all the privacy protection settings
+            </a>
         </div>
     </div>
     <div class="reload-msg">
@@ -75,11 +71,14 @@
 </div>
 <div class="footer">
     <a class="footer__powered" href="https://www.qwantjunior.com" target="_blank">
-        <span class="icon icon__powered-by-qwant"></span>
+        <svg class="qjlogo-svg">
+            <use xlink:href="../img/spritesheet.svg#qwantjuniorlogo"></use>
+        </svg>
     </a>
     <a class="footer__informations" href="#">
-				<span class="footer__informations__icon icon icon__about">
-				</span>
+        <svg class="info-svg">
+            <use xlink:href="../img/spritesheet.svg#informations"></use>
+        </svg>
     </a>
 </div>
 <div class="tooltip__informations" style="display:none;">
