@@ -1,117 +1,3 @@
-.icon {
-    display: inline-block;
-    background: url('../img/spritesheet.png') no-repeat;
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (-o-min-device-pixel-ratio: 3/2),
-only screen and (min--moz-device-pixel-ratio: 1.5),
-only screen and (min-device-pixel-ratio: 1.5) {
-    .icon {
-        background: url('../img/spritesheet-x4.png') no-repeat;
-        background-size: 132px 180px;
-    }
-}
-
-/**
- * Login
- */
-
-.icon__settings, .icon__logout {
-    margin-right: 4px;
-}
-
-.icon__settings {
-    background-position: -12px -149px;
-    width: 12px;
-    height: 12px;
-}
-
-.icon__logout {
-    background-position: 0 -149px;
-    width: 12px;
-    height: 12px;
-}
-
-.icon__register {
-    background-position: -28px -237px;
-    width: 4px;
-    height: 9px;
-    margin: 2px 8px 1px;
-}
-
-.icon__lost__password {
-    background-position: -36px -148px;
-    width: 12px;
-    height: 12px;
-    margin: 1px 4px 0 0;
-}
-
-/**
- * Action buttons
- */
-
-.icon__board {
-    background: url(../img/bt-boards.png) no-repeat center;
-    width: 30px;
-    height: 30px;
-    margin: 1px 3px 1px 2px;
-}
-
-.icon__board__add {
-    background: url(../img/bt-plus.png) no-repeat center;
-    width: 30px;
-    height: 30px;
-}
-
-.icon__bookmark {
-    background-position: -2px -131px;
-    width: 16px;
-    height: 15px;
-    margin-bottom: 1px;
-}
-
-.icon__bookmark__add {
-    background-position: -21px -130px;
-    width: 18px;
-    height: 18px;
-}
-
-/**
- * Footer
- */
-
-.icon__powered-by-qwant {
-    background-position: -2px -162px;
-    width: 72px;
-    height: 32px;
-}
-
-.icon__about {
-    background-position: -1px -70px;
-    width: 18px;
-    height: 18px;
-}
-
-.icon__search__bar {
-    background-position: -60px -68px;
-    width: 20px;
-    height: 22px;
-    margin: 8px 0 0 0;
-    position: absolute;
-}
-
-.icon__search__submit {
-    background-position: -80px -68px;
-    width: 22px;
-    height: 20px;
-    position: absolute;
-    right: 25px;
-    top: 8px;
-    cursor: pointer;
-}
-
-
 /**
  * SVG
  */
@@ -156,4 +42,11 @@ only screen and (min-device-pixel-ratio: 1.5) {
     width: 60px;
     margin-left: calc(50% - 30px);
     margin-bottom: 20px;
+}
+
+.yes-svg, .no-svg {
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    top: 2px;
 }
