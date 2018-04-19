@@ -19,7 +19,6 @@
         "page": "html/background.html"
     },
     "chrome_settings_overrides": {
-        "homepage": "https://www.qwantjunior.com/?client=ext-firefox-hp",
         "search_provider": {
             "name": "Qwant Junior",
             "keyword": "qj",
