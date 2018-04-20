@@ -159,10 +159,8 @@ input:focus {
 
 .reload-msg {
     font-size: 14px;
-    padding-top: 10px;
-    border-top: 1px solid rgb(234, 235, 236);
     display: none;
-    padding-left: 3px;
+    padding: 10px 32px 0 32px;
 }
 
 .reload-msg .choices {
