@@ -38,6 +38,8 @@
         "tabs",
         "activeTab",
         "privacy",
+        "webRequest",
+        "webRequestBlocking",
         "https://*.qwant.com/*"
     ],
     "content_scripts": [
