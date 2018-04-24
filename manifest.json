@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_name__",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -33,7 +33,9 @@
     },
     "permissions": [
         "contextMenus",
-        "https://*.qwant.com/*"
+        "https://*.qwant.com/*",
+        "webRequest",
+        "webRequestBlocking"
     ],
     "content_scripts": [
         {
