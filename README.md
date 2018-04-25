@@ -1,4 +1,4 @@
-Qwant Extension
+Qwant WebExtension (for Firefox > 57)
 ================
 
-Qwant Extension sets Qwant.com as your default search engine and homepage.
+Qwant WebExtension sets Qwant.com as your default search engine and homepage.
