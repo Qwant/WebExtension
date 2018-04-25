@@ -1,4 +1,4 @@
-Qwant Extension
+Qwant Basic WebExtension
 ================
 
-Qwant Extension sets Qwant.com as your default search engine and homepage.
+Qwant Basic WebExtension sets Qwant.com as your default search engine only.
