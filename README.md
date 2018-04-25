@@ -1,4 +1,4 @@
-Qwant Extension
+Qwant WebExtension (for Google Chrome)
 ================
 
-Qwant Extension sets Qwant.com as your default search engine and homepage.
+Qwant WebExtension sets Qwant.com as your default search engine and homepage.
