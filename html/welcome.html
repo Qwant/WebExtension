@@ -12,25 +12,21 @@
 <div class="content">
     <div class="login__access">
         <a class="login__input__submit" href="#">
-            <span class="login__input__submit__label"><span>&#10145; </span><span>__MSG_buttons_login__</span></span>
+            <span class="login__input__submit__label">
+                <svg class="login_svg">
+                    <use xlink:href="../img/spritesheet.svg#login"></use>
+                </svg>
+                <span>__MSG_buttons_login__</span>
+            </span>
         </a>
     </div>
     <div class="welcome">
         <h1 class="welcome__title">__MSG_welcome_title__</h1>
-        <p class="welcome__text">__MSG_welcome_content__</p>
+        <p class="welcome__text">__MSG_welcome_content__<br />__MSG_welcome_content_2__</p>
     </div>
     <div class="buttons">
-        <a class="button__action button__action--board" href="#">
-            <svg class="newnote_svg">
-                <use xlink:href="../img/spritesheet.svg#newnote"></use>
-            </svg>
-            <span class="button__action__text button__action__text--board">__MSG_buttons_new_note__</span>
-        </a>
-        <a class="button__link button__link--board" href="#">
-            <svg class="notebook_svg">
-                <use xlink:href="../img/spritesheet.svg#notebook"></use>
-            </svg>
-            <span class="button__link__text button__link__text--board">__MSG_buttons_link_boards__</span>
+        <a class="button__action button__action--login" href="login.html">
+            <span class="button__action__text button__action__text--board">__MSG_button_action_login__</span>
         </a>
     </div>
     <div class="tracking-protection">

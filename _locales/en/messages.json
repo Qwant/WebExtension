@@ -24,7 +24,10 @@
         "message" : "Welcome to Qwant Junior Extension"
     },
     "welcome_content" :  {
-        "message" : "Use Qwant Junior as your search engine, block privacy trackers, archive and organize your favorite Web content"
+        "message" : "Use Qwant Junior as your search engine, block privacy trackers, archive and organize your favorite Web content."
+    },
+    "welcome_content_2" :  {
+        "message": ""
     },
     "login_title" :  {
         "message" : "Log into your account"
@@ -46,6 +49,15 @@
     },
     "login_input_lost_password" :  {
         "message" : "Lost password?"
+    },
+    "login_input_lost_passwd_or_register": {
+        "message": "No account yet, or forgot password?"
+    },
+    "login_click_here": {
+        "message": "Cliqk here"
+    },
+    "button_action_login": {
+        "message": "I log in"
     },
     "login_input_submit" :  {
         "message" : "Login"

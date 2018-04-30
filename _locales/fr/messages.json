@@ -26,10 +26,13 @@
         "message": "Bienvenue dans Qwant Junior pour Firefox !"
     },
     "welcome_content": {
-        "message": "Recherche et navigue dès maintenant en toute confidentialité. Si tu souhaites mémoriser tes paramètres ou écrire des notes dans les Carnets, connectes-toi à Qwant Junior."
+        "message": "Recherche et navigue dès maintenant en toute confidentialité."
+    },
+    "welcome_content_2": {
+        "message": "Si tu souhaites mémoriser tes paramètres ou écrire des notes dans les Carnets, connectes-toi à Qwant Junior."
     },
     "login_title": {
-        "message": "Connexion à ton compte Qwant Junior"
+        "message": "Connecte-toi à ton compte Qwant Junior"
     },
     "login_text": {
         "message": "Tu as besoin d'un compte Qwant Junior pour utiliser les carnets Qwant."
@@ -38,16 +41,25 @@
         "message": "Mes réglages"
     },
     "login_input_login_placeholder": {
-        "message": "Pseudonyme ou Email"
+        "message": "Pseudonyme ou e-mail"
     },
     "login_input_password_placeholder": {
-        "message": "Mot de Passe"
+        "message": "Mot de passe"
     },
     "login_input_register": {
         "message": "S'inscrire"
     },
     "login_input_lost_password": {
         "message": "Mot de passe perdu ?"
+    },
+    "login_input_lost_passwd_or_register": {
+        "message": "Pas encore de compte, ou mot de passe oublié ?"
+    },
+    "login_click_here": {
+        "message": "Clique ici"
+    },
+    "button_action_login": {
+        "message": "Je me connecte"
     },
     "login_input_submit": {
         "message": "Connexion"
@@ -98,7 +110,7 @@
         "message": "Protection contre le pistage"
     },
     "tracking_protection_content_enabled": {
-        "message": "Protection contre le pistage active"
+        "message": "Protection contre le pistage activée"
     },
     "tracking_protection_content_disabled": {
         "message": "Activer la protection contre le pistage"

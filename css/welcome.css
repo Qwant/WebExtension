@@ -1,6 +1,6 @@
 html, body {
     width: 350px;
-    min-height: 550px;
+    min-height: 570px;
 }
 
 .welcome {
@@ -8,16 +8,18 @@ html, body {
 }
 
 .welcome__title {
+    text-align: center;
     font-family: "Bangers-Regular";
-    font-size: 26px;
+    font-size: 32px;
+    line-height: 34px;
     font-weight: 200;
-    padding: 0 20px 0 0;
     letter-spacing: .03em;
     color          : #2098F6;
 }
 
 .welcome__text {
+    text-align: center;
     margin: 22px 0 0;
-    font-size: 14px;
-    line-height: 1.2rem;
+    font-size: 16px;
+    line-height: 20px;
 }

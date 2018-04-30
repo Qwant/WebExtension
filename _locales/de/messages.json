@@ -24,7 +24,10 @@
     "message": "Danke für das Installieren von Firefox für Qwant Junior."
   },
   "welcome_content": {
-    "message": "Recherchieren und Surfen Sie ab jetzt sicher und anonym. Um Ihre Favoriten, Einstellungen und Notizen speichern zu können, melden sie sich bitte an."
+    "message": "Recherchieren und Surfen Sie ab jetzt sicher und anonym."
+  },
+  "welcome_content_2": {
+    "message": "Um Ihre Favoriten, Einstellungen und Notizen speichern zu können, melden sie sich bitte an."
   },
   "login_title": {
     "message": "Zugriff auf Ihr Konto"
@@ -46,6 +49,15 @@
   },
   "login_input_lost_password": {
     "message": "Passwort vergessen?"
+  },
+  "login_input_lost_passwd_or_register": {
+    "message": "Noch kein Konto oder Passwort vergessen?"
+  },
+  "login_click_here": {
+    "message": "Klicken Sie hier"
+  },
+  "button_action_login": {
+    "message": "Ich verbinde"
   },
   "login_input_submit": {
     "message": "Anmelden"

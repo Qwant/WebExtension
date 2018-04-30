@@ -31,7 +31,7 @@
     top: 13px;
 }
 
-.settings_svg, .logout_svg {
+.settings_svg, .login_svg, .logout_svg {
     display: inline-block;
     width: 18px;
     height: 18px;
