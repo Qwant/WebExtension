@@ -43,15 +43,18 @@ html, body {
 .account__settings, .account__settings:visited, .account__settings:active,
 .account__logout, .account__logout:visited, .account__logout:active {
     display: block;
-    margin: 7px 0;
     font-size: 15px;
     color: rgb(77, 84, 92);
     position: absolute;
-    top: 10px;
+    top: 12px;
+}
+
+.account__logout, .account__logout:visited, .account__logout:active {
+    left: 12px;
 }
 
 .account__settings, .account__settings:visited, .account__settings:active {
-    right: 32px;
+    right: 12px;
 }
 
 .account__settings__text,
