@@ -26,10 +26,10 @@
         "message": "Bienvenue dans Qwant Junior pour Firefox !"
     },
     "welcome_content": {
-        "message": "Recherche et navigue dès maintenant en toute confidentialité."
+        "message": "Qwant Junior te fournit les meulleurs résultats et t'aide à te protéger sur internet."
     },
     "welcome_content_2": {
-        "message": "Si tu souhaites mémoriser tes paramètres ou écrire des notes dans les Carnets, connectes-toi à Qwant Junior."
+        "message": "Pour accéder aux carnets, écrire une note ou mémoriser tes paramètres, il te faut te connecter à ton compte Qwant Junior."
     },
     "login_title": {
         "message": "Connecte-toi à ton compte Qwant Junior"
@@ -114,6 +114,12 @@
     },
     "tracking_protection_content_disabled": {
         "message": "Activer la protection contre le pistage"
+    },
+    "tracking_protection_reload_enabled": {
+        "message": "Protection activée !"
+    },
+    "tracking_protection_reload_disabled": {
+        "message": "Protection désactivée !"
     },
     "informations_about": {
         "message": "A propos de l'extension"

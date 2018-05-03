@@ -113,6 +113,12 @@
   "tracking_protection_content_disabled": {
     "message": "Tracking-Schutz aktivieren"
   },
+  "tracking_protection_reload_enabled": {
+    "message": "Schutz aktiviert!"
+  },
+  "tracking_protection_reload_disabled": {
+    "message": "Schutz deaktiviert!"
+  },
   "informations_uninstall": {
     "message": "Die Erweiterung deinstallieren"
   },

@@ -27,17 +27,25 @@ function submitSearchBar() {
     }
 }
 
+function closeReloadMsg() {
+    document.body.style.height = parseInt(document.body.clientHeight - 50) + "px";
+    document.querySelectorAll('.reload-msg')[0].style.bottom = '-201px';
+    document.querySelectorAll('.overlay')[0].style.opacity = '0';
+    setTimeout(function(){
+        document.querySelectorAll('.reload-msg')[0].style.display = 'none';
+        document.querySelectorAll('.overlay')[0].style.display = 'none';
+    }, 500);
+}
+
 document.querySelectorAll(".reload-msg--yes")[0]
     .addEventListener('click', function() {
-        document.body.style.height = parseInt(document.body.clientHeight - 50) + "px";
-        document.querySelectorAll('.reload-msg')[0].style.display = 'none';
+        closeReloadMsg();
         browser.runtime.sendMessage({name: 'reload-tabs'});
     });
 
 document.querySelectorAll(".reload-msg--no")[0]
     .addEventListener('click', function() {
-        document.body.style.height = parseInt(document.body.clientHeight - 50) + "px";
-        document.querySelectorAll('.reload-msg')[0].style.display = 'none';
+        closeReloadMsg();
     });
 
 if (document.querySelectorAll(".search__bar__form")[0]) {

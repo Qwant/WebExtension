@@ -113,6 +113,12 @@
     "tracking_protection_content_disabled" :  {
         "message" : "Enable tracking protection"
     },
+    "tracking_protection_reload_enabled": {
+        "message": "Protection enabled!"
+    },
+    "tracking_protection_reload_disabled": {
+        "message": "Protection disabled!"
+    },
     "informations_about" :  {
         "message" : "About the addon"
     },

@@ -1,18 +1,18 @@
 "use strict";
 
 var textElement = document.querySelectorAll(".tracking-protection__content__text")[0];
-var textOK = "";
-var textKO = "";
+var textOK = "", textKO = "", reloadOK = "", reloadKO = "";
 
 
 var changeText = function (state) {
     textElement.textContent = state ? textOK : textKO;
     textElement.style.color = state ? '#fff' : '#626466';
+    document.querySelectorAll(".reload-title")[0].textContent = state ? reloadOK : reloadKO;
 };
 
 var changeStyle = function (state) {
     if (state) {
-        document.querySelectorAll(".tracking-protection__content")[0].style.background = '#00b353';
+        document.querySelectorAll(".tracking-protection__content")[0].style.background = 'linear-gradient(to bottom, #48b84d, #30a156)';
         document.querySelectorAll(".tracking-protection__content")[0].style.border     = 'none';
     } else {
         document.querySelectorAll(".tracking-protection__content")[0].style.background = '#f5f5f5';
@@ -35,7 +35,12 @@ document.querySelectorAll(".tracking-protection__content__button")[0]
         var blockDisplay = document.querySelectorAll('.reload-msg')[0].style.display;
         if (!blockDisplay || blockDisplay === 'none') {
             document.body.style.height = parseInt(document.body.clientHeight + 50) + "px";
+            document.querySelectorAll('.overlay')[0].style.display = 'block';
             document.querySelectorAll('.reload-msg')[0].style.display = 'block';
+            setTimeout(function() {
+                document.querySelectorAll('.overlay')[0].style.opacity = '.3';
+                document.querySelectorAll('.reload-msg')[0].style.bottom = '0';
+            }, 0);
         }
 
         if (checkbox.checked === true) {
@@ -67,6 +72,8 @@ browser.runtime.onMessage.addListener((message, sender, callback) => {
 
             textOK = message.text_enabled;
             textKO = message.text_disabled;
+            reloadOK = message.reload_enabled;
+            reloadKO = message.reload_disabled;
 
             checkboxElement.style.display = "inherit";
             checkbox.checked = message.status;

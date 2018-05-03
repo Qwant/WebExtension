@@ -1,18 +1,9 @@
-html, body {
-    width: 350px;
-    min-height: 550px;
-}
-
 .content {
     background: none;
 }
 
 .account {
-    margin: 16px 32px 0 32px;
-}
-
-.account__informations {
-    margin-bottom: 50px;
+    margin-top: 38px;
 }
 
 .account__avatar {
@@ -28,12 +19,28 @@ html, body {
     white-space: nowrap;
     overflow: hidden;
     font-family: "Bangers-Regular", Helvetica, "Droid Sans", Arial, sans-serif;
-    font-weight: 200;
-    letter-spacing: .05em;
-    font-size: 26px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    font-size: 28px;
+    line-height: 1.07;
     color          : #2098F6;
     text-align: center;
     display: inline-block;
+}
+
+.button__action, .button__action:visited, .button__action:active,
+.button__link, .button__link:visited, .button__link:active {
+    width: 272px;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    font-size: 16px;
+    margin: 16px auto;
+    border-radius: 7px;
+    background: #ddd;
+    color: #808284;
+    display: block;
+    position: relative;
 }
 
 .account__username:hover {
@@ -43,7 +50,7 @@ html, body {
 .account__settings, .account__settings:visited, .account__settings:active,
 .account__logout, .account__logout:visited, .account__logout:active {
     display: block;
-    font-size: 15px;
+    font-size: 12px;
     color: rgb(77, 84, 92);
     position: absolute;
     top: 12px;
@@ -59,10 +66,14 @@ html, body {
 
 .account__settings__text,
 .account__logout__text {
-    vertical-align: 6px;
+    vertical-align: 3px;
 }
 
 .account__settings__text:hover,
 .account__logout__text:hover {
     text-decoration: underline;
+}
+
+.tracking-protection__content {
+    margin-top: 24px;
 }

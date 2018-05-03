@@ -28,20 +28,20 @@
     opacity: .3;
     position: absolute;
     left: calc(50% - 57px);
-    top: 13px;
+    top: 8px;
 }
 
 .settings_svg, .login_svg, .logout_svg {
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
 }
 
 .dino_svg {
     height: 60px;
     width: 60px;
-    margin-left: calc(50% - 30px);
-    margin-bottom: 20px;
+    margin: 0 auto 16px auto;
+    display: block;
 }
 
 .yes-svg, .no-svg {

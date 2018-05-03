@@ -9,6 +9,7 @@
     <link rel="stylesheet" href='../css/account.css'/>
 </head>
 <body>
+<div class="overlay"></div>
 <div class="content">
     <div class="account">
         <div class="account__informations">
@@ -46,39 +47,25 @@
             <span class="button__link__text button__link__text--board">__MSG_buttons_link_boards__</span>
         </a>
     </div>
-    <div class="tracking-protection">
-        <div class="tracking-protection__content">
-            <svg class="tracking_svg">
-                <use xlink:href="../img/spritesheet.svg#trackingprotection"></use>
-            </svg>
-            <div class="tracking-protection__content__toggle">
-                <label class="tracking-protection__content__button">
-                    <input class="tracking-protection__content__button__checkbox" type="checkbox"/>
-                    <i></i>
-                </label>
-            </div>
-            <a href="https://www.qwantjunior.com/extension/tracking-protection" target="_blank"
-               class="tracking-protection__content__text">
-                Enable all the privacy protection settings
-            </a>
+    <div class="tracking-protection__content">
+        <svg class="tracking_svg">
+            <use xlink:href="../img/spritesheet.svg#trackingprotection"></use>
+        </svg>
+        <div class="tracking-protection__content__toggle">
+            <label class="tracking-protection__content__button">
+                <input class="tracking-protection__content__button__checkbox" type="checkbox"/>
+                <i></i>
+            </label>
         </div>
+        <a href="https://www.qwant.com/extension/tracking-protection" target="_blank"
+           class="tracking-protection__content__text">
+            Enable all the privacy protection settings
+        </a>
     </div>
     <div class="reload-msg">
-        __MSG_alert_reload__&nbsp;&nbsp;&nbsp;
-        <div class="choices">
-            <a href="javascript:void(0)" class="reload-msg--yes">
-                <svg class="yes-svg">
-                    <use width="13" height="13" xlink:href="../img/spritesheet.svg#yes"></use>
-                </svg>
-                <span>__MSG_yes__</span>
-            </a>
-            <a href="javascript:void(0)" class="reload-msg--no">
-                <svg class="no-svg">
-                    <use width="13" height="13" xlink:href="../img/spritesheet.svg#no"></use>
-                </svg>
-                <span>__MSG_no__</span>
-            </a>
-        </div>
+        <div class="reload-title">__MSG_tracking_protection_reload_enabled__</div>
+        <div class="reload-msg-content">__MSG_alert_reload__</div>
+        <div class="choices"><a href="javascript:void(0)" class="reload-msg--no"><span>__MSG_no__</span></a><a href="javascript:void(0)" class="reload-msg--yes"><span>__MSG_yes__</span></a></div>
     </div>
 </div>
 <div class="footer">
