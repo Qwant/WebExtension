@@ -7,7 +7,7 @@ html, body {
     height: 550px;
     margin        : 0;
     border-radius : 3px;
-    background    : white;
+    background    : white url(../img/background.svg) no-repeat top center;
     color         : rgb(74, 76, 78);
     font-family   : 'source_sans_proregular', Helvetica, "Droid Sans", Arial, sans-serif;
     overflow: hidden;
