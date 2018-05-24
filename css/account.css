@@ -37,8 +37,10 @@
     font-size: 16px;
     margin: 16px auto;
     border-radius: 7px;
-    background: #ddd;
-    color: #808284;
+    border    : 1px solid #d4d4d4;
+    box-sizing: border-box;
+    background: #F6F6F6;
+    color: #626466;
     display: block;
     position: relative;
 }
