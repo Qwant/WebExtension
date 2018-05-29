@@ -50,3 +50,94 @@
     position: absolute;
     top: 2px;
 }
+
+svg g svg {
+    overflow :visible;
+}
+
+@keyframes to-top-left {
+    0% {
+        display: block;
+        transform: translateX(33px) translateY(50px);
+    }
+
+    100% {
+        display: block;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes to-top-right-a {
+    0% {
+        transform: translateX(-46px) translateY(50px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes to-top-right-b {
+    0% {
+        transform: translateX(-27px) translateY(50px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes bouncing {
+    50% {
+        transform: scale(15);
+    }
+
+    100% {
+        transform: scale(10);
+    }
+}
+
+#teardrop-purple {
+    animation: to-top-left .3s ease-out forwards;
+}
+
+#teardrop-blue-a {
+    animation: to-top-right-a .3s ease-out forwards;
+}
+
+#teardrop-blue-b {
+    animation: to-top-right-b .3s ease-out forwards;
+}
+
+#teardrop-yellow {
+    animation: to-top-right-b .3s ease-out forwards;
+}
+
+.circle {
+    animation: bouncing .5s ease-out forwards;
+}
+
+#circle-red {
+    transform-origin: 40px 222px;
+    animation-delay: .1s
+}
+
+#circle-yellow {
+    transform-origin: 209px 23px;
+    animation-delay: .2s
+}
+
+#circle-green {
+    transform-origin: 362px 70px;
+    animation-delay: .3s
+}
+
+#circle-purple {
+    transform-origin: 355.5px 295.5px;
+    animation-delay: .4s
+}
+
+#circle-orange {
+    transform-origin: 372.5px 436.5px;
+    animation-delay: .5s
+}
