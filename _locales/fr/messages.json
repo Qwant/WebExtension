@@ -17,13 +17,13 @@
         "message": "Non"
     },
     "toolbar_button_text": {
-        "message": "Qwant pour Firefox"
+        "message": "Qwant pour Chrome"
     },
     "search_placeholder": {
         "message": "Que recherchez-vous ?"
     },
     "welcome_title": {
-        "message": "Bienvenue dans Qwant pour Firefox !"
+        "message": "Bienvenue dans Qwant pour Chrome !"
     },
     "welcome_content": {
         "message": "Recherchez et naviguez dès maintenant en toute confidentialitè. Si vous souhaitez mémoriser vos favoris, vos paramètres ou écrire des notes dans les Carnets, connectez-vous à Qwant."
