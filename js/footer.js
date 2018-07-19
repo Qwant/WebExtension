@@ -18,16 +18,11 @@ document.querySelectorAll(".footer__powered")[0]
     });
 
 document.querySelectorAll(".tooltip__informations__list__element")[0]
-    .addEventListener("click", function () {
-        chrome.runtime.sendMessage({name: "close-popup"});
-    });
-
-document.querySelectorAll(".tooltip__informations__list__element")[1]
     .addEventListener('click', function() {
         chrome.runtime.sendMessage({name: 'uninstall'});
     });
 
-document.querySelectorAll(".tooltip__informations__list__element")[2]
+document.querySelectorAll(".tooltip__informations__list__element")[1]
     .addEventListener("click", function () {
         chrome.runtime.sendMessage({name: "close-popup"});
     });
