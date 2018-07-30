@@ -1,7 +1,5 @@
 browser.runtime.sendMessage({name: "popup_loaded"});
-//console.log('common events loaded');
 browser.runtime.onMessage.addListener((message, sender, callback) => {
-    //console.log('common-events:message', message);
     switch (message.name) {
         case "close-popup":
             closePopup(message.timeout);
