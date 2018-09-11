@@ -15,7 +15,6 @@ document.addEventListener("qwant_website_login", function () {
 });
 
 document.addEventListener("qwant_website_logout", function () {
-    //console.log("events.js: qwant_website_logout");
     browser.runtime.sendMessage({name: "qwant_website_logout"});
 });
 
@@ -56,7 +55,12 @@ browser.runtime.onMessage.addListener((message, sender, callback) => {
                     avatar: message.user.avatar,
                     session_token: message.user.session_token
                 });
-                localStorage.setItem('userExtension', json);
+                
+                if (window.location.href.match(/^https:\/\/www\.qwantjunior\.com\/carnets/)) {
+                    window.wrappedJSObject.CrossDomainStore.store('userExtension', json);
+                } else {
+                    localStorage.setItem('userExtension', json);
+                }
                 document.dispatchEvent(new CustomEvent("qwant_extension_login"));
             }
             break;
