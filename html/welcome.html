@@ -9,54 +9,29 @@
     <link rel="stylesheet" href='../css/welcome.css'/>
 </head>
 <body>
+<header class="banner"></header>
 <div class="search__bar">
     <form class="search__bar__form">
-        <div class="icon icon__search__bar"></div>
+        <div class="icon__search__bar"></div>
         <input type="search" class="search__bar__input" autofocus="autofocus" placeholder="__MSG_search_placeholder__" />
-        <div class="icon icon__search__submit"></div>
+        <div class="icon__search__submit"></div>
     </form>
+    <a class="footer__informations" href="#">
+        <span class="footer__informations__icon icon icon__about"></span>
+    </a>
 </div>
 <div class="content">
-    <div class="login__access">
-        <a class="login__input__submit" href="#">
-            <span class="login__input__submit__label"><span>&#10145; </span><span>__MSG_buttons_login__</span></span>
-        </a>
-    </div>
     <div class="welcome">
         <h1 class="welcome__title">__MSG_welcome_title__</h1>
         <p class="welcome__text">__MSG_welcome_content__</p>
     </div>
     <div class="buttons">
-        <div class="buttons__actions">
-            <a class="button__action button__action--board" href="#">
-                <span class="button__action__icon button__action__icon--board icon icon__board__add"></span>
-                <span class="button__action__text button__action__text--board">__MSG_buttons_new_note__</span>
-            </a>
-            <a class="button__action button__action--bookmark" href="#">
-                <span class="button__action__icon button__action__icon--bookmark icon icon__bookmark__add"></span>
-                <span class="button__action__text button__action__text--bookmark">__MSG_buttons_new_bookmark__</span>
-            </a>
-        </div>
-        <div class="buttons__links">
-            <a class="button__link button__link--board" href="#">
-                <span class="button__link__icon button__link__icon--board icon icon__board"></span>
-                <span class="button__link__text button__link__text--board">__MSG_buttons_link_boards__</span>
-            </a>
-            <a class="button__link button__link--bookmark" href="#">
-                <span class="button__link__icon button__link__icon--bookmarks icon icon__bookmark"></span>
-                <span class="button__link__text button__link__text--bookmarks">__MSG_buttons_link_bookmark__</span>
-            </a>
-        </div>
+        <a href="login.html"><button class="login-btn">__MSG_buttons_login__</button></a>
     </div>
     <div class="tracking-protection">
-        <h2 class="tracking-protection__title">__MSG_tracking_protection_title__</h2>
         <div class="tracking-protection__content">
-            <div class="tracking-protection__content__element">
-                <span class="tracking-protection__content__icon icon icon__tracking-protection--enabled"></span>
-            </div>
-            <div class="tracking-protection__content__element">
-                <a href="javascript:void(0);" target="_blank"
-                   class="tracking-protection__content__text">
+            <div class="tracking-protection__content__element tracking-protection__title">
+                <a href="https://www.qwant.com/extension/tracking-protection" target="_blank" class="tracking-protection__content__text">
                     Enable all the privacy protection settings
                 </a>
             </div>
@@ -68,28 +43,19 @@
             </div>
         </div>
     </div>
-    <div class="reload-msg">
-        __MSG_alert_reload__&nbsp;&nbsp;&nbsp;
-        <div class="choices">
-            <a href="javascript:void(0)" class="reload-msg--yes">
-                <img width="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAEn/YnUAAAAJBJREFUOMvN1LENwjAQheHfXsAeIb0br4CyACNks7ABE1iMgBt6RggbUBElYOOzdBJc/d5XPR3887kUBquIzcDVKmITcDeKWAYORhN7jLfFaGIA1qVwdCl4DQzAAmfgIkW/YS/wBEQJ2sIAjDQoyaxgqyDFdmCt2IN9gAU092BF8A2lB6uCGzT2YJLN+Z//xCf7tmbNxKpAmAAAAABJRU5ErkJggg==" />
-                <span>__MSG_yes__</span>
-            </a>
-            <a href="javascript:void(0)" class="reload-msg--no">
-                <img width="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAXG0hmjgAAALdJREFUOMvV08ENhCAQheEfK6AES9jtYOmAhEZszMQOtIOlBEqghL2MCWsQhsMeluP48mXEJ/zy5OCXHLwdyNsc/FLOTPFwBt5AApxdt9zDgB2YgaddtwQwnQEZOAnsrU0vmDuxrw2L8EPC1U0rWKy+sgbtYbdgDZVxE2uCFZQe1gUFfQmKYEcrbwaqgaZSRluN4g6bqFH2LGoqddfDZjV6qBnBNKgZxXrodMklDSb/fpSPlfir8wELsYQ5+oxVAQAAAABJRU5ErkJggg==" />
-                <span>__MSG_no__</span>
-            </a>
-        </div>
-    </div>
 </div>
-<div class="footer">
-    <a class="footer__powered" href="https://www.qwant.com" target="_blank">
-        <span class="icon icon__powered-by-qwant"></span>
-    </a>
-    <a class="footer__informations" href="#">
-				<span class="footer__informations__icon icon icon__about">
-				</span>
-    </a>
+<div class="reload-msg">
+    __MSG_alert_reload__&nbsp;&nbsp;&nbsp;
+    <div class="choices">
+        <a href="javascript:void(0)" class="reload-msg--yes">
+            <img width="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAEn/YnUAAAAJBJREFUOMvN1LENwjAQheHfXsAeIb0br4CyACNks7ABE1iMgBt6RggbUBElYOOzdBJc/d5XPR3887kUBquIzcDVKmITcDeKWAYORhN7jLfFaGIA1qVwdCl4DQzAAmfgIkW/YS/wBEQJ2sIAjDQoyaxgqyDFdmCt2IN9gAU092BF8A2lB6uCGzT2YJLN+Z//xCf7tmbNxKpAmAAAAABJRU5ErkJggg==" />
+            <span>__MSG_yes__</span>
+        </a>
+        <a href="javascript:void(0)" class="reload-msg--no">
+            <img width="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAXG0hmjgAAALdJREFUOMvV08ENhCAQheEfK6AES9jtYOmAhEZszMQOtIOlBEqghL2MCWsQhsMeluP48mXEJ/zy5OCXHLwdyNsc/FLOTPFwBt5AApxdt9zDgB2YgaddtwQwnQEZOAnsrU0vmDuxrw2L8EPC1U0rWKy+sgbtYbdgDZVxE2uCFZQe1gUFfQmKYEcrbwaqgaZSRluN4g6bqFH2LGoqddfDZjV6qBnBNKgZxXrodMklDSb/fpSPlfir8wELsYQ5+oxVAQAAAABJRU5ErkJggg==" />
+            <span>__MSG_no__</span>
+        </a>
+    </div>
 </div>
 <div class="tooltip__informations" style="display:none;">
     <ul class="tooltip__informations__list">
