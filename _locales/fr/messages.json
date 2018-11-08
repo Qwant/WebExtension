@@ -34,6 +34,9 @@
     "login_text": {
         "message": "Vous devez disposer d'un compte Qwant pour utiliser les Carnets ou les Favoris."
     },
+    "login_register": {
+        "message": "Pas encore de compte ?"
+    },
     "account_settings": {
         "message": "Mes réglages"
     },
@@ -97,11 +100,17 @@
     "tracking_protection_title": {
         "message": "Protection contre le pistage"
     },
+    "tracking_protection_title_enabled": {
+        "message": "Protection activée !"
+    },
+    "tracking_protection_title_disabled": {
+        "message": "Protection désactivée !"
+    },
     "tracking_protection_content_enabled": {
-        "message": "Protection contre le pistage active"
+        "message": "Protection contre le pistage activée"
     },
     "tracking_protection_content_disabled": {
-        "message": "Activer la protection contre le pistage"
+        "message": "Protection contre le pistage désactivée"
     },
     "informations_about": {
         "message": "A propos de l'extension"

@@ -32,6 +32,9 @@
     "login_text" :  {
         "message" : "You need a Qwant account to be able to use Qwant Boards or Qwant Bookmarks."
     },
+    "login_register": {
+        "message": "No account yet?"
+    },
     "account_settings" :  {
         "message" : "My settings"
     },
@@ -94,6 +97,12 @@
     },
     "tracking_protection_title" :  {
         "message" : "Tracking Protection"
+    },
+    "tracking_protection_title_enabled": {
+        "message": "Protection enabled!"
+    },
+    "tracking_protection_title_disabled": {
+        "message": "Protection disabled!"
     },
     "tracking_protection_content_enabled" :  {
         "message" : "Tracking protection activated"

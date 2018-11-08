@@ -2,32 +2,40 @@
 
 var tooltip = document.querySelectorAll(".tooltip__informations")[0];
 
-document.querySelectorAll(".footer__informations")[0]
-    .addEventListener("click", function () {
-        tooltip.style.display = tooltip.style.display === 'none' ? 'inherit' : 'none';
-    });
+if (document.querySelectorAll(".footer__informations") && document.querySelectorAll(".footer__informations").length > 0) {
+    document.querySelectorAll(".footer__informations")[0]
+        .addEventListener("click", function () {
+            console.log(tooltip.style.top);
+            tooltip.style.top = /^0(px)?$/.test(tooltip.style.top) ? '-100vh' : '0';
+            console.log(tooltip.style.top, /^0(px)?$/.test(tooltip.style.top) ? 'close' : 'info')
+            this.style.backgroundImage = /^0(px)?$/.test(tooltip.style.top) ? 'url(../img/svg/close.svg)' : 'url(../img/svg/info.svg)';
+        });
+}
 
-document.querySelectorAll(".content")[0]
-    .addEventListener("click", function () {
-        tooltip.style.display = 'none';
-    });
+if (document.querySelectorAll(".content") && document.querySelectorAll(".content").length > 0) {
+    document.querySelectorAll(".content")[0]
+        .addEventListener("click", function () {
+            tooltip.style.top = '-100vh';
+        });
+}
 
-document.querySelectorAll(".footer__powered")[0]
-    .addEventListener("click", function () {
-        browser.runtime.sendMessage({name: "close-popup"});
-    });
+if (document.querySelectorAll(".tooltip__informations__list__element") && document.querySelectorAll(".tooltip__informations__list__element").length > 0) {
+    document.querySelectorAll(".tooltip__informations__list__element")[0]
+        .addEventListener("click", function () {
+            browser.runtime.sendMessage({name: "close-popup"});
+        });
+}
 
-document.querySelectorAll(".tooltip__informations__list__element")[0]
-    .addEventListener("click", function () {
-        browser.runtime.sendMessage({name: "close-popup"});
-    });
+if (document.querySelectorAll(".tooltip__informations__list__element") && document.querySelectorAll(".tooltip__informations__list__element").length > 0) {
+    document.querySelectorAll(".tooltip__informations__list__element")[1]
+        .addEventListener('click', function () {
+            browser.runtime.sendMessage({name: 'uninstall'});
+        });
+}
 
-document.querySelectorAll(".tooltip__informations__list__element")[1]
-    .addEventListener('click', function() {
-        browser.runtime.sendMessage({name: 'uninstall'});
-    });
-
-document.querySelectorAll(".tooltip__informations__list__element")[2]
-    .addEventListener("click", function () {
-        browser.runtime.sendMessage({name: "close-popup"});
-    });
+if (document.querySelectorAll(".tooltip__informations__list__element") && document.querySelectorAll(".tooltip__informations__list__element").length > 0) {
+    document.querySelectorAll(".tooltip__informations__list__element")[2]
+        .addEventListener("click", function () {
+            browser.runtime.sendMessage({name: "close-popup"});
+        });
+}

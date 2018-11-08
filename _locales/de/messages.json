@@ -32,6 +32,9 @@
   "login_text": {
     "message": "Sie benötigen ein Konto bei Qwant, um die Qwant Foren oder Qwant Lesezeichen zu verwenden."
   },
+  "login_register": {
+    "message": "Noch kein Konto?"
+  },
   "account_settings": {
     "message": "Meine Einstellungen"
   },
@@ -94,6 +97,12 @@
   },
   "tracking_protection_title": {
     "message": "Tracking-Schutz"
+  },
+  "tracking_protection_title_enabled": {
+    "message": "Schutz aktiviert!"
+  },
+  "tracking_protection_title_disabled": {
+    "message": "Schutz deaktiviert!"
   },
   "tracking_protection_content_enabled": {
     "message": "Tracking-Schutz aktiviert"

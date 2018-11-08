@@ -25,19 +25,6 @@ function submitSearchBar() {
     }
 }
 
-document.querySelectorAll(".reload-msg--yes")[0]
-    .addEventListener('click', function() {
-        document.body.style.height = parseInt(document.body.clientHeight - 50) + "px";
-        document.querySelectorAll('.reload-msg')[0].style.display = 'none';
-        browser.runtime.sendMessage({name: 'reload-tabs'});
-    });
-
-document.querySelectorAll(".reload-msg--no")[0]
-    .addEventListener('click', function() {
-        document.body.style.height = parseInt(document.body.clientHeight - 50) + "px";
-        document.querySelectorAll('.reload-msg')[0].style.display = 'none';
-    });
-
 document.querySelectorAll(".search__bar__form")[0]
     .addEventListener('submit', function() {
         submitSearchBar();

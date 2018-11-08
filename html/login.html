@@ -9,103 +9,39 @@
     <link rel="stylesheet" href='../css/login.css'/>
 </head>
 <body>
-<div class="search__bar">
-    <form class="search__bar__form">
-        <div class="icon icon__search__bar"></div>
-        <input type="search" class="search__bar__input" autofocus="autofocus" placeholder="__MSG_search_placeholder__" />
-        <div class="icon icon__search__submit"></div>
-    </form>
-</div>
-<div class="content">
-    <div class="login">
-        <h1 class="login__title">__MSG_login_title__</h1>
-        <p class="login__text">__MSG_login_text__</p>
+    <div class="content">
+        <div class="login_form">
+            <a href="welcome.html" class="back_btn">__MSG_buttons_previous__</a>
+            <h1 class="login__title">__MSG_login_title__</h1>
+            <p class="login__text">__MSG_login_text__</p>
 
-        <form>
-            <input class="login__input__login" type="text" name="login" placeholder="__MSG_login_input_login_placeholder__"
-            autofocus
-            required />
-            <input class="login__input__password" type="password" name="password" placeholder="__MSG_login_input_password_placeholder__"
-            required />
+            <form class="login_form__form">
+                <label class="login__input__login__label" for="login__input__login">__MSG_login_input_login_placeholder__</label>
+                <input class="login__input__login" id="login__input__login" type="text" name="login" placeholder="mail@example.com" autofocus required />
+                <label class="login__input__password__label" for="login__input__password">__MSG_login_input_password_placeholder__</label>
+                <input class="login__input__password" id="login__input__password" type="password" name="password" placeholder="• • • • • • • • • • • •" required />
 
-            <img class="login__input__loader" src="../img/loader.gif"/>
-            <div class="login-error">*__MSG_error_105_message__</div>
-            <a class="login__input__submit" href="#">
-                <span class="login__input__submit__label">__MSG_login_input_submit__</span>
-            </a>
-        </form>
+                <div class="login-error">*__MSG_error_105_message__</div>
+                <a class="login__input__submit" href="#">
+                    <span class="login__input__submit__label">__MSG_login_input_submit__</span>
+                </a>
+            </form>
 
-
-        <a class="login__input__register" href="https://www.qwant.com/register" target="_blank">
-            <span class="login__input__register__icon icon icon__register"></span>
-            <span class="login__input__register__text">__MSG_login_input_register__</span>
-        </a>
-        <a class="login__input__lost-password" href="https://www.qwant.com/password_lost" target="_blank">
-            <span class="login__input__lost-password__icon icon icon__lost__password "></span>
-            <span class="login__input__lost-password__text">__MSG_login_input_lost_password__</span>
-        </a>
-    </div>
-
-    <div class="tracking-protection">
-        <h2 class="tracking-protection__title">__MSG_tracking_protection_title__</h2>
-        <div class="tracking-protection__content">
-            <div class="tracking-protection__content__element">
-                <span class="tracking-protection__content__icon icon icon__tracking-protection--enabled"></span>
-            </div>
-            <div class="tracking-protection__content__element">
-                <a href="https://www.qwant.com/extension/tracking-protection" target="_blank"
-                   class="tracking-protection__content__text">
-                    Enable all the privacy protection settings
+            <div class="login__input__lost-password__div">
+                <a class="login__input__lost-password" href="https://www.qwant.com/password_lost" target="_blank">
+                    <span class="login__input__lost-password__text">__MSG_login_input_lost_password__</span>
                 </a>
             </div>
-            <div class="tracking-protection__content__element">
-                <label class="tracking-protection__content__button">
-                    <input class="tracking-protection__content__button__checkbox" type="checkbox"/>
-                    <i></i>
-                </label>
-            </div>
         </div>
-    </div>
-    <div class="reload-msg">
-        __MSG_alert_reload__&nbsp;&nbsp;&nbsp;
-        <div class="choices">
-            <a href="javascript:void(0)" class="reload-msg--yes">
-                <img width="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAEn/YnUAAAAJBJREFUOMvN1LENwjAQheHfXsAeIb0br4CyACNks7ABE1iMgBt6RggbUBElYOOzdBJc/d5XPR3887kUBquIzcDVKmITcDeKWAYORhN7jLfFaGIA1qVwdCl4DQzAAmfgIkW/YS/wBEQJ2sIAjDQoyaxgqyDFdmCt2IN9gAU092BF8A2lB6uCGzT2YJLN+Z//xCf7tmbNxKpAmAAAAABJRU5ErkJggg==" />
-                <span>__MSG_yes__</span>
-            </a>
-            <a href="javascript:void(0)" class="reload-msg--no">
-                <img width="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAXG0hmjgAAALdJREFUOMvV08ENhCAQheEfK6AES9jtYOmAhEZszMQOtIOlBEqghL2MCWsQhsMeluP48mXEJ/zy5OCXHLwdyNsc/FLOTPFwBt5AApxdt9zDgB2YgaddtwQwnQEZOAnsrU0vmDuxrw2L8EPC1U0rWKy+sgbtYbdgDZVxE2uCFZQe1gUFfQmKYEcrbwaqgaZSRluN4g6bqFH2LGoqddfDZjV6qBnBNKgZxXrodMklDSb/fpSPlfir8wELsYQ5+oxVAQAAAABJRU5ErkJggg==" />
-                <span>__MSG_no__</span>
+        <div class="login__input__register__div">
+            <h2>__MSG_login_register__</h2>
+            <a class="login__input__register" href="https://www.qwant.com/register" target="_blank">
+                <span class="login__input__register__text">__MSG_login_input_register__</span>
             </a>
         </div>
     </div>
-</div>
-<div class="footer">
-    <a class="footer__powered" href="https://www.qwant.com" target="_blank">
-        <span class="icon icon__powered-by-qwant"></span>
-    </a>
-    <a class="footer__informations" href="#">
-				<span class="footer__informations__icon icon icon__about">
-				</span>
-    </a>
-</div>
-<div class="tooltip__informations" style="display:none;">
-    <ul class="tooltip__informations__list">
-        <li class="tooltip__informations__list__element">
-            <a href="https://www.qwant.com/extension/firefox/about" target="_blank">__MSG_informations_about__</a>
-        </li>
-        <li class="tooltip__informations__list__element">
-            <a href="javascript:void(0)">__MSG_informations_uninstall__</a>
-        </li>
-        <li class="tooltip__informations__list__element">
-            <a href="https://www.qwant.com/contact" target="_blank">__MSG_informations_contact__</a>
-        </li>
-    </ul>
-</div>
 </body>
 <script src="../lib/i18n.js"></script>
 <script src="../js/common-events.js"></script>
-<script src="../js/tracking-protection.js"></script>
 <script src="../js/login.js"></script>
-<script src="../js/footer.js"></script>
 </html>
