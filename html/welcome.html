@@ -45,23 +45,23 @@
     </div>
 </div>
 <div class="reload-msg">
-    __MSG_alert_reload__&nbsp;&nbsp;&nbsp;
-    <div class="choices">
-        <a href="javascript:void(0)" class="reload-msg--yes">
-            <img width="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAEn/YnUAAAAJBJREFUOMvN1LENwjAQheHfXsAeIb0br4CyACNks7ABE1iMgBt6RggbUBElYOOzdBJc/d5XPR3887kUBquIzcDVKmITcDeKWAYORhN7jLfFaGIA1qVwdCl4DQzAAmfgIkW/YS/wBEQJ2sIAjDQoyaxgqyDFdmCt2IN9gAU092BF8A2lB6uCGzT2YJLN+Z//xCf7tmbNxKpAmAAAAABJRU5ErkJggg==" />
-            <span>__MSG_yes__</span>
-        </a>
-        <a href="javascript:void(0)" class="reload-msg--no">
-            <img width="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QUYDzAXG0hmjgAAALdJREFUOMvV08ENhCAQheEfK6AES9jtYOmAhEZszMQOtIOlBEqghL2MCWsQhsMeluP48mXEJ/zy5OCXHLwdyNsc/FLOTPFwBt5AApxdt9zDgB2YgaddtwQwnQEZOAnsrU0vmDuxrw2L8EPC1U0rWKy+sgbtYbdgDZVxE2uCFZQe1gUFfQmKYEcrbwaqgaZSRluN4g6bqFH2LGoqddfDZjV6qBnBNKgZxXrodMklDSb/fpSPlfir8wELsYQ5+oxVAQAAAABJRU5ErkJggg==" />
-            <span>__MSG_no__</span>
-        </a>
+    <img class="reload-msg_img" src="../img/svg/protection-enabled.svg" />
+    <div class="reload-msg_choices">
+        <div class="reload-msg_title">__MSG_tracking_protection_title_enabled__</div>
+        <div class="reload-msg_content">__MSG_alert_reload__</div>
+        <div class="reload-msg_btns">
+            <a href="javascript:void(0)" class="reload-msg--no">__MSG_no__</a>
+            <a href="javascript:void(0)" class="reload-msg--yes">__MSG_yes__</a>
+        </div>
     </div>
 </div>
-<div class="tooltip__informations" style="display:none;">
+<div class="tooltip__informations">
     <ul class="tooltip__informations__list">
         <li class="tooltip__informations__list__element">
-            <a href="javascript:void(0)">__MSG_informations_uninstall__</a>
+            <a href="https://www.qwant.com/extension/firefox/about" target="_blank">__MSG_informations_about__</a>
         </li>
+        <li class="tooltip__informations__list__element">
+            <a href="#">__MSG_informations_uninstall__</a>
         <li class="tooltip__informations__list__element">
             <a href="https://www.qwant.com/contact" target="_blank">__MSG_informations_contact__</a>
         </li>
@@ -70,6 +70,7 @@
 </body>
 
 <script src="../lib/i18n.js"></script>
+<script src="../lib/localization.js"></script>
 <script src="../js/common-events.js"></script>
 <script src="../js/tracking-protection.js"></script>
 <script src="../js/welcome.js"></script>

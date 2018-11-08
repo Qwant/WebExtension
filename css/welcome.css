@@ -29,4 +29,5 @@ html, body {
     padding: 10px 22px;
     color: #f4f6fa;
     margin-top: 24px;
+    cursor: pointer;
 }

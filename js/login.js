@@ -1,22 +1,5 @@
 "use strict";
-
-var hideSubmit = function () {
-    var loginDiv = document.querySelectorAll(".login")[0];
-    var submitButton = document.querySelectorAll(".login__input__submit")[0];
-    var loader = document.querySelectorAll(".login__input__loader")[0];
-
-    loader.style.display = "block";
-    submitButton.style.display = "none";
-
-};
-var displaySubmit = function () {
-    var loginDiv = document.querySelectorAll(".login")[0];
-    var submitButton = document.querySelectorAll(".login__input__submit")[0];
-    var loader = document.querySelectorAll(".login__input__loader")[0];
-
-    loader.style.display = "none";
-    submitButton.style.display = "block";
-};
+var browser = chrome;
 
 var formValidation = function (event) {
     event.preventDefault();
@@ -26,8 +9,14 @@ var formValidation = function (event) {
     var password = document.querySelectorAll(".login__input__password")[0].value;
 
     document.querySelectorAll(".login-error")[0].style.display = 'none';
-    hideSubmit();
-    chrome.runtime.sendMessage({name: "do_login", username: username, password: password});
+    document.querySelectorAll(".login__input__login__label")[0].style.color = '#5C6F84';
+    document.querySelectorAll(".login__input__password__label")[0].style.color = '#5C6F84';
+    document.querySelectorAll(".login__input__login")[0].style.borderColor = "#C8CBD3";
+    document.querySelectorAll(".login__input__login")[0].style.color = "#353C52";
+    document.querySelectorAll(".login__input__password")[0].style.borderColor = "#C8CBD3";
+    document.querySelectorAll(".login__input__password")[0].style.color = "#353C52";
+    document.querySelectorAll(".login__input__submit")[0].style.marginTop = "48px";
+    browser.runtime.sendMessage({name: "do_login", username: username, password: password});
 };
 
 document.querySelectorAll(".login__input__submit")[0]
@@ -40,8 +29,14 @@ document.querySelectorAll(".login__input__password")[0]
 chrome.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "popup_display_submit":
-            displaySubmit();
             document.querySelectorAll(".login-error")[0].style.display = 'block';
+            document.querySelectorAll(".login__input__login__label")[0].style.color = '#e53b5b';
+            document.querySelectorAll(".login__input__password__label")[0].style.color = '#e53b5b';
+            document.querySelectorAll(".login__input__login")[0].style.borderColor = "#e53b5b";
+            document.querySelectorAll(".login__input__login")[0].style.color = "#e53b5b";
+            document.querySelectorAll(".login__input__password")[0].style.borderColor = "#e53b5b";
+            document.querySelectorAll(".login__input__password")[0].style.color = "#e53b5b";
+            document.querySelectorAll(".login__input__submit")[0].style.marginTop = "33px";
             break;
         case "popup_previous":
             location.href="../html/welcome.html";
