@@ -2,7 +2,7 @@ chrome.runtime.sendMessage({name: "popup_loaded"});
 chrome.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "close-popup":
-            closePopup(message.timeout);
+            closePopup(message.timeout ? message.timeout : 10);
             break;
         case "account":
             location.href="../html/account.html";
