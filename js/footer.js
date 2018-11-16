@@ -5,9 +5,7 @@ var tooltip = document.querySelectorAll(".tooltip__informations")[0];
 if (document.querySelectorAll(".footer__informations") && document.querySelectorAll(".footer__informations").length > 0) {
     document.querySelectorAll(".footer__informations")[0]
         .addEventListener("click", function () {
-            console.log(tooltip.style.top);
             tooltip.style.top = /^0(px)?$/.test(tooltip.style.top) ? '-100vh' : '0';
-            console.log(tooltip.style.top, /^0(px)?$/.test(tooltip.style.top) ? 'close' : 'info')
             this.style.backgroundImage = /^0(px)?$/.test(tooltip.style.top) ? 'url(../img/svg/close.svg)' : 'url(../img/svg/info.svg)';
         });
 }
@@ -22,7 +20,7 @@ if (document.querySelectorAll(".content") && document.querySelectorAll(".content
 if (document.querySelectorAll(".tooltip__informations__list__element") && document.querySelectorAll(".tooltip__informations__list__element").length > 0) {
     document.querySelectorAll(".tooltip__informations__list__element")[0]
         .addEventListener("click", function () {
-            browser.runtime.sendMessage({name: "close-popup"});
+            closePopup();
         });
 }
 
@@ -36,6 +34,6 @@ if (document.querySelectorAll(".tooltip__informations__list__element") && docume
 if (document.querySelectorAll(".tooltip__informations__list__element") && document.querySelectorAll(".tooltip__informations__list__element").length > 0) {
     document.querySelectorAll(".tooltip__informations__list__element")[2]
         .addEventListener("click", function () {
-            browser.runtime.sendMessage({name: "close-popup"});
+            closePopup();
         });
 }

@@ -21,7 +21,6 @@ var changeText = function (state) {
 
 var changeOverlayInfos = function (state) {
     document.querySelectorAll('.reload-msg_img')[0].src = '../img/svg/protection-' + (state ? 'en' : 'dis') + 'abled.svg';
-    console.log(state, document.querySelectorAll('.reload-msg_title')[0].textContent);
     document.querySelectorAll('.reload-msg_title')[0].textContent = _('tracking_protection_title_' + (state ? 'en' : 'dis') + 'abled');
 };
 
