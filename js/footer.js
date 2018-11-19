@@ -19,20 +19,13 @@ if (document.querySelectorAll(".content") && document.querySelectorAll(".content
 
 if (document.querySelectorAll(".tooltip__informations__list__element") && document.querySelectorAll(".tooltip__informations__list__element").length > 0) {
     document.querySelectorAll(".tooltip__informations__list__element")[0]
-        .addEventListener("click", function () {
-            closePopup();
-        });
-}
-
-if (document.querySelectorAll(".tooltip__informations__list__element") && document.querySelectorAll(".tooltip__informations__list__element").length > 0) {
-    document.querySelectorAll(".tooltip__informations__list__element")[1]
         .addEventListener('click', function () {
             browser.runtime.sendMessage({name: 'uninstall'});
         });
 }
 
 if (document.querySelectorAll(".tooltip__informations__list__element") && document.querySelectorAll(".tooltip__informations__list__element").length > 0) {
-    document.querySelectorAll(".tooltip__informations__list__element")[2]
+    document.querySelectorAll(".tooltip__informations__list__element")[1]
         .addEventListener("click", function () {
             closePopup();
         });
