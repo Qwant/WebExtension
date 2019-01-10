@@ -15,13 +15,12 @@ body {
 .search__bar {
     height: 40px;
     width: 100%;
-    border-bottom: 2px solid #e1e1e1;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 15px;
 }
 
 .search__bar__input {
     border: none;
-    width: 245px;
+    width: 270px;
     margin-left: 25px;
     font-size: 15px;
     padding: 5px;
