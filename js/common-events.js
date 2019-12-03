@@ -18,7 +18,7 @@ function submitSearchBar() {
     var q = document.querySelectorAll(".search__bar__input")[0].value;
     if (q !== "") {
         browser.tabs.create({
-            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-firefox-ol",
+            url: "https://www.qwant.com/?q=" + encodeURIComponent(q) + "&client=ext-edge-ol",
             active: true
         });
         closePopup();
