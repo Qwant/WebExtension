@@ -9,6 +9,11 @@
         "48": "img/icon48.png",
         "128": "img/icon128.png"
     },
+    "browser_action": {
+        "browser_style": true,
+        "default_icon": "img/icon48.png",
+        "default_title": "__MSG_name__"
+    },
     "background": {
         "page": "html/background.html"
     },
@@ -23,14 +28,7 @@
             "is_default": true
         }
     },
-    "omnibox": {
-        "keyword": "q"
-    },
     "permissions": [
-        "contextMenus",
-        "tabs",
-        "webRequest",
-        "webRequestBlocking",
         "https://*.qwant.com/*"
     ],
     "content_scripts": [

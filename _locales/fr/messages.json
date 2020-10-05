@@ -3,11 +3,9 @@
         "message" : "fr_fr"
     },
     "name" : {
-        "message" : "Qwant",
-        "description" : "Nom de l'extension"
+        "message" : "Qwant"
     },
     "description" :  {
-        "message" : "L'extension Qwant définit qwant.com comme votre moteur de recherche et page d'accueil par défaut.",
-        "description" : "Description de l'extension"
+        "message" : "L'extension Qwant définit qwant.com comme votre moteur de recherche et page d'accueil par défaut."
     }
 }
