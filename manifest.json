@@ -1,8 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_name__",
-    "author": "Qwant",
-    "version": "5.0.1",
+    "version": "6.0.0",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -12,8 +11,7 @@
     },
     "browser_action": {
         "default_icon": "img/icon48.png",
-        "default_title": "__MSG_name__",
-        "default_popup": "html/welcome.html"
+        "default_title": "__MSG_name__"
     },
     "background": {
         "page": "html/background.html",
@@ -23,24 +21,15 @@
         "homepage": "https://www.qwant.com/?client=ext-edge-hp",
         "search_provider": {
             "name": "Qwant",
-            "keyword": "q",
+            "keyword": "www.qwant.com",
             "search_url": "https://www.qwant.com/?q={searchTerms}&client=ext-edge-sb",
             "favicon_url": "https://www.qwant.com/favicon.ico",
             "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=opensearch&lang=__MSG_locale__",
+            "encoding": "UTF-8",
             "is_default": true
         }
     },
-    "omnibox": {
-        "keyword": "q"
-    },
     "permissions": [
-        "contextMenus",
-        "storage",
-        "tabs",
-        "activeTab",
-        "privacy",
-        "webRequest",
-        "webRequestBlocking",
         "https://*.qwant.com/*"
     ],
     "content_scripts": [
@@ -50,10 +39,6 @@
             ],
             "css": [
                 "css/no-popin.css"
-            ],
-            "js": [
-                "js/events.js",
-                "js/contentScript.js"
             ]
         }
     ]
