@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "__MSG_name__",
-    "version": "5.0.1",
+    "version": "6.0.0",
     "default_locale": "en",
     "description": "__MSG_description__",
     "icons": {
@@ -12,8 +12,7 @@
     "browser_action": {
         "browser_style": true,
         "default_icon": "img/icon48.png",
-        "default_title": "__MSG_name__",
-        "default_popup": "html/welcome.html"
+        "default_title": "__MSG_name__"
     },
     "background": {
         "page": "html/background.html"
@@ -30,14 +29,7 @@
             "is_default": true
         }
     },
-    "omnibox": {
-        "keyword": "q"
-    },
     "permissions": [
-        "contextMenus",
-        "storage",
-        "activeTab",
-        "privacy",
         "https://*.qwant.com/*"
     ],
     "content_scripts": [
@@ -47,10 +39,6 @@
             ],
             "css": [
                 "css/no-popin.css"
-            ],
-            "js": [
-                "js/events.js",
-                "js/contentScript.js"
             ]
         }
     ],
