@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "Qwant pour Browser",
+  "description": "L'extension Qwant définit qwant.com comme votre moteur de recherche et page d'accueil par défaut.",
+  "version": "4.0.0",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Qwant Extension"
+  },
+  "icons": {
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "chrome_settings_overrides": {
+    "homepage": "https://www.qwant.com/?client=ext-__XXX_browser_XXX__-hp",
+    "search_provider": {
+      "name": "Qwant",
+      "keyword": "www.qwant.com",
+      "search_url": "https://www.qwant.com/?q={searchTerms}&client=ext-__XXX_browser_XXX__-sb",
+      "favicon_url": "https://www.qwant.com/favicon.ico",
+      "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=opensearch",
+      "encoding": "UTF-8",
+      "is_default": true
+    }
+  },
+  "omnibox": {
+    "keyword": "q"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.qwant.com/*"
+      ],
+      "css": [
+        "css/no-popin.css"
+      ]
+    }
+  ]
+}

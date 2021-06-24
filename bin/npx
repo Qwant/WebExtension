@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+function npx
+{
+    docker run --rm -it --name npx --user $(id -u):$(id -g) --network host -v "$PWD":/usr/src/app -w /usr/src/app node:latest npx "$@"
+}
+
+npx "$@"

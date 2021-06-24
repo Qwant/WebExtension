@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+function yarn
+{
+    docker run --rm -it --name yarn --user $(id -u):$(id -g) --network host --env-file .env -v "$PWD":/usr/src/app -w /usr/src/app node:10 yarn "$@"
+}
+
+yarn "$@"

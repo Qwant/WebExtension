@@ -1,0 +1,313 @@
+.welcome {
+    width: 452px;
+    height: 358px;
+    margin: 0;
+
+    div {
+        position: absolute;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        font-family: Helvetica;
+        letter-spacing: normal;
+        text-align: left;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .header {
+        width: 133px;
+        height: 36px;
+        top: 20px;
+        left: 22px;
+    }
+
+    .header2 {
+        width: 404px;
+        height: 20px;
+        top: 64px;
+        left: 24px;
+        font-size: 16px;
+        color: #0c0c0c;
+    }
+
+    .logo-europe {
+        width: 24px;
+        height: 24px;
+        top: 100px;
+        left: 58px;
+    }
+
+    .search-engine {
+        width: 53px;
+        height: 32px;
+        top: 100px;
+        left: 90px;
+        font-size: 12px;
+        color: #59595f;
+    }
+
+    .logo-spy {
+        width: 24px;
+        height: 24px;
+        top: 98px;
+        left: 168px;
+    }
+
+    .no-tracking {
+        width: 83px;
+        height: 32px;
+        top: 100px;
+        left: 200px;
+        font-size: 12px;
+        color: #59595f;
+    }
+
+    .logo-eye {
+        width: 24px;
+        height: 24px;
+        top: 98px;
+        left: 308px;
+    }
+
+    .privacy {
+        width: 54px;
+        height: 32px;
+        top: 100px;
+        left: 340px;
+        font-size: 12px;
+        color: #59595f;
+    }
+
+    .sep1 {
+        width: 1px;
+        height: 24px;
+        top: 104px;
+        left: 155px;
+        background-color: #e8e8ed;
+    }
+
+    .sep2 {
+        width: 1px;
+        height: 24px;
+        top: 104px;
+        left: 295px;
+        background-color: #e8e8ed;
+    }
+
+    .divider {
+        top: 151px;
+        left: 0px;
+        width: 452px;
+        height: 1px;
+        background-color: #e8e8ed;
+    }
+
+    .title1 {
+        width: 336px;
+        height: 44px;
+        top: 172px;
+        left: 58px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #0c0c0c;
+    }
+
+    .subtitle1 {
+        width: 336px;
+        height: 36px;
+        top: 220px;
+        left: 58px;
+        font-size: 14px;
+        color: #59595f;
+    }
+
+    .title2 {
+        width: 336px;
+        height: 22px;
+        top: 272px;
+        left: 58px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #0c0c0c;
+    }
+
+    .subtitle2 {
+        width: 336px;
+        height: 18px;
+        top: 298px;
+        left: 58px;
+        font-size: 14px;
+        color: #59595f;
+    }
+
+    .firefox {
+        width: 215px;
+        height: 18px;
+        top: 320px;
+        left: 58px;
+        font-size: 14px;
+        color: #1a6aff;
+        cursor: pointer;
+    }
+
+    .badge1 {
+        width: 20px;
+        height: 20px;
+        top: 172px;
+        left: 24px;
+    }
+
+    .badge2 {
+        width: 20px;
+        height: 20px;
+        top: 272px;
+        left: 24px;
+    }
+
+    .external-link {
+        width: 12px;
+        height: 12px;
+        top: 322px;
+        left: 279px;
+        cursor: pointer;
+    }
+
+    .button-menu {
+        width: 32px;
+        height: 32px;
+        top: 24px;
+        left: 410px;
+        cursor: pointer;
+        display: flex;
+
+        img {
+            margin: auto;
+            width: 3px;
+            height: 12px;    
+        }
+    }
+
+    .menu {
+        width: 211px;
+        height: 76px;
+        top: 44px;
+        left: 215px;
+        z-index: 255;
+        box-shadow: 0 2px 16px 0 rgba(12, 12, 14, 0.2), 0 4px 8px 0 rgba(12, 12, 14, 0.12);
+        border-radius: 8px;
+        background-color: white;
+
+        .link-politic {
+            padding-top: 3px;
+            padding-left: 12px;
+            width: 199px;
+            height: 20px;
+            top: 14px;
+            left: 0px;
+            font-size: 14px;
+            color: #0c0c0c;
+            cursor: pointer;
+        }
+
+        .link-politic:hover {
+            background-color: #E5EEFF;
+        }
+
+        .link-contact {
+            padding-top: 3px;
+            padding-left: 12px;
+            width: 199px;
+            height: 20px;
+            top: 44px;
+            left: 0px;
+            font-size: 14px;
+            color: #0c0c0c;
+            cursor: pointer;
+        }
+
+        .link-contact:hover {
+            background-color: #E5EEFF;
+        }
+
+        .external-link-politic {
+            width: 12px;
+            height: 12px;
+            top: 18px;
+            left: 181px;
+            cursor: pointer;
+        }
+
+        .external-link-contact {
+            width: 12px;
+            height: 12px;
+            top: 48px;
+            left: 113px;
+            cursor: pointer;
+        }
+    }
+}
+
+.darktheme {
+    background-color: #29292f;
+
+    .header2 {
+        color: #f5f5f7;
+    }
+
+    .search-engine {
+        color: #d9d9e0;
+    }
+
+    .no-tracking {
+        color: #d9d9e0;
+    }
+
+    .privacy {
+        color: #d9d9e0;
+    }
+
+    .title1 {
+        color: #f5f5f7;
+    }
+
+    .subtitle1 {
+        color: #d9d9e0;
+    }
+
+    .title2 {
+        color: #f5f5f7;
+    }
+
+    .subtitle2 {
+        color: #d9d9e0;
+    }
+
+    .firefox {
+        color: #80acff;
+    }
+
+    .menu {
+        background-color: #46464c;
+
+        .link-politic {
+            color: #f5f5f7;
+        }
+
+        .link-politic:hover {
+            background-color: #1050C5;
+        }
+
+        .link-contact {
+            color: #f5f5f7;
+        }
+
+        .link-contact:hover {
+            background-color: #1050C5;
+        }
+
+    }
+}
