@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+
+build chrome
+build firefox
+build edge
+build opera
