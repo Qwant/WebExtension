@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Qwant pour Browser",
-  "description": "L'extension Qwant définit qwant.com comme votre moteur de recherche et page d'accueil par défaut.",
+  "name": "__MSG_name__",
+  "description": "__MSG_description__",
   "version": "4.0.0",
+  "default_locale": "fr",
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "Qwant Extension"

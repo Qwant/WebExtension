@@ -7,7 +7,7 @@ i18n
 	.use(initReactI18next)
 	.init({
 		backend: {
-			loadPath: "/locales/{{lng}}/{{ns}}.json"
+			loadPath: "/_locales/{{lng}}/{{ns}}.json"
 		},
 		react: {
 			useSuspense: false
