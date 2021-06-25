@@ -10,4 +10,4 @@ b.runtime.onInstalled.addListener( (details) => {
     }
 });
 
-b.runtime.setUninstallURL('https://fr.surveymonkey.com/r/KS9WPBC');
+b.runtime.setUninstallURL('https://www.qwant.com/extension/feedback');
