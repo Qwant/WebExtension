@@ -106,23 +106,25 @@
         background-color: #e8e8ed;
     }
 
-    .title1 {
-        width: 336px;
-        height: 44px;
+    .group1 {
         top: 172px;
         left: 58px;
-        font-size: 18px;
-        font-weight: bold;
-        color: #0c0c0c;
-    }
 
-    .subtitle1 {
-        width: 336px;
-        height: 36px;
-        top: 220px;
-        left: 58px;
-        font-size: 14px;
-        color: #59595f;
+        .title1 {
+            position: relative;
+            width: 336px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0c0c0c;
+        }
+
+        .subtitle1 {
+            position: relative;
+            width: 336px;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #59595f;
+        }
     }
 
     .title2 {
@@ -187,13 +189,13 @@
         img {
             margin: auto;
             width: 3px;
-            height: 12px;    
+            height: 12px;
         }
     }
 
     .menu {
         width: 211px;
-        height: 76px;
+        height: 71px;
         top: 44px;
         left: 215px;
         z-index: 255;
@@ -206,15 +208,20 @@
             padding-left: 12px;
             width: 199px;
             height: 20px;
-            top: 14px;
+            top: 9px;
             left: 0px;
             font-size: 14px;
             color: #0c0c0c;
             cursor: pointer;
+            display: flex;
         }
 
         .link-politic:hover {
-            background-color: #E5EEFF;
+            background-color: #e5eeff;
+        }
+
+        .link-politic div {
+            position: relative;
         }
 
         .link-contact {
@@ -222,31 +229,32 @@
             padding-left: 12px;
             width: 199px;
             height: 20px;
-            top: 44px;
+            top: 39px;
             left: 0px;
             font-size: 14px;
             color: #0c0c0c;
             cursor: pointer;
+            display: flex;
         }
 
         .link-contact:hover {
-            background-color: #E5EEFF;
+            background-color: #e5eeff;
+        }
+
+        .link-contact div {
+            position: relative;
         }
 
         .external-link-politic {
             width: 12px;
             height: 12px;
-            top: 18px;
-            left: 181px;
-            cursor: pointer;
+            margin-left: 5px;
         }
 
         .external-link-contact {
             width: 12px;
             height: 12px;
-            top: 48px;
-            left: 113px;
-            cursor: pointer;
+            margin-left: 5px;
         }
     }
 }
@@ -274,6 +282,18 @@
         color: #f5f5f7;
     }
 
+    .sep1 {
+        color: darkgray;
+    }
+
+    .sep2 {
+        color: darkgray;
+    }
+
+    .divider {
+        color: darkgray;
+    }
+
     .subtitle1 {
         color: #d9d9e0;
     }
@@ -298,7 +318,7 @@
         }
 
         .link-politic:hover {
-            background-color: #1050C5;
+            background-color: #1050c5;
         }
 
         .link-contact {
@@ -306,8 +326,7 @@
         }
 
         .link-contact:hover {
-            background-color: #1050C5;
+            background-color: #1050c5;
         }
-
     }
 }
