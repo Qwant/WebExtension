@@ -39,8 +39,10 @@ class Welcome extends Component {
                 <div className="sep1"></div>
                 <div className="sep2"></div>
                 <div className="divider"></div>
-                <div className="title1">{this.props.t("Qwant_est_votre_moteur_de_recherche_par_defaut.message")}</div>
-                <div className="subtitle1">{this.props.t("lorsque_vous_lancez_une_recherche_depuis_la_barre_d_adresse_de_votre_navigateur.message")}</div>
+                <div className="group1">
+                    <div className="title1">{this.props.t("Qwant_est_votre_moteur_de_recherche_par_defaut.message")}</div>
+                    <div className="subtitle1">{this.props.t("lorsque_vous_lancez_une_recherche_depuis_la_barre_d_adresse_de_votre_navigateur.message")}</div>
+                </div>
                 <div className="title2">{this.props.t("Qwant_s_affiche_en_page_de_demarrage.message")}</div>
                 <div className="subtitle2">{this.props.t("au_lancement_de_votre_navigateur.message")}</div>
                 {
@@ -55,10 +57,14 @@ class Welcome extends Component {
                 {
                     this.state.open && (
                         <div className="menu">
-                            <div className="link-politic" onClick={() => this.props.tabs.open('https://about.qwant.com/fr/legal/confidentialite/')}>{this.props.t("Politique_de_confidentialite.message")}</div>
-                            <div className="link-contact" onClick={() => this.props.tabs.open('https://about.qwant.com/fr/contact/')} >{this.props.t("Contactez_nous.message")}</div>
-                            <div className="external-link-politic"><img src={this.state.darkTheme ? "/img/external-link.png" : "/img/external-link-black.png"} /></div>
-                            <div className="external-link-contact"><img src={this.state.darkTheme ? "/img/external-link.png" : "/img/external-link-black.png"} /></div>
+                            <div className="link-politic">
+                                <div onClick={() => this.props.tabs.open('https://about.qwant.com/fr/legal/confidentialite/')}>{this.props.t("Politique_de_confidentialite.message")}</div>
+                                <div className="external-link-politic"><img src={this.state.darkTheme ? "/img/external-link.png" : "/img/external-link-black.png"} /></div>
+                            </div>
+                            <div className="link-contact">
+                                <div onClick={() => this.props.tabs.open('https://about.qwant.com/fr/contact/')} >{this.props.t("Contactez_nous.message")}</div>
+                                <div className="external-link-contact"><img src={this.state.darkTheme ? "/img/external-link.png" : "/img/external-link-black.png"} /></div>
+                            </div>
                         </div>
                     )
                 }
