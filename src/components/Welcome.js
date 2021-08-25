@@ -21,7 +21,7 @@ class Welcome extends Component {
 
     componentDidMount() {
         this.setState({
-            darkTheme: true // window.matchMedia('(prefers-color-scheme: dark)').matches
+            darkTheme: window.matchMedia('(prefers-color-scheme: dark)').matches
         })
     }
 
