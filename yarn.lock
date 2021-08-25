@@ -1098,6 +1098,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.14.6":
+  version "7.15.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.3.tgz#2e1c2880ca118e5b2f9988322bd8a7656a32502b"
+  integrity sha512-OvwMLqNXkCXSz1kSm58sEsNuhqOx/fKpnUnKnFB5v8uDda5bLNEHNgKPvhDN6IU0LDcnHQ90LlJ0Q6jnyBSIBA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.12.13", "@babel/template@^7.4.0", "@babel/template@^7.8.6":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.12.13.tgz#530265be8a2589dbb37523844c5bcb55947fb327"
@@ -5472,6 +5479,13 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+i18next-browser-languagedetector@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-6.1.2.tgz#68565a28b929cbc98ab6a56826ef2faf0e927ff8"
+  integrity sha512-YDzIGHhMRvr7M+c8B3EQUKyiMBhfqox4o1qkFvt4QXuu5V2cxf74+NCr+VEkUuU0y+RwcupA238eeolW1Yn80g==
+  dependencies:
+    "@babel/runtime" "^7.14.6"
 
 i18next-xhr-backend@^3.2.2:
   version "3.2.2"
