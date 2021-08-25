@@ -6,7 +6,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 i18n
 	.use(XHR)
 	.use(initReactI18next)
-	// .use(LanguageDetector)
+	.use(LanguageDetector)
 	.init({
 		backend: {
 			loadPath: "/_locales/{{lng}}/{{ns}}.json"
@@ -16,7 +16,7 @@ i18n
 		},
 		ns: ['messages'],
 		defaultNS: 'home',
-		fallbackLng: "de",
+		fallbackLng: "fr",
 		debug: false,
 		interpolation: {
 			escapeValue: false
