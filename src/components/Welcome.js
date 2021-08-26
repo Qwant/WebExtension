@@ -45,13 +45,15 @@ class Welcome extends Component {
                 </div>
                 <div className="title2">{this.props.t("Qwant_s_affiche_en_page_de_demarrage.message")}</div>
                 <div className="subtitle2">{this.props.t("au_lancement_de_votre_navigateur.message")}</div>
-                {
-                    !!this.props.firefox.isFirefox() && (<div className="firefox" onClick={() => this.props.tabs.open('https://help.qwant.com/fr/aide/qwant-com/add-qwant-on-desktop/sur-firefox/')}>{this.props.t("Comment_changer_cela_sur_Firefox.message")}</div>)
-                }
                 <div className="badge1"><img src={this.state.darkTheme ? "/img/ok-dt.png" : "/img/ok.png"} /></div>
                 <div className="badge2"><img src={this.state.darkTheme ? "/img/ok-dt.png" : "/img/ok.png"} /></div>
                 {
-                    !!this.props.firefox.isFirefox() && (<div className="external-link" onClick={() => this.props.tabs.open('https://help.qwant.com/fr/aide/qwant-com/add-qwant-on-desktop/sur-firefox/')}><img src={this.state.darkTheme ? "/img/external-link-blue-dt.png" : "/img/external-link-blue.png"} /></div>)
+                    !!this.props.firefox.isFirefox() && (
+                        <div className="group-firefox">
+                            <div className="firefox" onClick={() => this.props.tabs.open('https://help.qwant.com/fr/aide/qwant-com/add-qwant-on-desktop/sur-firefox/')}>{this.props.t("Comment_changer_cela_sur_Firefox.message")}</div>
+                            <div className="external-link" onClick={() => this.props.tabs.open('https://help.qwant.com/fr/aide/qwant-com/add-qwant-on-desktop/sur-firefox/')}><img src={this.state.darkTheme ? "/img/external-link-blue-dt.png" : "/img/external-link-blue.png"} /></div>
+                        </div>
+                    )
                 }
                 <div className="button-menu" onClick={() => this.setState({ open: !this.state.open })}><img src={this.state.darkTheme ? "/img/menu-dt.png" : "/img/menu.png"} /></div>
                 {
