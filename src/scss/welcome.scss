@@ -146,16 +146,6 @@
         color: #59595f;
     }
 
-    .firefox {
-        width: 215px;
-        height: 18px;
-        top: 320px;
-        left: 58px;
-        font-size: 14px;
-        color: #1a6aff;
-        cursor: pointer;
-    }
-
     .badge1 {
         width: 20px;
         height: 20px;
@@ -170,12 +160,28 @@
         left: 24px;
     }
 
+    .group-firefox {
+        width: 230px;
+        height: 18px;
+        top: 320px;
+        left: 58px;
+        cursor: pointer;
+        display: flex;
+    }
+
+    .firefox {
+        position: relative;
+        font-size: 14px;
+        color: #1a6aff;
+    }
+
     .external-link {
+        position: relative;
         width: 12px;
         height: 12px;
-        top: 322px;
-        left: 279px;
         cursor: pointer;
+        margin-top: 2px;
+        margin-left: 5px;
     }
 
     .button-menu {
