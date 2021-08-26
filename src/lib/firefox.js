@@ -3,7 +3,6 @@
 import React from 'react';
 
 const isFirefox = () => {
-    return true
     try  {
         return !!browser
     } catch (e) {
