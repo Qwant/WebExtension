@@ -1,0 +1,44 @@
+{
+    "locale": {
+        "message": "es_es"
+    },
+    "name": {
+        "message": "Qwant"
+    },
+    "description": {
+        "message": "La extensión Qwant establece qwant.com como su motor de búsqueda y página de inicio por defecto."
+    },
+    "Le_moteur_de_recherche_qui_respecte_votre_privee_": {
+        "message": "El motor de búsqueda que respeta su privacidad"
+    },
+    "Moteur_Europeen": {
+        "message": "Motor de búsqueda europeo"
+    },
+    "Pas_de_tracking_publicitaire": {
+        "message": "Sin seguimiento publicitario"
+    },
+    "Vie_privee_respectee": {
+        "message": "Privacidad respetuosa"
+    },
+    "Qwant_est_votre_moteur_de_recherche_par_defaut": {
+        "message": "Qwant es su motor de búsqueda por defecto"
+    },
+    "lorsque_vous_lancez_une_recherche_depuis_la_barre_d_adresse_de_votre_navigateur": {
+        "message": "cuando lanzas una búsqueda desde la barra de direcciones de tu navegador"
+    },
+    "Qwant_s_affiche_en_page_de_demarrage": {
+        "message": "Qwant aparece en la página de inicio"
+    },
+    "au_lancement_de_votre_navigateur": {
+        "message": "cuando inicias tu navegador"
+    },
+    "Comment_changer_cela_sur_Firefox": {
+        "message": "Cómo cambiar esto en Firefox"
+    },
+    "Politique_de_confidentialite": {
+        "message": "Política de privacidad"
+    },
+    "Contactez_nous": {
+        "message": "Contacto"
+    }
+}
