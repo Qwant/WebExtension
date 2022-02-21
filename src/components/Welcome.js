@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withTranslation } from "react-i18next";
 import firefox from '../lib/firefox';
+import tabs from '../lib/tabs';
 
 import '../scss/background.scss'
 import '../scss/welcome.scss'
@@ -71,5 +72,5 @@ class Welcome extends Component {
     }
 }
 
-export default withTranslation("messages")(firefox((Welcome)))
+export default withTranslation("messages")(firefox(tabs(Welcome)))
 
