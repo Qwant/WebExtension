@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { withTranslation } from "react-i18next";
-import api from "../lib/api"
-import tabs from "../lib/tabs"
-import storage from "../lib/storage"
-import notif from "../lib/notification"
 import firefox from '../lib/firefox';
 
 import '../scss/background.scss'
@@ -75,5 +71,5 @@ class Welcome extends Component {
     }
 }
 
-export default withTranslation("messages")(firefox(notif(storage(tabs(api(Welcome))))))
+export default withTranslation("messages")(firefox((Welcome)))
 
