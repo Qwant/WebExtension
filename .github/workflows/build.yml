@@ -18,3 +18,11 @@ jobs:
           node-version: 16.14
       - run: yarn install --frozen-lockfile
       - run: bash scripts/build-all-browsers.sh
+      - name: Store builds
+        uses: actions/upload-artifact@v3
+        with:
+          path: |
+            build-chrome
+            build-edge
+            build-firefox
+            build-opera

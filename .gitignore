@@ -1,4 +1,7 @@
+.vscode
+
 node_modules
 build
 build-*/
-.vscode
+
+public/manifest.json
