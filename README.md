@@ -1,5 +1,7 @@
+# Qwant/WebExtension
 
-# Build Firefox Extension Without Docker
+## Development
+### Build Firefox Extension Without Docker
 
 Install dependencies
 
@@ -19,7 +21,7 @@ Build code
 yarn build
 ```
 
-# Build Chrome Extension Without Docker
+### Build Chrome Extension Without Docker
 
 Install dependencies
 
