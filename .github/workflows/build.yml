@@ -16,11 +16,13 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.14
+      - uses: c-hive/gha-yarn-cache@v2
       - run: yarn install --frozen-lockfile
       - run: bash scripts/build-all-browsers.sh
       - name: Store builds
         uses: actions/upload-artifact@v3
         with:
+          name: build
           path: |
             build-chrome
             build-edge
