@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_name__",
+  "description": "__MSG_description__",
+  "version": "6.1.1",
+  "default_locale": "fr",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Qwant Extension"
+  },
+  "icons": {
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "permissions": [
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "chrome_settings_overrides": {
+    "homepage": "https://www.qwant.com/?client=ext-chrome-hp",
+    "search_provider": {
+      "name": "Qwant",
+      "keyword": "www.qwant.com",
+      "search_url": "https://www.qwant.com/?q={searchTerms}&client=ext-chrome-sb",
+      "favicon_url": "https://www.qwant.com/favicon.ico",
+      "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=opensearch",
+      "encoding": "UTF-8",
+      "is_default": true
+    }
+  },
+  "omnibox": {
+    "keyword": "q"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.qwant.com/*"
+      ],
+      "css": [
+        "css/no-popin.css"
+      ]
+    }
+  ]
+}
