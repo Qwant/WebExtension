@@ -18,7 +18,10 @@ jobs:
           node-version: 16.14
       - uses: c-hive/gha-yarn-cache@v2
       - run: yarn install --frozen-lockfile
-      - run: bash bin/build-all-browsers
+      - run: bash bin/build chrome
+      - run: bash bin/build firefox
+      - run: bash bin/build edge
+      - run: bash bin/build opera
       - name: Store builds
         uses: actions/upload-artifact@v3
         with:
