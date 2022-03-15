@@ -1,0 +1,30 @@
+name: Build for all browsers
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.14
+      - uses: c-hive/gha-yarn-cache@v2
+      - run: yarn install --frozen-lockfile
+      - run: bash bin/build-all-browsers
+      - name: Store builds
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: |
+            build-chrome
+            build-edge
+            build-firefox
+            build-opera
