@@ -25,13 +25,13 @@ class Welcome extends Component {
     render() {
         return (
             <div className={this.state.darkTheme ? "welcome darktheme" : "welcome"}>
-                <div className="header"><img src={this.state.darkTheme ? "/img/logo-dt.png" : "/img/logo.png"} /></div>
+                <div className="header"><img alt="" src={this.state.darkTheme ? "/img/logo-dt.png" : "/img/logo.png"} /></div>
                 <div className="header2">{this.props.t("Le_moteur_de_recherche_qui_respecte_votre_privee_.message")}</div>
-                <div className="logo-europe"><img src="/img/logo1.png" /></div>
+                <div className="logo-europe"><img alt="" src="/img/logo1.png" /></div>
                 <div className="search-engine">{this.props.t("Moteur_Europeen.message")}</div>
-                <div className="logo-spy"><img src="/img/logo2.png" /></div>
+                <div className="logo-spy"><img alt="" src="/img/logo2.png" /></div>
                 <div className="no-tracking">{this.props.t("Pas_de_tracking_publicitaire.message")}</div>
-                <div className="logo-eye"><img src="/img/logo3.png" /></div>
+                <div className="logo-eye"><img alt="" src="/img/logo3.png" /></div>
                 <div className="privacy">{this.props.t("Vie_privee_respectee.message")}</div>
                 <div className="sep1"></div>
                 <div className="sep2"></div>
@@ -42,27 +42,27 @@ class Welcome extends Component {
                 </div>
                 <div className="title2">{this.props.t("Qwant_s_affiche_en_page_de_demarrage.message")}</div>
                 <div className="subtitle2">{this.props.t("au_lancement_de_votre_navigateur.message")}</div>
-                <div className="badge1"><img src={this.state.darkTheme ? "/img/ok-dt.png" : "/img/ok.png"} /></div>
-                <div className="badge2"><img src={this.state.darkTheme ? "/img/ok-dt.png" : "/img/ok.png"} /></div>
+                <div className="badge1"><img alt="" src={this.state.darkTheme ? "/img/ok-dt.png" : "/img/ok.png"} /></div>
+                <div className="badge2"><img alt="" src={this.state.darkTheme ? "/img/ok-dt.png" : "/img/ok.png"} /></div>
                 {
                     !!this.props.firefox.isFirefox() && (
                         <div className="group-firefox">
                             <div className="firefox" onClick={() => this.props.tabs.open('https://help.qwant.com/fr/aide/qwant-com/add-qwant-on-desktop/sur-firefox/')}>{this.props.t("Comment_changer_cela_sur_Firefox.message")}</div>
-                            <div className="external-link" onClick={() => this.props.tabs.open('https://help.qwant.com/fr/aide/qwant-com/add-qwant-on-desktop/sur-firefox/')}><img src={this.state.darkTheme ? "/img/external-link-blue-dt.png" : "/img/external-link-blue.png"} /></div>
+                            <div className="external-link" onClick={() => this.props.tabs.open('https://help.qwant.com/fr/aide/qwant-com/add-qwant-on-desktop/sur-firefox/')}><img alt="" src={this.state.darkTheme ? "/img/external-link-blue-dt.png" : "/img/external-link-blue.png"} /></div>
                         </div>
                     )
                 }
-                <div className="button-menu" onClick={() => this.setState({ open: !this.state.open })}><img src={this.state.darkTheme ? "/img/menu-dt.png" : "/img/menu.png"} /></div>
+                <div className="button-menu" onClick={() => this.setState({ open: !this.state.open })}><img alt="" src={this.state.darkTheme ? "/img/menu-dt.png" : "/img/menu.png"} /></div>
                 {
                     this.state.open && (
                         <div className="menu">
                             <div className="link-politic">
                                 <div onClick={() => this.props.tabs.open('https://about.qwant.com/fr/legal/confidentialite/')}>{this.props.t("Politique_de_confidentialite.message")}</div>
-                                <div className="external-link-politic"><img src={this.state.darkTheme ? "/img/external-link.png" : "/img/external-link-black.png"} /></div>
+                                <div className="external-link-politic"><img alt="" src={this.state.darkTheme ? "/img/external-link.png" : "/img/external-link-black.png"} /></div>
                             </div>
                             <div className="link-contact">
                                 <div onClick={() => this.props.tabs.open('https://about.qwant.com/fr/contact/')} >{this.props.t("Contactez_nous.message")}</div>
-                                <div className="external-link-contact"><img src={this.state.darkTheme ? "/img/external-link.png" : "/img/external-link-black.png"} /></div>
+                                <div className="external-link-contact"><img alt="" src={this.state.darkTheme ? "/img/external-link.png" : "/img/external-link-black.png"} /></div>
                             </div>
                         </div>
                     )
