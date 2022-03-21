@@ -1,4 +1,3 @@
-/*global chrome*/
 /*global browser*/
 import React from 'react';
 

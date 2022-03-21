@@ -1,0 +1,10 @@
+# Editors
+.vscode
+
+# Dependencies
+node_modules
+
+# Build files
+build
+build-*/
+public/manifest.json
